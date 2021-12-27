@@ -1,0 +1,165 @@
+<html>
+<head>
+<title>tMIC</title>
+</head>
+<body>
+<script>
+
+var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
+          window.setTimeout(callback, 1000 / 60 );
+
+var canvas = document.createElement("canvas");
+var width = 1100;
+var height = 900;
+var write = 0;
+var test = 0;
+var n=0;
+var count = 0;
+var exit  = false;
+var keysDown = {};
+
+//write ---> Spews out "I" creating a "screen" 
+
+
+
+ write = function() {
+
+
+ for (var key in keysDown) {
+        var value = Number(key);
+        if (value == 37) {document.open();
+           document.write("IIIIIIIIIIIIIIIIIIIIII<br>IIIIIIIIIIIIIIIIIIIIII<br>IIIIIIIIIIIQIIIIIIIII<br>");
+
+        } else if (value == 39) {document.open();
+           document.write("IIIIIIIIIIIIIIIIIIIIII<br>IIIIIIIIIIIIIIIIIIIIII<br>IIIIIIIIIIIIQIIIIIIII<br>");
+
+        } else if (value==38) {document.open();
+           document.write("IIIIIIIIIIIIIIIIIIIIII<br>IIIIIIIIIIIIIIIIIIIIII<br>IIIIIIIIIIIIIQIIIIIII<br>");
+
+        } else if (value==40) {document.open();
+           document.write("IIIIIIIIIIIIIIIIIIIIII<br>IIIIIIIIIIIIIIIIIIIIII<br>IIIIIIIIIIIIIIQIIIIII<br>");
+
+} else { var dummy = 0;
+ 
+        }
+    }
+
+};
+
+
+//-----------------------------------------------
+// Infinte Loop/ Reload Sequence
+//-----------------------------------------------
+
+
+var step = function() {
+  
+ write();
+ test();
+
+if (exit == false){
+for(count = 0; count < 700; count++){n=Math.sin(Math.sin(Math.sin(count))); console.log(n);};
+ window.location.reload();
+ animate(step);}
+ };
+
+
+//-------------------------------------------------
+//  The For Loop Just Slows Program Down So It's Easier To See Bullets
+//-------------------------------------------------
+
+
+
+var bullet = Math.floor((Math.random() * 100) + 1);
+
+var bulletshot = bullet;
+
+
+
+
+  //test ----> Tests if a bullet is hitting a player
+
+
+
+test = function() {
+
+for (var key in keysDown) {
+        var value = Number(key);
+        if (value == 37 && bulletshot == 2) { document.write("You died.");
+         exit = true;  
+
+        } else if (value == 39 && bulletshot == 3) { document.write("You died.");
+exit = true;
+
+        } else if (value==38 && bulletshot == 4) { document.write("You died.");
+exit = true;
+        } else if (value==40 && bulletshot == 5) { document.write("You died.");
+exit = true;
+} else {  dummy = 0;
+
+ 
+        }
+    }
+
+};
+
+
+
+//Bullet Animation
+
+
+
+ if (bulletshot == 2) {
+    screen = document.write("IIIIIIIIIII\*IIIIIIIIII<br>IIIIIIIIIII\*IIIIIIIIII<br>IIIIIIIIIII\*IIIIIIIIII<br>IIIIIIIIIII\*IIIIIIIIII<br>");
+
+} else if (bulletshot == 3) {
+   screen = document.write("IIIIIIIIIIII\*IIIIIIIII<br>IIIIIIIIIIII\*IIIIIIIII<br>IIIIIIIIIIII\*IIIIIIIII<br>IIIIIIIIIIII\*IIIIIIIII<br>");
+
+} else if (bulletshot == 4) {
+
+   screen = document.write("IIIIIIIIIIIII\*IIIIIIII<br>IIIIIIIIIIIII\*IIIIIIII<br>IIIIIIIIIIIII\*IIIIIIII<br>IIIIIIIIIIIII\*IIIIIIII<br>");
+
+} else if (bulletshot == 5) {
+   
+   screen = document.write("IIIIIIIIIIIIII\*IIIIIII<br>IIIIIIIIIIIIII\*IIIIIII<br>IIIIIIIIIIIIII\*IIIIIII<br>IIIIIIIIIIIIII\*IIIIIII<br>");
+
+}else { 
+   
+   screen = document.write("IIIIIIIIIIIIIIIIIIIIII<br>IIIIIIIIIIIIIIIIIIIIII<br>IIIIIIIIIIQIIIIIIIIII<br>IIIIIIIIIIIIIIIIIIIIII<br>");
+
+   };
+
+
+
+
+
+
+
+var screen = 0;
+
+document.write(screen);
+
+
+
+
+document.body.appendChild(canvas);
+animate(step);
+
+
+
+
+window.addEventListener("keydown", function (event) {
+keysDown[event.keyCode] = true;
+});
+
+
+window.addEventListener("keyup", function (event) {
+    delete keysDown[event.keyCode];
+});
+
+</script>
+
+
+</body>
+</html>
+       

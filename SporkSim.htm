@@ -1,0 +1,304 @@
+<html>
+<head>
+<title>SPORKSIM</title>
+</head>
+<body>
+<script src="level.js"></script>
+<script type="text/javascript" src="beepbox_synth.js"></script>
+<script>
+var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
+        window.setTimeout(callback, 1000/60)
+    };
+var canvas = document.createElement("canvas");
+var width =1000;
+var height =600;
+canvas.width = width;
+canvas.height = height;
+var context = canvas.getContext('2d');
+var num;
+console.log(greeting);        //Looks In level.js File
+var player = new Player();
+var keysDown = {};
+var atk = false;
+var atkTimer = 100;    //Limits how long you can atk
+var faceLeft;
+var jumpCount = 0;
+var pHealth = 3;
+var bX = 0;            //bX, bY -> blocks for map
+var bY = 0;
+var vDX = 0;           //vDX == view distance of player (starts at zero)
+var vDY = 0;
+var gImg = new Image();
+  gImg.src = "grass.gif";
+
+var synth = new beepbox.Synth("5sbkbl00e0ft5m0a7g0fj7i0r1w1111f0000d1111c0000h0000v0000o3210b4i4xcQ4i4Ogh8i4Pgh8j914x8i8N4x8z4h4h8z4h4xcp23Wxj39gm0F11wF1k2Al0awg8bMkwG1i26E50a0k0F5g2E58agkB8QNR0S4o0dgqycNINSaidcQic8kNMWGoeCGAd5ddldlcGC7wa0k0E182E1o2A58agiua1I8M0qwR1CdCeg_kc6yqXGIokPRxQ3E7gfsewt0W1WhQ3j7ywd550MgFytueCAtd8WkM9OsDAU79VY1BTo1BiqC620FxwhIRsnClpJPc3X1y5FxQiAyQNV8hgAphqoYUcE6c0");
+synth.play();
+
+var render = function () {
+    context.fillStyle = "#00F0FF"; //  <-----Backround(Sunset Color)
+    context.fillRect(0, 0, width, height); // ^---Backround Dimensions
+    //context.fillStyle = "#aaaa99";          //Ground          
+    //context.fillRect(0,500,width,height/2);   //^----Dimensions
+    
+    
+   
+    context.fillStyle = "#FFFF00";     //Sun
+    context.fillRect(1250,50,150,150);  //^----Dimensions
+    context.fillStyle = "#FFF900";
+    context.strokeRect(1250, 50, 150, 150);
+   
+    if(pHealth == 3) {                                             //Health Markers
+          context.fillStyle = "#FF0000";
+          context.fillRect(820, 20, 30,30);
+          context.fillRect(890, 20, 30,30);
+          context.fillRect(960, 20, 30,30);
+   }else if(pHealth == 2) {
+          context.fillStyle = "#FF0000";
+          context.fillRect(820, 20, 30,30);
+          context.fillRect(890, 20, 30,30);
+   }else if(pHealth == 1) {
+          context.fillStyle = "#FF0000";
+          context.fillRect(820, 20, 30,30);
+   }
+   context.fillStyle = "#0000FF"                    //Atk Bar
+   context.fillRect(820, 80, atkTimer+25, 30);
+
+    player.render();
+    context.drawImage(gImg, 0+vDX, 500+vDY, 100, 100);
+    context.drawImage(gImg, 100+vDX, 500+vDY, 100, 100);     //Grass
+    context.drawImage(gImg, 200+vDX, 500+vDY, 100, 100);
+    context.drawImage(gImg, 375+vDX, 300+vDY, 75, 100);
+    
+/*for(var particle = 0; particle <100; particle++){                             
+       var randH = Math.floor((Math.random() * 500) + 1);           
+       var randW = Math.floor((Math.random() * 2000) + 1);
+    context.fillStyle = "#bbbbaa";
+    context.fillRect(randW, randH, 10, 10);
+context.fillStyle = "#00FF00"; //Cactus (In the works)
+
+      }*/
+   };   
+
+var update = function () {
+    jumpCount = jumpCount+1;
+if(atkTimer < 100 && atk == false) {     
+     atkTimer = atkTimer + 1;
+} 
+if(atkTimer < -1) {
+     atkTimer = -1;    //Keeps Atk Timer from going into negative numbers
+}
+    player.update();
+    //console.log(atk);          (For Testing atk)
+    
+   
+    };
+
+
+
+//==============
+//Loop
+//==============
+
+var step = function () {
+    update();
+    render();
+    atk = false;
+    animate(step);
+};
+
+//==============
+//==============
+
+
+
+function Paddle(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.x_speed = 0;
+    this.y_speed = 0;
+}
+
+//<-----Draws The Player----->
+Paddle.prototype.render = function () {
+//context.fillStyle = "#00FFdd";
+    //context.strokeRect(this.x, this.y, this.width, this.height);   
+  
+//if ((this.x % 3 == 0) || (this.y % 3 == 0) ) {        <-------This Stuff Tests For The Remainder of the Players x/y (Can Be Used For walking Animations)
+        context.fillStyle = "#FFFFFF";
+
+
+     if (atk == false && faceLeft == false){ 
+//Points On Top o' Head
+        context.fillRect(this.x + 52, this.y + 14, 10, 15);
+        context.fillRect(this.x + 67, this.y + 14, 10, 15);
+        context.fillRect(this.x + 82, this.y + 14, 10, 15);
+        
+//Body
+        context.fillRect(this.x + 52, this.y + 22, 40, 40);
+        context.fillRect(this.x + 60, this.y + 62, 20, 30);
+    }else if(atk == false && faceLeft == true){
+//Points On Top o' Head
+        context.fillRect(this.x + 48, this.y + 14, 10, 15);
+        context.fillRect(this.x + 63, this.y + 14, 10, 15);
+        context.fillRect(this.x + 78, this.y + 14, 10, 15);
+        
+//Body
+        context.fillRect(this.x + 48, this.y + 22, 40, 40);
+        context.fillRect(this.x + 60, this.y + 62, 20, 30);
+    }else if (atk == true && faceLeft == false){
+//Points On Side o' Head
+        context.fillRect(this.x +100, this.y +22, 12, 10);
+        context.fillRect(this.x +100, this.y +37, 12, 10);
+        context.fillRect(this.x +100, this.y +52, 12, 10);
+//Body
+        context.fillRect(this.x + 60, this.y + 22, 40, 40);
+        context.fillRect(this.x + 60, this.y + 62, 20, 30);
+}else if (atk == true && faceLeft == true) {
+//Points On Side o' Head
+        context.fillRect(this.x +40 , this.y +22, -12, 10);
+        context.fillRect(this.x +40, this.y +37, -12, 10);
+        context.fillRect(this.x +40, this.y +52, -12, 10);
+//Body
+        context.fillRect(this.x + 40, this.y + 22, 40, 40);
+        context.fillRect(this.x + 60, this.y + 62, 20, 30);
+}else{        
+//Points On Top o' Head
+        context.fillRect(this.x + 50, this.y + 14, 10, 15);
+        context.fillRect(this.x + 65, this.y + 14, 10, 15);
+        context.fillRect(this.x + 80, this.y + 14, 10, 15);
+        
+//Body
+        context.fillRect(this.x + 50, this.y + 22, 40, 40);
+        context.fillRect(this.x + 60, this.y + 62, 20, 30);
+}; 
+        
+ 
+  //}
+       
+};
+
+//===========================================================
+//Player Updates/Movement
+//===========================================================
+
+Paddle.prototype.move = function (x, y) {
+    this.x += x;
+    this.y += y;
+    this.x_speed = x;
+    this.y_speed = y;
+    if (this.x < 0) {
+        this.x = 0;
+         //this.x_speed = 0;
+    }
+   if (this.y >420+ vDY && this.x < 250+vDX) {                   
+        this.y = 420+vDY;
+        jumpCount = 0;                    
+        //this.y_speed = 0;
+  }
+if (this.y > 200+vDY && this.y < 300+vDY && this.x > 300+vDX && this.x < 400+vDX ) {
+        this.y = 200+vDY;
+        jumpCount = 0;
+ }
+
+if (this.y > 600) {                         //Checks if player fell off map
+     this.y = 0;
+     pHealth = pHealth-1;
+}
+
+if (this.y < 0 ) {               //Scrolls blocks down
+      vDY = vDY + 5;
+      this.y=0;              //Creates A Ceiling
+ }
+
+if (this.y > 500 ) {               //Scrolls blocks up
+      vDY = vDY - 5;
+      this.y=height;      
+ }
+
+if (this.x > width-300) {                //If player to the right of screen, vD changes to slide more blocks into view.
+    this.x = width-300;
+    vDX = vDX - 10;
+}
+if (this.x < 5) {                  //If player to the left of screen, vD changes to slide more blocks into view.
+    this.x = 5;
+    vDX = vDX +10;
+} 
+
+//if (this.y > 500) {
+ //   this.y = 500;
+//}
+
+};
+
+
+   
+function Player() {
+    //this.paddle = new Paddle(160, 400, 100, 50);
+this.paddle = new Paddle(10, 420, 0, 0);
+};
+
+Player.prototype.render = function () {
+    this.paddle.render();
+};
+
+Player.prototype.update = function () {
+    for (var key in keysDown) {
+        var value = Number(key);
+        if (value == 37) {
+            this.paddle.move(-6,0);          //Left
+            faceLeft = true;
+        } else if (value == 39) {
+            this.paddle.move(6,0);          //Right
+            faceLeft = false;
+        }else if (value == 38) {
+             
+              if (jumpCount < 30) {
+                  this.paddle.move(0,-20);      //Jump
+              }
+//else if (jumpCount > 80) {
+                 // jumpCount = 0;
+              //  }
+                  
+        }else if(value == 32) { 
+             if(atkTimer > -1) {
+             atk = true;                                                                     //atk
+                   if (faceLeft == false){this.paddle.move(20,0);                     
+                 }else if (faceLeft == true){this.paddle.move(-20,0);}       
+             }
+             atkTimer = atkTimer - 25;                                             //Leave this line out of the atk if statement directly above, so that if you are holding down atk button while atkTimer < 0, then your atk will not recharge
+            
+               
+        } else {
+           
+          //  this.paddle.move(0, 0);      
+        }
+    }
+     this.paddle.move(0, 10);  //<-----GRAVITY!!!!  /  JUMP!!!!
+     
+   
+     
+};
+
+
+//===========================================================
+//===========================================================
+
+ 
+
+document.body.appendChild(canvas);
+animate(step);
+
+window.addEventListener("keydown", function (event) {
+keysDown[event.keyCode] = true;
+});
+
+window.addEventListener("keyup", function (event) {
+    delete keysDown[event.keyCode];
+});
+</script>
+Hey everyone!!  &#960;
+ &#9730;
+</body>
+</html>
