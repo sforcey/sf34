@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Hopf Zoo 7</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY TEXT="#000060" LINK="#00ffff" VLINK="#800080" BGCOLOR="#fffff3">
+
+<B><FONT FACE="Technical" SIZE=3><P>
+Part 7: A new Hopf algebra structure on compositions (quasi-symmetric functions), distinct from the QSym algebra. 
+<hr>
+<a href="#fact">The product.</a>
+<pre>
+</pre>
+<a href="#fact2">The coproduct.</a>
+<pre>
+</pre>
+
+<a href="http://faculty.tnstate.edu/sforcey/maps6.html"> Back to Part 6. </a>
+<pre>
+</pre>
+
+<a href="http://faculty.tnstate.edu/sforcey/class_home/research.htm"> Back to research page. </a>
+<HR>
+<B><FONT FACE="Technical" SIZE=3>
+
+<a name="fact" id="fact"></a>
+The multiplication we define here is analogous to the product in PSym.<br> 
+In fact, drawing the compositions as "corollas of corollas" with the lower corolla's edges colored,
+ we at first multipy exactly as in PSym.<br>
+ The rule is that
+the right operand, which is not split, is painted entirely-- or in effect converted to a painted corolla.<br><br>
+After grafting, the passage to compositions is completed by converting all the painted edges <br>
+ into a single corolla.
+</B></FONT><P><IMG SRC="qsym_painted_1.gif" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<P>&nbsp;</P>
+Here is another multiplication, demonstrating that our product is noncommutative.
+</B></FONT><P><IMG SRC="qsym_painted_2.gif" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<P>&nbsp;</P>
+Here is the same (second above) product, performed on pictures of Boolean subsets. Note that the multiplication order
+is different. That is because this product is actually being performed in the dual of the algebra of faces of the simplices,
+as defined in Section 7 of our <a href="http://faculty.tnstate.edu/sforcey/cyclo_alg.pdf"> preprint </a>.
+</B></FONT><P><IMG SRC="qsym_painted_3.gif" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<P>&nbsp;</P>
+<a name="fact2" id="fact2"></a>
+And now the coproduct, performed just as in PSym. The interesting question here, after describing the antipode,
+ is to find the map predicted by the fact that QSym is terminal in the category of coalgebras.
+</B></FONT><P><IMG SRC="qsym_painted_4.gif" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<P>&nbsp;</P>
+
+<a href="http://faculty.tnstate.edu/sforcey/maps6.html"> Back to Part 6. </a>
+<pre>
+</pre>
+<a href="http://faculty.tnstate.edu/sforcey/class_home/research.htm"> Back to research page. </a>
+<B><P>Revision Date: </P>
+</B><P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>

@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>multigraph associahedra</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY TEXT="#000060" LINK="#00ffff" VLINK="#800080" BGCOLOR="#fffff3">
+
+<B><FONT FACE="Technical" SIZE=3><P>
+Multigraph associahedra<hr>
+<a href="#fact">Multigraph multiplihedra.</a>
+<pre>
+</pre>
+<a href="#poly">Equivalence theorem.</a>
+<pre>
+</pre>
+<a href="#loop">Loops.</a>
+<pre>
+</pre>
+<a href="#loop2">Example.</a>
+<pre>
+</pre>
+<a href="http://faculty.tnstate.edu/sforcey/class_home/research.htm"> Back to research page. </a>
+<HR>
+<B><FONT FACE="Technical" SIZE=4><P> The key sources include: M. Carr and S. Devadoss's <a href="http://www.williams.edu/go/math/devadoss/research.html">
+ papers   </a> on graph associahedra, and S. Devadoss and  S.Forcey's <a href="http://arxiv.org/abs/0807.4159">
+ paper   </a> on multiplihedra.  </P> 
+
+
+</B></FONT><P><IMG SRC="mm/mm1.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mm/mm2.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mm/mm3.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4>
+
+</B></FONT><P><IMG SRC="mm/mm4.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mm/mm5.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mm/map33.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mgraph_assoc.JPG" ALIGN="MIDDLE"   ></P>
+<a href="http://faculty.tnstate.edu/sforcey/mga.pdf">(better picture here) </a>
+
+<a name="fact" id="fact"></a>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mm/mm6.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mm/mm7.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mm/mm8.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<a name="poly" id="poly"></a>
+</B></FONT><P><IMG SRC="mm/mm9.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mm/mm10.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<a name="loop" id="loop"></a>
+</B></FONT><P><IMG SRC="mm/mml1.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mm/mml2.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mm/mml3.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<a name="loop2" id="loop2"></a>
+</B></FONT><P><IMG SRC="mm/mml4.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="mm/mmt1.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<pre>
+</pre>
+<a href="http://faculty.tnstate.edu/sforcey/class_home/research.htm"> Back to research page. </a>
+<B><P>Revision Date: </P>
+</B><P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>

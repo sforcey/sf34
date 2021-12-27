@@ -1,0 +1,912 @@
+%&biglatex
+% Latex 2e document, tac article style, 47 pp, Xy-pic ver 3.7, MiKTeX version 2.1
+\documentclass{tac}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage[all]{xy}
+\xyoption{v2}
+\xyoption{knot}
+
+
+\author {S. Forcey and J. Siehler}
+
+\thanks{Thanks to {\Xy-pic} for the diagrams. }
+
+\address{Department of Mathematics\\
+     Virginia Tech\\
+     460 McBryde Hall\\
+     Blacksburg, VA 24060 \\
+     USA\\
+}
+
+
+\title {Combinatoric n-fold categories and n-fold operads}
+
+
+\copyrightyear{2003}
+
+\keywords{operads, iterated monoidal categories}
+\amsclass{18D10; 18D20}
+
+\eaddress{sforcey@math.vt.edu}
+
+
+%NOTE:  author macros  BEGIN here
+%       (they are all actually used in the article!!)
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+\newcommand{\MySection}[1]
+{\section{ #1}}
+
+\newcommand{\bcal}[1]{\mbox{\boldmath${\cal {#1}}$}}
+\mathrmdef{Hom}
+\mathrmdef{sort}
+
+% author macros END here
+
+\begin{document}
+\SloppyCurves{
+
+\maketitle
+\begin{abstract}
+ Operads were originally defined as ${\cal V}$-operads, that is, enriched in a symmetric monoidal category ${\cal V}.$
+ The symmetry in ${\cal V}$ is required in order
+ to describe the associativity axiom the operads must obey, as well as the associativity that
+ must hold in the action of an operad on one of its algebras. A sequence of categorical types that 
+ filter the category of monoidal categories and monoidal functors is given by Balteanu, Fiedorowicz, Schwanzl and Vogt in 
+ \cite{Balt}. The subcategories of {\bf MonCat} are called $n$-fold monoidal categories. A $k$--fold monoidal category
+ is $n$-fold monoidal for all  $n\le k$, and a symmetric monoidal category is $n$-fold monoidal for all $n$.
+ We begin with definitions and simple examples of iterated monoidal categories.  
+ Then we generalize the definition of operad by defining n-fold operads and their algebras in an iterated monoidal category.
+ We discuss examples of these that live in the previously described categories. Finally we describe 
+ the $n-2$-fold monoidal category of $n$-fold ${\cal V}$-operads. 
+ 
+ 
+ 
+ A possible aside: n-fold operads as certain monoids.
+ We may also want to compare n-fold operads with globular operads as
+ defined by Michael Batanin in "Monoidal Globular Categories As a Natural Environment
+ for the Theory of Weak n-Categories." (Advances in Math 136, 39-103, 1998).
+ An MGC is very close to being n-fold monoidal. Interchanges are isos. 
+ Globular ("higher order") operads live in these, and take all sorts of pasting diagrams
+ as input types, as opposed to just a string as in the case of normal operads (which can be
+seen as parameterizing a collection of n-ary operations for natural numbers n).
+ 
+ \end{abstract}
+
+  %{intro2}
+      \clearpage
+                  \tableofcontents 
+      \clearpage
+      %\clearpage
+                %\newpage
+            \MySection{Introduction}
+
+    \clearpage
+          \newpage
+        \MySection{$k$-fold monoidal categories}
+      This sort of category was
+    developed and defined in \cite{Balt}. The authors describe its structure as arising from its description
+    as a monoid in the
+        category of $(k-1)$-fold monoidal categories. Here is that definition altered only slightly 
+    to make visible the coherent associators as in \cite{forcey1}. In that paper I describe its structure as 
+    arising from its description
+    as a tensor object in the
+        category of $(k-1)$-fold monoidal categories.
+        
+\begin{definition}\label{iterated} An $n${\it -fold monoidal category} is a category ${\cal V}$
+          with the following structure. 
+          \begin{enumerate}
+          \item There are $n$ distinct multiplications
+          $$\otimes_1,\otimes_2,\dots, \otimes_n:{\cal V}\times{\cal V}\to{\cal V}$$
+          for each of which the associativity pentagon commutes
+          
+          \noindent
+  		          \begin{center}
+  	          \resizebox{4.5in}{!}{
+          $$
+          \xymatrix@R=45pt@C=-35pt{
+          &((U\otimes_i V)\otimes_i W)\otimes_i X \text{ }\text{ }
+          \ar[rr]^{ \alpha^{i}_{UVW}\otimes_i 1_{X}}
+          \ar[dl]^{ \alpha^{i}_{(U\otimes_i V)WX}}
+          &\text{ }\text{ }\text{ }\text{ }\text{ }&\text{ }\text{ }(U\otimes_i (V\otimes_i W))\otimes_i X
+          \ar[dr]^{ \alpha^{i}_{U(V\otimes_i W)X}}&\\
+          (U\otimes_i V)\otimes_i (W\otimes_i X)
+          \ar[drr]^{ \alpha^{i}_{UV(W\otimes_i X)}}
+          &&&&U\otimes_i ((V\otimes_i W)\otimes_i X)
+          \ar[dll]^{ 1_{U}\otimes_i \alpha^{i}_{VWX}}
+          \\&&U\otimes_i (V\otimes_i (W\otimes_i X))&&&
+          }
+          $$
+          }
+  		                    \end{center}
+  	                    
+          
+          ${\cal V}$ has an object $I$ which is a strict unit
+          for all the multiplications.
+          \item For each pair $(i,j)$ such that $1\le i<j\le n$ there is a natural
+          transformation
+          $$\eta^{ij}_{ABCD}: (A\otimes_j B)\otimes_i(C\otimes_j D)\to
+          (A\otimes_i C)\otimes_j(B\otimes_i D).$$
+          \end{enumerate}
+          These natural transformations $\eta^{ij}$ are subject to the following conditions:
+          \begin{enumerate}
+          \item[(a)] Internal unit condition: 
+          $\eta^{ij}_{ABII}=\eta^{ij}_{IIAB}=1_{A\otimes_j B}$
+          \item[(b)] External unit condition:
+          $\eta^{ij}_{AIBI}=\eta^{ij}_{IAIB}=1_{A\otimes_i B}$
+          \item[(c)] Internal associativity condition: The following diagram commutes
+          
+          \noindent
+	  	            	          \begin{center}
+	      	          \resizebox{5in}{!}{
+	     $$
+            \diagram
+            ((U\otimes_j V)\otimes_i (W\otimes_j X))\otimes_i (Y\otimes_j Z)
+            \xto[rrr]^{\eta^{ij}_{UVWX}\otimes_i 1_{Y\otimes_j Z}}
+            \ar[d]^{\alpha^i}
+            &&&\bigl((U\otimes_i W)\otimes_j(V\otimes_i X)\bigr)\otimes_i (Y\otimes_j Z)
+            \dto^{\eta^{ij}_{(U\otimes_i W)(V\otimes_i X)YZ}}\\
+            (U\otimes_j V)\otimes_i ((W\otimes_j X)\otimes_i (Y\otimes_j Z))
+            \dto^{1_{U\otimes_j V}\otimes_i \eta^{ij}_{WXYZ}}
+            &&&((U\otimes_i W)\otimes_i Y)\otimes_j((V\otimes_i X)\otimes_i Z)
+            \ar[d]^{\alpha^i \otimes_j \alpha^i}
+            \\
+            (U\otimes_j V)\otimes_i \bigl((W\otimes_i Y)\otimes_j(X\otimes_i Z)\bigr)
+            \xto[rrr]^{\eta^{ij}_{UV(W\otimes_i Y)(X\otimes_i Z)}}
+            &&& (U\otimes_i (W\otimes_i Y))\otimes_j(V\otimes_i (X\otimes_i Z))
+            \enddiagram
+            $$
+           }
+	            	                    \end{center}
+  
+           \item[(d)] External associativity condition: The following diagram commutes
+            
+            \noindent
+  	            	          \begin{center}
+      	          \resizebox{5in}{!}{ 
+             $$
+             \diagram
+            ((U\otimes_j V)\otimes_j W)\otimes_i ((X\otimes_j Y)\otimes_j Z)
+            \xto[rrr]^{\eta^{ij}_{(U\otimes_j V)W(X\otimes_j Y)Z}}
+            \ar[d]^{\alpha^j \otimes_i \alpha^j}
+            &&& \bigl((U\otimes_j V)\otimes_i (X\otimes_j Y)\bigr)\otimes_j(W\otimes_i Z)
+            \dto^{\eta^{ij}_{UVXY}\otimes_j 1_{W\otimes_i Z}}\\
+            (U\otimes_j (V\otimes_j W))\otimes_i (X\otimes_j (Y\otimes_j Z))
+            \dto^{\eta^{ij}_{U(V\otimes_j W)X(Y\otimes_j Z)}}
+            &&&((U\otimes_i X)\otimes_j(V\otimes_i Y))\otimes_j(W\otimes_i Z)
+            \ar[d]^{\alpha^j}
+            \\
+            (U\otimes_i X)\otimes_j\bigl((V\otimes_j W)\otimes_i (Y\otimes_j Z)\bigr)
+            \xto[rrr]^{1_{U\otimes_i X}\otimes_j\eta^{ij}_{VWYZ}}
+            &&& (U\otimes_i X)\otimes_j((V\otimes_i Y)\otimes_j(W\otimes_i Z))
+            \enddiagram
+            $$
+          }
+	           	                    \end{center}
+   
+          \item[(e)] Finally it is required  for each triple $(i,j,k)$ satisfying
+          $1\le i<j<k\le n$ that
+          the giant hexagonal interchange diagram commutes.
+         \end{enumerate}
+          
+          \noindent
+  		          \begin{center}
+  	          \resizebox{6in}{!}{
+          $$
+          \xymatrix@C=-118pt{
+          &((A\otimes_k A')\otimes_j (B\otimes_k B'))\otimes_i((C\otimes_k C')\otimes_j (D\otimes_k D'))
+          \ar[ddl]|{\eta^{jk}_{AA'BB'}\otimes_i \eta^{jk}_{CC'DD'}}
+          \ar[ddr]|{\eta^{ij}_{(A\otimes_k A')(B\otimes_k B')(C\otimes_k C')(D\otimes_k D')}}
+          \\\\
+          ((A\otimes_j B)\otimes_k (A'\otimes_j B'))\otimes_i((C\otimes_j D)\otimes_k (C'\otimes_j D'))
+          \ar[dd]|{\eta^{ik}_{(A\otimes_j B)(A'\otimes_j B')(C\otimes_j D)(C'\otimes_j D')}}
+          &&((A\otimes_k A')\otimes_i (C\otimes_k C'))\otimes_j((B\otimes_k B')\otimes_i (D\otimes_k D'))
+          \ar[dd]|{\eta^{ik}_{AA'CC'}\otimes_j \eta^{ik}_{BB'DD'}}
+          \\\\
+          ((A\otimes_j B)\otimes_i (C\otimes_j D))\otimes_k((A'\otimes_j B')\otimes_i (C'\otimes_j D'))
+          \ar[ddr]|{\eta^{ij}_{ABCD}\otimes_k \eta^{ij}_{A'B'C'D'}}
+          &&((A\otimes_i C)\otimes_k (A'\otimes_i C'))\otimes_j((B\otimes_i D)\otimes_k (B'\otimes_i D'))
+          \ar[ddl]|{\eta^{jk}_{(A\otimes_i C)(A'\otimes_i C')(B\otimes_i D)(B'\otimes_i D')}}
+          \\\\
+          &((A\otimes_i C)\otimes_j (B\otimes_i D))\otimes_k((A'\otimes_i C')\otimes_j (B'\otimes_i D'))
+          }
+          $$
+          }
+  		                    \end{center}
+  	                    
+          
+          
+        \end{definition}
+  
+     
+     The authors of \cite{Balt} remark that a symmetric monoidal category is $n$-fold monoidal for all $n$.
+     This they demonstrate by letting
+        $$\otimes_1=\otimes_2=\dots=\otimes_n=\otimes$$
+        and defining (associators added by myself)
+        $$\eta^{ij}_{ABCD}=\alpha^{-1}\circ (1_A\otimes \alpha)\circ (1_A\otimes (c_{BC}\otimes 1_D))\circ (1_A\otimes \alpha^{-1})\circ \alpha$$
+        for all $i<j$. Here $c_{BC}: B\otimes C \to C\otimes B$ is the symmetry natural transformation.
+
+\newpage   
+\MySection{Examples of iterated monoidal categories} 
+\begin{enumerate}
+\item
+We start with an example of a monoidal category. Given a totally ordered set $G$ with a smallest element $e \in G$, 
+then we have an ordered semigroup structure where the semigroup product is max and the 2-sided unit is the
+least element $e$. The elements of $G$ make up the objects of a strict monoidal category whose morphisms are
+given by the ordering; there is only an arrow $a \to b$ if $a\le b.$ The ordered semigroup structure implies
+the monoidal structure on morphisms, since if $a\le b$ and $a'\le b'$ 
+ then $\max(a,a')\le\max(b,b').$ The category will also be denoted $G.$ 
+If $G$ is such a set then by Seq($G$) we denote the infinite sequences $X_n$ of elements of $G$ for which
+there exists a natural number $l(X)$ such that $k> l(X)$ implies $X_k = e$ and $X_{l(X)}\ne e.$ 
+Under lexicographic ordering Seq($G$) is
+in turn a totally ordered set with a least element. The latter is the sequence 0 where $0_n = e$ for all $n.$
+We let $l(0) = 0.$
+The lexicographic order
+means that $A \le B$ if either $A_k = B_k$ for all $k$ or there is a natural number $n=n_{AB}$ such that 
+$A_k = B_k$ for all $k < n$, and such that $A_{n} < B_{n}.$ 
+
+The ordering is easily shown to be reflexive, transitive, and antisymmetric. See for instance \cite{Schrod}
+where the case of lexicographic ordering of $n$-tuples of natural numbers is dicussed. In our case we will need
+to modify the proof by always making comparisons of $\max(l(A),l(B))$-tuples. 
+
+As a category Seq($G$) is 2-fold monoidal since 
+there are two possible products, max using the lexicographic order: $A\otimes_1 B = \max(A,B),$ 
+and the piecewise max: $(A \otimes_2 B)_n = \max(A_n, B_n).$ The latter is  more generally described as
+the piecewise application of the ordered semigroup product from $G.$ Such a piecewise application
+will always be in turn an ordered
+semigroup product since $A_i \le B_i$ and $C_i \le D_i$
+implies that $A_iC_i \le B_iD_i$. Seq($G$) is thus an example of 
+a $2$-fold monoidal category that is formed from any totally ordered semigroup . 
+\begin{theorem}\label{semi}
+Given a totally ordered semigroup $\{H\le\}$
+such that the
+identity element $0 \in H$ is less than every other element then 
+we have a 2-fold monoidal category with 
+objects are elements of $H.$ 
+\end{theorem}
+{\bf Proof}: Morphisms
+are again given by the ordering. The products are given by
+ $\max$ and the semigroup operation: $a\otimes_1b = \max(a,b)$ and $a\otimes_2b = ab$. 
+ The shared two-sided unit for these products is 
+ the identity element $0.$ The products are both strictly associative and functorial since if $a\le b$ and $a'\le b'$ 
+ then $aa'\le bb'$ and $\max(a,a')\le\max(b,b').$
+ The interchange natural tranformations exist since $\max(ab,cd)\le\max(a,c)\max(b,d).$ This last theorem is easily seen by checking the four
+ possible cases: $\{c\le a, d\le b\};~~\{c\le a, b\le d\};~~\{a\le c, d\le b\};~~\{a\le c, b\le d\};$ or by the 
+ quick argument that
+ 
+ $
+   a \le max(a,c) \text{ and } b \le max(b,d)  \text{ so } $
+   
+              $  ab \le max(a,c)max(b,d)   \text{ and similarly } $
+                
+              $  cd \le max(a,c)max(b,d).
+$
+ 
+ The internal and external unit and associativity conditions of Definition~\ref{iterated} are all satisfied due to the
+ fact that there is only one morphism between two objects. 
+ 
+ Besides Seq($G$) examples
+ of such semigroups are the nonnegative integers under addition
+ and the braids on $n$ strands with only right-handed crossings. There is also an alternative
+ to the piecewise max on the objects of Seq($G$), concatenation of sequences. This is a valid semigroup
+ operation and thus monoidal product since it clearly preserves the lexicographic order. A non-example,
+ however, is revealed in an attempt to have both the piecewise max and the concatenation at once in
+ a 3-fold monoidal category along with lexicographic max. The required interchange morphisms between
+ concatenation and piecewise max do not exist. Further examples are found in the papers on
+ semirings and idempotent mathematics, such as \cite{LitSob} and its references as well as on
+ the related concept of tropical mathematics, such as \cite{Sturm} and its references. Semirings in these
+ fields usually require some 
+ translation to yield 2-fold monoidal categories since they typically have a zero and a unity, $0 \ne 1.$ 
+ 
+ The step taken to create Seq($G$) can be iterated to create $n$-fold monoidal categories for all $n.$ 
+ In general, if we have a $k$-fold monoidal category $C$ with morphisms ordering of objects and the
+common unit and smallest element $I$ such that $A\in C \Rightarrow I\le A$ then:
+
+\begin{tabular}{ll}
+1.&we can form a $(k+1)$-fold monoidal category $\hat{C}$ with $\hat{\otimes}_1 = \max$ and $\hat{\otimes}_i = \otimes_{i-1}$\\
+2.&we can form the $(k+2)$-fold monoidal Seq$(C)$ with objects ordered\\ 
+&lexicographically.
+\end{tabular}
+The new $\otimes_1$ is the maximum of sequences with
+respect to the lexicographic order, and the new $\otimes_2 ... \otimes_{k+2}$ are the piecewise products based 
+respectively on 
+$\hat{\otimes}_1 ... \hat{\otimes}_{k+1}$ in $\hat{C}.$
+\item   
+   Even more structure is found in examples 
+   with a natural geometric representation which allows
+   a use of addition in each product. One such category is that whose objects are Ferrers diagrams,
+   by which we mean the shapes
+   of Young tableaux. These
+   can be presented by a decreasing sequence of nonnegative integers in two ways: the sequence that gives the heights
+   of the columns or the sequence that gives the lengths of the rows. We let $\otimes_2$ be the product which
+   adds the heights of columns of two tableaux, $\otimes_1$
+   adds the length of rows. 
+   $$
+   A = \xymatrix@W=1.8pc @H=1.8pc @R=0pc @C=0pc @*[F-]{~&~&~&~\\~}
+   \text{ and } B = \xymatrix@W=1.8pc @H=1.8pc @R=0pc @C=0pc @*[F-]{~&~\\~\\~}
+   $$
+   $$
+   \text{then } A\otimes_1 B = \xymatrix@W=1.8pc @H=1.8pc @R=0pc @C=0pc @*[F-]{~&~&~&~&~&~\\~&~\\~}
+   \text{ and } A\otimes_2 B = \xymatrix@W=1.8pc @H=1.8pc @R=0pc @C=0pc @*[F-]{~&~&~&~\\~&~\\~\\~\\~}
+   $$   
+   There are several possibilities for morphisms. We can
+   create a category equivalent to the non-negative integers in the previous example by pre-ordering the tableaux by height. 
+   Here the height $h(A)$ of the tableau is the number of boxes in its leftmost column, and  we say $A \le B$ if $h(A)\le h(B)$. 
+   Two tableaux with the same height are isomorphic objects, and the one-column stacks form both a full subcategory and a  skeleton of the category.
+   Everything works as for the previous example since $h(A\otimes_2 B) = h(A) +h(B)$ and $h(A\otimes_1 B) = \max(h(A), h(B)).$
+   Since we are working with sequences there are also inherited max products as dicussed in the first example.
+   The new max with respect to the height preordering is defined as $\max(A,B) = A$ if $B\le A$ and $ = B$ otherwise.
+   The piecewise application of max with respect to the ordering of natural numbers results in taking a union
+   of the two tableau shapes. 
+   Above, $\max(A,B) = B$ and the piecewise max becomes
+   $$
+   \xymatrix@W=1.8pc @H=1.8pc @R=0pc @C=0pc @*[F-]{~&~&~&~\\~\\~}
+   $$
+   Both of these latter products are equivalent to the horizontal composition $\otimes_1.$
+\item   
+Alternatively we can work with the totally ordered structure of the 
+tableau shapes given by lexicographic ordering. 
+For now we consider the presentation in terms of a monotone decreasing sequence of columns, and regard
+an empty column as a height zero column. Every tableau $A$ considered
+as an infinite sequence has all zero height columns after some finite natural number $l(A)$. 
+Now there are four distinct products, including max with respect to the lexicographic order and piecewise max.
+The overall max is thus $\otimes_1.$ Piecewise max is
+$\otimes_2.$ Horizontal addition is $\otimes 3$ and vertical addition is 
+piecewise addition and will be $\otimes_4.$ By previous discussion
+then the tableau shapes with $\otimes_1, \otimes_3, \otimes_4$ form a 3-fold monoidal category.
+To see that with $\otimes_2$ this is a valid 4-fold monoidal category  
+we need to check first 
+that horizontal composition is functorial with respect to the morphisms defined as the $\le$ relations 
+of the ordering.  
+Note that the horizontal product of tableau shapes $A$ and $C$ can be described as
+a reorganization of all the columns of both $A$ and $C$ into a new tableau shape made up of those columns in
+ descending order of height. 
+ We'll call this sorting.  The cases where
+ $A=B$ or $C=D$ are easy. For example let $A_k = B_k$ for all $k$ and
+$C_k = D_k$ for all $k < n_{CD}$ Thus the columns from the copies of, for instance $A$ in $A\otimes_1 C$ and 
+$A\otimes_1 D$ fall into the same final spot under the sortings right up to the critical location, so
+if $C \le D$, then $A\otimes_1 C \le A\otimes_1 D.$
+Similarly, it is clear that $A \le B$ implies $(A \otimes_1 D) \le (B \otimes_1 D).$ 
+Hence if $A\le B$ and $C\le D$, then
+        $A\otimes_1 C \le A\otimes_1 D \le B\otimes_1 D$ which by transitivity gives us our desired property. 
+
+
+
+
+%Now then we assume strict inequalities $A < B$ and $C<D$ 
+%and observe the process of creating $A\otimes_1 C $ and $ A\otimes_1 D$ step by step. First put in descending order
+%all columns $A_k $ for $k \le n_{AB}$ and $C_j $ for  $j \le n_{CD}.$ We have a sequence of numbers that is precisely
+%the same as the descending order listing of all columns $B_k$ for $k \le n_{AB}$ and
+%$D_k$ for $k \le n_{CD}.$ Now we consider the next step, of inserting the next columns from our tableau
+% shapes into their respective products. We are putting $A_{n_{AB}}$ and $C_{n_{CD}}$ into their
+% ordered locations in the descending sequence constructed thus far,
+% and putting $B_{n_{AB}}$ and $D_{n_{CD}}$ into an identical sequence. Let $x=\max(A_{n_{AB}},C_{n_{CD}})$
+% and $y=\max(B_{n_{AB}},D_{n_{CD}}).$ Then since $A_{n_{AB}} <B_{n_{AB}}$ and $C_{n_{CD}} < D_{n_{CD}}$
+% we have that $x<y$. Thus $y$ will be inserted into our sequence of columns at a location closer to
+% the beginning than will $x.$ Therefore since $y$ is inserted at a location where it is strictly greater than the 
+% entry it is inserted imediately prior to, $y$ will also be strictly greater than the corresponding term in the identical sequence 
+% into which we inserted $x.$ Here is a quick explanatory diagram where the blanks represent the two identical sequences.
+% 
+% $$
+%\xymatrix@R=9pt{
+%\_\ar@{=}[d]&\_\ar@{=}[dr]&\_\ar@{=}[dr]&x&\_\ar@{=}[d]&\_\ar@{=}[d]&\_\ar@{=}[d]\\
+%\_&y\ar@{}[u]|{\Lambda}\ar@{}[r]|{>}&\_&\_&\_&\_&\_
+%}
+%$$
+%
+%We conclude that
+%$A\otimes_1 C \le B\otimes_1 D$ since the remaining work to be done in constructing the products consists of inserting 
+%column height values that will always be smaller than $x$ and $y$ respectively and so will not affect the critical
+%location.
+ 
+ Next we check that our interchange transformations will always exist. $\eta^{1j}$ exists by
+ the proof of Theorem~\ref{semi} for $j=2,3,4$ since the higher operation all operate on morphisms and
+ are thus ordered semigroup operations. We need to check for existence of $\eta^{23}, \eta^{24}, and eta^{34}.$
+ 
+ First for existence of $\eta^{23}$ we need to show that
+   $(A \otimes_3 B)\otimes_2(C \otimes_3 D) \le (A \otimes_2 C)\otimes_3 (B \otimes_2 D).$
+      We actually show more generally that for any two sequences $a$ and $b$ that 
+   $\max_{piecewise}(\sort(a),\sort(b)) \le \sort(\max_{piecewise}(a,b)).$
+where we are sorting greater to smaller and taking piecewise maximums. 
+To prove the original question we make the two sequences by letting $a$ be $A$ followed by 
+$C$ and letting $b$ be $B$ followed by $D$. By followed by we mean padded by zeroes so that
+piecewise addition of $a$ and $b$ results in piecewise addition of $A$ and $B$, and respectively $C$ and $D.$
+
+Consider the right hand side of the inequality, where we start with the two sequences and take the 
+piecewise maximum of the corresponding pairs of elements before sorting. We can metamorphose this
+into the left hand side in stages by using an algorithm to sort $a$ and $b$. Note that if $a$ and $b$ are
+already sorted, the inequality becomes an equality.
+For our algorithm we choose parallel bubble sorts. These consist
+of a series of passes through the sequences comparing $a_n$ and $a_{n+1}$ and  comparing $b_n$ and $b_{n+1}$
+simultaneously. If the two elements of a given sequence are not already in decreasing order we 
+switch their places. We claim that such an operation always results in a lexicographically smaller
+sequence after taking piecewise max and sorting. If both the elements of $a$ and of $b$ are switched, or if neither,
+then the result is unaltered. Therefore without loss of generality we assume that $a_n < a_{n+1}$
+and that $b_{n+1} \le b_n.$ Then we compare the original
+result of sorting after taking the piecewise max and the same but after the switching of $a_n$ and
+$a_{n+1}.$ If $b_n \le a_n$ and $b_{n+1} \le a_{n+1}$ then 
+$\max(a_n,b_n) = \max(a_n, b_{n+1})$ and $\max(a_{n+1}, b_{n+1}) = \max(a_{n+1}, b_n).$ If $a_n \le b_n$ 
+and $a_{n+1} \le b_{n+1}$  then
+$\max(a_n,b_n) = \max(a_{n+1}, b_n)$ and $\max(a_{n+1}, b_{n+1}) = \max(a_n, b_{n+1}).$
+ Since neither of these cases lead to any change in the final result,
+ we may assume $a_n \le b_n$ and $b_{n+1} \le a_{n+1}$, and check two sub-cases:
+First $a_{n+1} \le b_n$ implies that
+$\max(a_n,b_n) = \max(a_{n+1}, b_n)$ and $\max(a_n, b_{n+1}) \le \max(a_{n+1}, b_{n+1}).$ Second $b_n \le a_{n+1}$
+implies that $\max(a_n, b_{n+1}) \le max(a_n,b_n)$ and $\max(a_{n+1}, b_{n+1}) = \max(a_{n+1}, b_n).$ 
+
+Thus after taking piecewise max
+and sorting the new result is indeed smaller lexicographically. 
+
+Thus since each move of the parallel bubble sort results in a smaller expression  and the moves
+eventually result in $(A \otimes_3 B)\otimes_2(C \otimes_3 D)$, we have $(A \otimes_3 B)\otimes_2(C \otimes_3 D) \le (A \otimes_2 C)\otimes_3 (B \otimes_2 D).$  
+  
+Secondly the existence of $\eta^{24}$ is clear since the interchange between max and + implies the interchange between 
+their piecewise application. Thus we have $(A \otimes_4 B)\otimes_2(C \otimes_4 D) \le (A \otimes_2 C)\otimes_4 (B \otimes_2 D).$
+      
+   
+Finally we need to check that $(A \otimes_4 B)\otimes_3(C \otimes_4 D) \le(A \otimes_3 C)\otimes_4 (B \otimes_3 D).$  
+We actually show more generally that for any two sequences $a$ and $b$ of total length
+that $Y= \sort(a+b)\le \sort(a)+\sort(b) =X$ where $+$ is the piecewise addition.
+To prove the original question we make the two sequences by letting $a$ be $A$ followed by 
+$C$ and letting $b$ be $B$ followed by $D$. By followed by we mean padded by zeroes so that
+piecewise addition of $a$ and $b$ results in piecewise addition of $A$ and $B$, and respectively $C$ and $D.$
+Thus in the original question $l(a) = \max(l(A),l(B)) + l(C) $ and $l(b) = \max(l(A),l(B)) + l(D).$
+Recall that $a_k = 0$ for $k>l(a)$.
+
+Consider $Y$, where we start with the two sequences and add them 
+piecewise before sorting. We can metamorphose this
+into $X$ in stages by using an algorithm to sort $a$ and $b$. Note that if $a$ and $b$ are
+already sorted, the inequality becomes an equality.
+For our algorithm we choose parallel bubble sorts. These consist
+of a series of passes through the sequences comparing $a_n$ and $a_{n+1}$ and  comparing $b_n$ and $b_{n+1}$
+simultaneously. If the two elements of a given sequence are not already in decreasing order we 
+switch their places. We claim that such an operation always results in a lexicographically smaller
+sequence after taking piecewise max and sorting. If both the elements of $a$ and of $b$ are switched, or if neither,
+then the result is unaltered. Therefore without loss of generality we assume that $a_n < a_{n+1}$
+and that $b_{n+1} < b_n.$ Then we compare the original
+result of sorting after taking the piecewise max and the same but after the switching of $a_n$ and
+$a_{n+1}.$ It is simplest to note that the new result includes $a_{n+1} + b_n,$ which is larger than
+both $a_n + b_n$ and $a_{n+1} + b_{n+1}.$ 
+
+Thus after taking piecewise max
+and sorting the new result is indeed larger lexicographically. 
+
+Thus since each move of the parallel bubble sort results in a larger expression  and the moves
+eventually result in $(A \otimes_3 C)\otimes_4 (B \otimes_3 D)$, we have $(A \otimes_4 B)\otimes_3(C \otimes_4 D) \le(A \otimes_3 C)\otimes_4 (B \otimes_3 D).$
+
+%We use strong induction on total length. The inequality is trivially true for total length of 1. 
+%For a total length of $n+1$ we note the 
+%greatest pair of numbers which are in the same location in $\sort(a)$ and $\sort(b)$ but are in location $a_i$
+%and $b_j$, $i \ne j$, respectively in $a$ and $b$. Without loss of generality we assume $i>j$ and form 
+%$b' = b_1,\dots,b_{j-1},\hat{b_j},\dots,\hat{b_{i-1}},b_i,\dots,b_{l(b)},0\dots$
+%by deleting entries $b_j ... b_{i-1}$ from $b.$
+%Then let $X' = \sort(a)+\sort(b')$ and $Y' = \sort(a+b').$ By construction $X'<X$ and $Y'>Y.$ By induction
+%since $l(a)+l(b') = n+1 - (i-j) \le n$ then $Y' \le X'.$ So $Y<Y'\le X'<X$ and we have the required inequality. 
+
+
+% Consider the results of these two operations, letting
+%   $X=(A \otimes_2 B)\otimes_1(C \otimes_2 D)$
+% and $Y(A \otimes_1 C)\otimes_2 (B \otimes_1 D).$ Assume that $Y<X.$ Then $Y_k = X_k$ for $k<n=n_{YX}$ and $Y_n < X_n.$
+% For $k<n$ let $Y_k = X_k = p_k + q_k$ where $p_k$ is the height of a column in $A$ or $C$ and $q_k$ is the height of a column
+% in $B$ or $D.$ Then $Y_n = y+y'$ where $y = \max\{A\bigcup C - \{p_k\}_{k=1}^{n-1}\}$, the 
+% largest column in $A$ or $C$ excepting the columns $p_k,$ and $y' = \max\{B\bigcup D-\{q_k\}_{k=1}^{n-1}\},$ the 
+% largest column in $B$ or $D$ excepting the columns $q_k.$
+% Now $X_n = x + x'$ for some pair $x,x'$ where $x$ is the height of a column in $A$ or $C$ excepting the columns $p_k$ 
+% and $x'$ is the height of a column
+% in $B$ or $D$ excepting the columns $q_k.$ We have that either $y<x$ or $y'<x'$ since $Y_n < X_n.$ But this 
+% contradicts the fact that $y$ and $y'$ both are maximal. Therefore $(A \otimes_2 B)\otimes_1(C \otimes_2 D) \le 
+% (A \otimes_1 C)\otimes_2 (B \otimes_1 D)$.
+
+
+
+
+\item
+ We can start with any totally ordered semigroup $\{G,\le, +\}$ such that the identity
+0 is less than any other element and such that $g>h$ implies $g+k > h+k, k+g> k+h.$
+We create a 4-fold monoidal category ModSeq$(G)$ with objects monotone decreasing 
+finitely non-zero sequences of elements of $G$ and morphisms given by the lexicographic ordering. 
+The products are as described for natural number in the previous example.  The common unit is the zero sequence.   
+The proofs we have given in 
+the previous example for $G = ${\bf N} are all still valid.Notice that in the last two proofs, the 
+product of two sequences given by sorting their elements
+behaves differently with respect to piecewise max and piecewise +. In general for a category of decreasing sequences
+the sorting given by $\otimes_k$ will have an interchange with a piecewise operation ${(A\otimes_j B)}_n = A_n*B_n, j < k$
+if $ A_n \le B_n $ 
+implies $A_n*B_n = B_n.$ Also $\otimes_k$ will have an interchange with a  piecewise operation ${(A\otimes_j B)}_n = A_n*B_n, j > k$
+if $ A_n > B_n $ 
+implies $A_n*C_n > B_n*C_n.$
+This is important when attempting to
+ iterate the construction. The objects of ModSeq($G$), sequences under lexicographic order,
+ form 4 totally ordered semigroups
+using each of the products respectively as the group operation. Thus we can form
+2-fold monoidal categories based on any of these semigroup structures. Instead of 
+the expected 6-fold category, however, we must choose between two possible a 5-fold monoidal categories
+ of decreasing sequences (of decreasing sequences).
+The reason is that the product given by sorting two sequences of sequences by lexicographic order of their element sequences
+does not interchange at all with the product given by taking piecewise( piecewise max). Either of these however,
+along with lexicographic sequence max, piecewise lexicographic max, piecewise sorting, and piecewise (piecewise addition),
+do form 5-fold monoidal categories.
+
+% The iteration continues. In general, if we have a $k$-fold monoidal category $C$ with ordering of objects and the
+%common unit $I$ such that $A\in C \Rightarrow I\le A,$
+% we can form the $(k+2)$-fold monoidal ModSeq$(C)$ with objects ordered lexicographically. 
+%$\otimes_1$ and $\otimes_2$ are the is the recombining of sequences with
+%respect to the underlying order, and $\otimes'_2 ... \otimes'_{k+1}$ are the component-wise products based 
+%respectively on 
+%$\otimes_1 ... \otimes_k$ in $C.$
+
+
+It might be nice to retain the geometric picture of the products of tableau shapes in terms of vertical
+and horizontal addition, and addition in other directions as dimension increases. This is not found
+in the current version of iteration.
+For instance if ModSeq({\bf N}) is our category of tableau shapes
+then ModSeq(ModSeq({\bf N})) has objects monotone decreasing sequences of tableau, which we can visualize along the
+$z$-axis. For example, if:
+$$
+A=\xymatrix @W=1.0pc @H=1.0pc @R=1.0pc @C=1.0pc
+ {*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}\ar@{-}[r]&*=0{}
+\\
+*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}\ar@{-}[r]&*=0{}
+\\
+*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\
+*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}}
+\text{ and }B=\xymatrix @W=1.0pc @H=1.0pc @R=1.0pc @C=1.0pc
+ {*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}}
+$$
+then $A\otimes_1 B = A$, $A\otimes_2 B = A$ and 
+$$
+A \otimes_3 B=\xymatrix @W=1.0pc @H=1.0pc @R=1.0pc @C=1.0pc
+ {*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}}
+A \otimes_4 B=\xymatrix @W=1.0pc @H=1.0pc @R=1.0pc @C=1.0pc
+  {*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}}
+$$
+and
+$$
+A \otimes_5 B=\xymatrix @W=1.0pc @H=1.0pc @R=1.0pc @C=1.0pc
+ {*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}}
+$$
+The ``addition'' point of view is restored
+if we restrict to sequences of tableau shapes that are decreasing in columns as well as rows.
+These are lexicographically decreasing sequences of decreasing sequences so already obey the requirement that
+${A_n}_1$ is decreasing in $n$. We expand this to require that ${A_n}_k$ be decreasing in $n$ for constant $k$,
+which implies decreasing in $k$ for constant $n.$
+Then we define a product for which $((A\otimes B)_n)_k = (/sort({A_i}_k,{B_i}_k)_{i=1}^{l(A)+l(B)})_n.$ 
+For example, if:
+$$
+A=\xymatrix @W=1.0pc @H=1.0pc @R=1.0pc @C=1.0pc
+ {*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}\ar@{-}[r]&*=0{}
+\\
+*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}\ar@{-}[r]&*=0{}
+\\
+*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}\ar@{-}[r]&*=0{}
+\\
+*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}}
+\text{ and }B=\xymatrix @W=1.0pc @H=1.0pc @R=1.0pc @C=1.0pc
+ {*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+\\*=0{}&*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+\\*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}}
+$$
+then we let
+$$
+A \otimes_1 B=\xymatrix @W=1.0pc @H=1.0pc @R=1.0pc @C=1.0pc
+ {*=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+ \\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}
+ \\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+ \\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+ \\*=0{}\ar@{-}[r]&*=0{}
+ \\
+ *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+ \\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}
+ \\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+ \\*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+ \\*=0{}\ar@{-}[r]&*=0{}
+ \\
+ *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+ \\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+ \\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+ \\*=0{}&*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]&*=0{}
+  \\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]&*=0{}&*=0{}
+  \\*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+  \\*=0{}&*=0{}\ar@{-}[r]&*=0{}
+  \\
+    *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]&*=0{}
+  \\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}
+  \\*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+  \\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}&*=0{}
+\\
+  *=0{}&*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[r]\ar@{-}[dl]&*=0{}\ar@{-}[dl]
+  \\*=0{}&*=0{}&*=0{}&*=0{}\ar@{-}[r]&*=0{}\ar@{-}[r]&*=0{}
+\\*=0{}}
+$$
+\end{enumerate}
+
+
+   
+\newpage   
+\MySection{$n$-fold operads}    
+      Let ${\cal V}$ be an $n$-fold monoidal category as defined in the previous section.
+      \begin{definition}
+      An operad ${\cal C}$ in ${\cal V}$ consists of objects ${\cal C}(j)$, $j\ge 1$, 
+      a unit map ${\cal J}:I\to {\cal C}(1)$, 
+      %a right action by the symmetric group
+      %$\Sigma_j$ on ${\cal C}(j)$ for each $j$ 
+      and composition maps in ${\cal V}$
+      $$
+      \gamma:{\cal C}(k) \otimes_1 {\cal C}(j_1) \otimes_2 \dots \otimes_2 {\cal C}(j_k)\to {\cal C}(j)
+      $$
+      for $k\ge 1$, $j_s\ge0$ for $s=1\dots k$ and $\sum\limits_{n=1}^k j_n = j$. The composition maps obey the following axioms
+      \begin{enumerate}
+      \item Associativity: The following diagram is required to commute for all $k\ge 1$, $j_s\ge 0$ and $i_t\ge 0$, and
+      where $\sum\limits_{s=1}^k j_s = j$ and $\sum\limits_{t=1}^j i_t = i.$ Let $g_s= \sum\limits_{n=1}^s j_n$ and
+      let $h_s=\sum\limits_{n=1+g_{s-1}}^{g_s} i_n$.
+
+      $$
+      \xymatrix{
+      {\cal C}(k)\otimes_1\left(\bigotimes\limits_{s=1}^k{}_2 {\cal C}(j_s)\right)\otimes_1\left(\bigotimes\limits_{r=1}^j{}_2 {\cal C}(i_r)\right)
+      \ar[rr]^>>>>>>>>>>>>{\gamma \otimes_1 \text{id}}
+      \ar[dd]_{\text{id} \otimes_1 \eta^{12}}
+      &&{\cal C}(j)\otimes_1 \left(\bigotimes\limits_{r=1}^j{}_2 {\cal C}(i_r)\right)
+      \ar[d]^{\gamma}
+      \\
+      &&{\cal C}(i)
+      \\
+      {\cal C}(k)\otimes_1 \left(\bigotimes\limits_{s=1}^k{}_2 {\cal C}(j_s)\otimes_1\left(\bigotimes\limits_{q=1}^{j_s}{}_2 {\cal C}(i_{q+g_{s-1}})\right)\right)
+      \ar[rr]_>>>>>>>>>>{\text{id} \otimes_1(\otimes^k_2\gamma)}
+      &&{\cal C}(k)\otimes_1\left(\bigotimes\limits_{s=1}^k{}_2 {\cal C}(h_s)\right)
+      \ar[u]_{\gamma}
+      }
+      $$
+      \end{enumerate}
+     Respect of units is required just as in the symmetric case.
+          The following unit diagrams commute.
+      $$
+      \xymatrix{
+      {\cal C}(k)\otimes_1 (\otimes_2^k I)
+      \ar[d]_{1\otimes_1(\otimes_2^k \eta)}
+      \ar@{=}[r]^{}
+      &{\cal C}(k)\\
+      {\cal C}(k)\otimes_1(\otimes_2^k {\cal C}(1))
+      \ar[ur]_{\gamma}
+      }
+      \xymatrix{
+      I\otimes_1 {\cal C}(k)
+      \ar[d]_{\eta\otimes_1 1}
+      \ar@{=}[r]^{}
+      &{\cal C}(k)\\
+      {\cal C}(1)\otimes_1 {\cal C}(k)
+      \ar[ur]^{\gamma}
+      }
+      $$
+      \end{definition}
+      
+      \begin{example}
+      ~
+      \end{example}
+      One large family of operads in ModSeq({\bf N}) is that of natural number indexed collections of tableau shapes
+       ${\cal C}(n), n\in${\bf N}, such that
+      $h({\cal C}(n)) = f(n)$ where $f:${\bf N}$\to${\bf N} is a function such 
+      that $f(1) = 0$ and $f(i+j)\ge f(i) + f(j).$
+      These conditions are not necessary, but they are sufficient since they imply that ${\cal C}(n) =0$ which shows the
+      unit conditions are satisfied and that 
+      $h({\cal C}(k)\otimes_1({\cal C}(j_1)\otimes_2...\otimes_2{\cal C}(j_k))) =
+       \max(f(k), \sum{f(j_i)}) \le f(j) =h({\cal C}(j))$ which shows that the maps $\gamma$ exist. 
+      
+
+      
+      Examples of $f$ include  $(x-1)P(x)$ where $P$ is a polynomial with coefficients in {\bf N}. This is easy to show
+      since then $P$ will be monotone increasing for 
+      $x\ge 1$ and thus $(i+j-1)P(i+j) = (i-1)P(i+j)+jP(i+j) \ge (i-1)P(i)+jP(j) - P(j).$
+      By this argument we can also use any $f= (x-1)g(x)$ where $g:${\bf N}$\to${\bf N} is monotone  increasing 
+      for $x \ge 1.$
+      
+      For a specific example with a 
+      handy picture that also illustrates again the nontrivial use of the interchange $\eta$
+      we simply let $f = x-1.$ Then we have to actually describe the elements of ModSeq({\bf N}) that make up the
+      operad. One nice choice is the operad ${\cal C}$ where ${\cal C}(n) = \{n-1,n-1,...,n-1\},$ the  
+      $(n-1)\times (n-1)$ square tableau shape. 
+      
+      ${\cal C}(1) = 0$, ${\cal C}(2) = \xymatrix@W=1.2pc @H=1.2pc @R=0pc @C=0pc @*[F-]{~}$, 
+      ${\cal C}(3) = \xymatrix@W=1.2pc @H=1.2pc @R=0pc @C=0pc @*[F-]{~&~\\~&~} \dots$
+      
+      For instance $\gamma:{\cal C}(3)\otimes_1 ({\cal C}(1)\otimes_2{\cal C}(3)\otimes_2{\cal C}(2)) \to {\cal C}(6)$
+      appears as the relation
+      $$
+      \xymatrix@W=1.2pc @H=1.2pc @R=0pc @C=0pc @*[F-]{~&~&~&~\\~&~&~&~\\~} \le \xymatrix@W=1.2pc @H=1.2pc @R=0pc @C=0pc @*[F-]{~&~&~&~&~\\~&~&~&~&~\\~&~&~&~&~\\~&~&~&~&~\\~&~&~&~&~}
+      $$
+      An instance of the associativity diagram with upper left position 
+      ${\cal C}(2)\otimes_1({\cal C}(3)\otimes_2{\cal C}(2))\otimes_1
+      ({\cal C}(2)\otimes_2{\cal C}(2)\otimes_2{\cal C}(4)\otimes_2{\cal C}(5)\otimes_2{\cal C}(3))$ is as follows:
+      
+      \begin{tabular}{lll}
+      $\xymatrix@W=.7pc @H=.7pc @R=0pc @C=0pc @*[F-]{~&~&~&~&~&~&~\\~&~&~&~&~&~\\~&~&~&~&~\\~&~&~&~\\~&~&~\\~&~&~\\~&~&~\\~&~\\~&~\\~\\~}$&$\to$&$\xymatrix@W=.7pc @H=.7pc @R=0pc @C=0pc @*[F-]{~&~&~&~&~&~&~&~\\~&~&~&~&~&~&~&~\\~&~&~&~&~&~&~&~\\~&~&~&~&~&~&~&~\\~&~&~\\~&~&~\\~&~&~\\~&~\\~&~\\~\\~}$ \\
+      &&$\downarrow$\\
+      $\downarrow$&&$\xymatrix@W=1.7pc @H=1.7pc @R=0pc @C=0pc @*[F-]{15\times 15 \text{ square }}$\\
+      &&$\uparrow$\\
+      $\xymatrix@W=.7pc @H=.7pc @R=0pc @C=0pc @*[F-]{~&~&~&~&~&~\\~&~&~&~&~\\~&~&~&~&~\\~&~&~&~\\~&~&~&~\\~&~&~&~\\~&~&~\\~&~\\~&~\\~\\~}$&$\to$&$\xymatrix@W=.7pc @H=.7pc @R=0pc @C=0pc @*[F-]{~&~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~\\~&~&~&~&~&~&~}$\\
+      \end{tabular}
+
+      
+
+\begin{definition}\label{opalg}
+      Let ${\cal C}$ be an n-fold operad.
+      \end{definition}
+      
+      The product of
+      two operads is given by
+      $$({\cal C}\otimes^{(1)}_i {\cal D})(j) = {\cal C}(j) \otimes_{i+2} {\cal D}(j).$$
+      If $A$ is an algebra of ${\cal C}$ and $B$ is an algebra of ${\cal D}$ then, for example,
+      $A\otimes_3 B$ is an algebra for ${\cal C}\otimes^{(1)}_1{\cal D}.$
+    
+      
+   %{bib2}
+      
+      
+      
+      
+      
+      
+       
+        % {bib}
+        
+        %\clearpage
+        \newpage
+        \refs
+        %\bibitem[Baez and Dolan, 1998]{Baez1}{J. C. Baez and J. Dolan, Categorification, in ``Higher Category Theory'', 
+        %eds. E. Getzler and M. Kapranov, Contemp. Math. 230 , American Mathematical Society, 1-36, (1998).}
+        \bibitem[Balteanu et.al, 2003]{Balt}{C. Balteanu, Z. Fiedorowicz, R. Schw${\rm \ddot a}$nzl, R. Vogt, 
+        Iterated Monoidal Categories,
+        Adv. Math. 176 (2003), 277-349.}
+        \bibitem[Borceux, 1994]{Borc}{F. Borceux, Handbook of Categorical Algebra 1: 
+        Basic Category Theory, Cambridge University Press, 1994.}
+        %\bibitem[Day, 1970]{Day}{B.J. Day, On closed categories of functors, Lecture Notes in 
+        %Math 137 (Springer, 1970) 1-38}
+        %\bibitem[Eilenberg and Kelly, 1965]{EK1}{S. Eilenberg and G. M. Kelly, Closed Categories, 
+        %Proc. Conf. on Categorical Algebra, 
+        %Springer-Verlag (1965), 421-562. }
+        \bibitem[Forcey, 2004]{forcey1}{S. Forcey, Enrichment Over Iterated Monoidal Categories,
+        Algebraic and Geometric Topology 4 (2004), 95-119.}
+       %\bibitem[Forcey, 2003]
+       %{forcey2}{S. Forcey, Higher Dimensional Enrichment, preprint math.CT/0306086, 2003.}
+        \bibitem[Kelly, 1982]{Kelly}{G. M. Kelly, Basic Concepts of Enriched Category Theory, London Math. 
+        Society Lecture Note Series 64, 1982.}
+        \bibitem[Litvinov and Sobolevskii, 2001]{LitSob}{G. Litvinov and A. Sobolevskii, Idempotent 
+        Interval Analysis and Optimization Problems, Reliable Computing, vol. 7, no. 5 (2001), 353-377.}
+       % \bibitem[Lyubashenko, 2003]{Lyub}{V. Lyubashenko, Category of $A_{\infty}$-categories, 
+       % Homology, Homotopy and Applications 5(1) (2003), 1-48.}
+        \bibitem[Mac Lane, 1998]{MacLane}{S. Mac Lane, Categories for the 
+        Working Mathematician 2nd. edition, Grad. Texts in Math. 5, 1998.}
+        \bibitem[Schr\"{o}der, 2003]{Schrod}{Bernd S.W. Schr\"{o}der, Ordered Sets, an Introduction, Birkh\"{a}user, 2003.} 
+        \bibitem[Speyer and Sturmfels, 2004]{Sturm}{D. Speyer and B. Sturmfels, Tropical Mathematics, preprint math.CO/0408099, 2004.}
+      \endrefs
+    
+\end{document}

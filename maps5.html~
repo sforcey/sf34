@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Hopf Zoo 5</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY TEXT="#000060" LINK="#00ffff" VLINK="#800080" BGCOLOR="#fffff3">
+
+<B><FONT FACE="Technical" SIZE=3><P>
+Part 5: Comparing Modules. 
+<hr>
+<a href="#fact">An alternate Hopf module.</a>
+<pre>
+</pre>
+<a href="#alg">The module is also a Hopf algebra.</a>
+<pre>
+</pre>
+<a href="#gen">Generating function magic.</a>
+<pre>
+</pre>
+<a href="http://faculty.tnstate.edu/sforcey/maps4.html"> Back to Part 4. </a>
+<pre>
+</pre>
+<a href="http://faculty.tnstate.edu/sforcey/class_home/research.htm"> Back to research page. </a>
+<HR>
+<B><FONT FACE="Technical" SIZE=4>
+
+<a name="fact" id="fact"></a>
+</B></FONT><P><IMG SRC="maps/malt.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="maps/malt2.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="maps/malt3.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<a name="alg" id="gen"></a>
+</B></FONT><P><IMG SRC="maps/malt4.jpg" ALIGN="MIDDLE"   ></P>
+<a name="gen" id="alg"></a>
+</B></FONT><P><IMG SRC="maps/mmgen1.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="maps/mmgen2.jpg" ALIGN="MIDDLE"   ></P>
+<P>&nbsp;</P>
+Source material for generating function magic includes:
+<a href="http://www.emis.de/journals/JIS/VOL8/Barry/barry84.html"> Paul Barry's paper</a> on the Catalan transform.
+<pre>
+</pre>
+<a href="http://faculty.tnstate.edu/sforcey/maps4.html"> Back to Part 4. </a>
+<pre>
+</pre>
+<a href="http://faculty.tnstate.edu/sforcey/class_home/research.htm"> Back to research page. </a>
+<B><P>Revision Date: </P>
+</B><P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>
