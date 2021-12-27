@@ -1,0 +1,345 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>grope constrained braids</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY TEXT="#000060" LINK="#00ffff" VLINK="#800080" BGCOLOR="#fffff3">
+
+<B><FONT FACE="Technical" SIZE=3><P>
+Grope constrained braids with associahedra indexing
+<hr>
+<a href="#Examples">Examples</a>
+<pre>
+</pre>
+ <a href="#Presentations">Presentations</a>
+<pre>
+</pre>
+ <a href="#Filtrations">Filtrations</a>  
+<pre>
+</pre>
+ <a href="#Intersections">Intersections</a>
+<pre>
+</pre>
+ <a href="#Brunnianbraids">Brunnian braids</a>
+<pre>
+</pre>
+ <a href="#Closing">Closing</a>
+<pre>
+</pre>
+ <a href="#Furtherinvestigation">Further investigation</a>
+<HR>
+There are famous connections between the derived and lower central series of the fundamental group of a topological space and grope
+inclusions into that space.
+The kth term in the derived series of the fundamental group of a space  consists of the elements which bound a map from 
+a grope of height k to the space. The kth term in the lower central series of the fundamental group of a space consists
+of the elements which bound a map from a grope of class k to the space.
+Braid groups of n strands arise as the fundamental groups of configuration spaces of n points in the two dimensional disk.
+ There are also hints of a geometrical characterization of the derived and lower central series of the braid groups. The subgroup of the pure
+braid group made up of  all pure braids such that all (pairwise)
+linking numbers of the closure of the braid are zero is the second lower
+central subgroup of the pure braid group.  In general, for the n-strand
+pure braid group, the Brunnian braids coincide with the (n-1)-st lower
+central subgroup up to link homotopy. (communication from J. Hughes)
+We will discuss a family of filtrations of the braid groups that illuminates connections between the known facts.
+We consider braids on n strands for which we are also given a facet f of K(n), the Stasheff associahedron, which determines a
+parenthetical partition
+of the strands.
+The Stasheff associahedra are combinatorial polytopes whose vertices correspond to the complete partitions of 
+  a string of given length. Higher dimensional faces correspond to incomplete partitions which are compatible along shared 
+  lower dimensional faces. Grope annuli of type corresponding to a binary tree are CW complexes made up of 
+  cylinders of any genus but with punctured tori iteratively attached along the meridians and longitudes 
+  of each doughnut hole in the 
+  cylinder according to the recipe encoded in the tree--right branch means longitude, left meridian. 
+  For our purposes the gropes will be embedded in standard form (unknotted and not self-linked) in a 3-manifold.
+<pre>
+</pre>
+So  we are considering B_n and we have chosen a facet f of K(n), the
+  Stasheff associahedron. Furthermore, for each pair of matched parentheses in the partition
+  of the string of length n that is associated to f, we are given a grope of type T represented
+  by a binary tree. The constrained braids are those which allow the strands in each partition to be contained 
+  in an annular grope of the given type for that partition. In other words for a set of strands whose initial "input" points 
+are enclosed by a pair
+  of matched parentheses we draw a  grope cylinder of the type associated to that pair of parentheses with 
+  one boundary surrounding the set of input points and the other the outputs, and 
+  require that no strands ever intersect the surface of the grope. The braid must also respect the partition
+  associated to f by having the output points of the strands 
+fall into the same partition, so that the braids for a given f and list of grope types form a subgroup of B_n.
+Examples will follow.
+<pre>
+</pre>
+
+  We wish to answer some fundamental questions about these subgroups, including finding a presentation for them,
+  arranging filtrations involving the grope types, finding intersections of subgroups involving various combinations
+  of associahedron facet and grope type, and relations of these subgroups to more familiar ones such as
+  Brunnian braids and commutator subgroups. Then we investigate the link types that arise as closed elements 
+  of grope constrained subgroups. In this context we would like to find or recognize invariants that reflect the
+  geometry of the constrained braids.  
+<pre>
+</pre>
+<HR>
+<a name="Examples" id="Examples"></a>
+
+Examples:
+<hr>
+</B></FONT><P><IMG SRC="gropet.jpg" ALIGN="MIDDLE" width="534" height="958"   ></P>
+</B></FONT><P><IMG SRC="grope2.jpg" ALIGN="MIDDLE" width="585" height="939"   ></P>
+Notice that in example two we allow intertwining of the grope constrained bundles of two strands. Thus in order
+to be a subgroup the strands must be allowed to be described as being constrained by mixed gropes of the two types
+in question. Alternatively we could simplify things by requiring that all subpartitions of a given type in the partition
+be assigned the same grope type.
+Note that in drawing the last example the strands at first appear non-monotonic, but this is 
+just an artifact of trying to show the grope as well as the strands. 
+<hr>
+<a name="Presentations" id="Presentations"></a>
+
+Presentations:
+<hr>
+Given a group extension G' of a group G by a group A, by which we mean a short exact sequence
+<pre>
+</pre>
+1 -> A -> G' -> G -> 1
+<pre>
+</pre>
+ and presentations of G and A,
+there is a simple recipe for a presentation of G'.
+<pre>
+</pre>
+In the case of a subgroup X_n of B_n we always have the
+exact sequence
+<pre>
+</pre>
+1 -> PX_n -> X_n -> SX_n -> 1
+<pre>
+</pre>
+where PX_n is the pure version of our subgroup X_n, i.e. intersection of X_n and P_n, and
+SX_n is the subgroup of permutations that can be achieved as the projections of braids
+in X_n onto the symmetric group.
+<pre>
+</pre>
+This reduces the problem of finding a presentation of a subgroup of constrained braids  
+to finding presentations for the corresponding pure constrained braids and permutations.
+It seems that this problem will vary from relatively simple to quite difficult
+based primarily on the complexity of the grope types and secondarily on the 
+number of strands. The hardest problems will correspond to facets of 
+codimension n/2 in K(n). For simple cases we can proceed straightforwardly.
+<pre> 
+</pre>
+
+Here is my conjecture about the generators of the pure braids in example 1 above.
+</B></FONT><P><IMG SRC="grope3.jpg" ALIGN="MIDDLE" width="517" height="1017"   ></P>
+Relations anyone?
+<pre>
+</pre>
+
+The subgroup of permutations will depend only on the facet of K(n).
+For the facet f = * ( * * ) * as in example 1, the permutation
+subgroup SB_4f^T is presented by < a, b | a^2 = b^2 = 1, ab = ba >
+<pre> 
+</pre>
+For another example, in K(5), consider the facet labled by ( * * )( * * * ). The permutation 
+subgroup is presented by < a, b_1, b_2 | b_1b_2b_1 = b_2b_1b_2, a^2 = (b_i)^2 = 1, ab_i = b_ia > where
+i = 1,2. a is the interchange on the first two positions, b_1 switches the first two in the second group, and
+b_2 switches the last two.
+<pre> 
+</pre>
+Lots more work to be done here! We would like to start with a facet of K(n) and a list of binary trees, add labels to string elements 
+and leaves, and then
+build a presentation out of those labels.
+</P>
+<hr>
+<a name="Filtrations" id="Filtrations"></a>
+
+Filtrations:
+<hr>
+Given a facet of K(n) it seems clear that there should be sequences of grope types that provide a filtration of
+the subgroup of B_n of braids for which the partition associated to the facet is preserved. These latter braids
+can be described as being "constrained" by arbitrary genus cylinders. The bottom of the
+filtration is given by the case in which all the grope types are trivial, that is, simply ordinary genus 0 cylinders.
+<pre> 
+</pre>
+Here is an example:
+</B></FONT><P><IMG SRC="grope4x.jpg" ALIGN="MIDDLE" width="649" height="986"   ></P>
+
+It will be necessary to prove a precise theorem about the sufficient complexity of a grope to be equivalent to an
+	   annuli given the number of strands or constrained groups of strands within and without it. 
+	   An initial conjecture is that any grope which includes surfaces attached to both longitudes and meridians is
+	   sufficiently complex for any strand configuration. This limits the available gropes to those with
+	   slopes of 1/2 and -1/2. In these, for n outside strands, we conjecture that the height must be larger than
+	   n for the grope to be sufficiently complex.
+<pre>
+</pre>
+Also, given a fixed grope type, we should be able to find a filtration of B_n based on inclusion in K(n).
+<pre> 
+</pre>
+Here is an example:
+</B></FONT><P><IMG SRC="grope5.jpg" ALIGN="MIDDLE" width="649" height="644"   ></P>
+We would like to understand more fully the general case, and also to relate this to other filtrations of B_n
+such as the weight filtration and the Vassiliev filtration.
+
+There is some potential for the filtrations above to be combined into a very comprehensive 
+           family of filtrations of B_n. This is in done by beginning with a 
+           complete parenthization of the strands, corresponding to a vertex
+           of the associahedron. Then we construct an (n-2)-dimensional array where (n-2) is the number of pairs of parentheses.
+           The positions in the array correspond to choices of grope type 
+           for each pair of parentheses, ordered by increasing complexity. Thus the
+           first position in the array corresponds to the trivial any genus 
+           grope for each pair of parentheses, and gives B_n itself. Moving in any 
+           direction as long as the array indices increase or remain constant
+           means we pass from a group to one of its  subgroups. Eventually 
+           by increasing the array index for any pair of parentheses the grope 
+           type will be complex enough to be considered a simple annulus for the purposes
+           of the constrained braid. The limit in all indices then is the 
+           completely constrained braid relative to the complete parenthization--all the gropes are
+           simple annuli.
+<hr>
+<a name="Intersections" id="Intersections"></a>
+
+Intersections:
+<hr>
+Notice as in the following example that a braid is often found in two different nontrivial constrained forms.
+</B></FONT><P><IMG SRC="grope6.jpg" ALIGN="MIDDLE" width="661" height="424"   ></P>
+We would like to know when to expect this sort of overlap, whether or not the intersection is
+a subgroup in turn, and how to achieve its presentation
+<hr>
+<a name="Brunnianbraids" id="Brunnianbraids"></a>
+
+Brunnian braids:
+<hr>
+Notice how Brunnian braids are often found as constrained pure braids. Some examples:
+</B></FONT><P><IMG SRC="grope7a.jpg" ALIGN="MIDDLE" width="189" height="829"   ></P>
+We would like to know if this is always true. Naively it is due to the way that
+the constraining grope allows only "cancelling interaction" between the strands inside it and out.
+That is, such pairs of separated strands have relative winding numbers of 0. More broadly,
+this hints at a relationship with the commutatator subgroup and central series of subgroups of B_n.
+Here is an example of a constrained braid (from the subgroup in example 1) that lies in the second lower central subgroup of the
+pure braid group P_4.  
+</B></FONT><P><IMG SRC="grope7b.jpg" ALIGN="MIDDLE" width="225" height="941"   ></P>
+This braid also exemplifies a generalization of the Brunnian braids known as the k-trivial or k-decomposable braids, in which 
+deletion of any k strands results in a trivial braid. Specifically, deletion of any two strands in the above results in a trivial
+braid. Here is another 2-trivial braid that is constrained by nested gropes.
+</B></FONT><P><IMG SRC="triv2.jpg" ALIGN="MIDDLE" width="450" height="658"   ></P>
+<hr>
+<a name="Closing" id="Closing"></a>
+
+Closing:
+<hr>
+The closure of a constrained braid is a representation of a constrained knot or link.
+To be a knot the partition of the strands must be "homogenous" by which we mean a partition
+into subsets of strands of equal cardinality. Otherwise, in order to respect the partition the 
+braid is forced into having a closure with multiple components. Here is
+an example of a simple closed constrained braid that is a recognizable
+knot--the connected sum of a figure eight and a trefoil. 
+</B></FONT><P><IMG SRC="grope8.jpg" ALIGN="MIDDLE" width="525" height="626"   ></P>
+
+ We would like to find invariants that would reflect the
+grope constraint. Upon inspecting a braid diagram and determining that it respects partitions (from a certain chain of included facets   
+in the appropriate associahedron) we would like to use the diagram to calculate an invariant that could tell what
+grope types the braid also respects. This would be of interest especially if it afforded a new geometric understanding of 
+existing well known invariants.  
+<hr>
+<a name="Furtherinvestigation" id="Furtherinvestigation"></a>
+
+Further investigation:
+<hr>
+1. Subcategories of the free braided category on one object: Objects of the category are partitioned strings of the one object.
+The
+strands making up a morphism would be required to
+obey grope constraining. The braid need not however respect the partition exactly, since we do not require that all
+morphisms be composable. Morphisms then exist between objects that have the same string length and  congruent partitioning, such as
+<pre>
+</pre>*(**)(**) -> (**)*(**)
+<pre>
+</pre>or *((***)*)(**) -> (**)(*(***))*.
+<pre>
+</pre>
+2. Grope constrained string links and tangles. The string links are braids without the monotonicity requirement, and thus without
+existense of inverses. Tangles also allow a strand to begin and end at the same level, or to be a circle. 
+<pre>
+</pre>
+3.    There are several intimate connections between the lower central series of pure braid groups, homotopy theory, and Vassiliev invariants.
+We hope to shed light on some outstanding related mysteries in part by investigating subgroups of braids constrained by gropes. 
+<pre>
+</pre>
+
+a.
+
+Fact: for two knots K1 and K2 the following are equivalent:
+<pre>
+</pre>
+
+(i)   They have the same finite type invariants of Vassiliev degree < n
+<pre>
+</pre>
+(ii)  They are cobordant by a grope of class n
+<pre>
+</pre>
+(iii) K1 = the closure of a braid b and K2 = the closure of pb, where p is in LCS_n(P_k)
+<pre>
+</pre>
+
+Now since P_k is the fundamental group of Config(D^2, k), p is thus the boundary of the image of 
+a grope of class n mapped continuously into Config(D^2,k).
+<pre>
+</pre>
+   
+Question: whether there is any direct relation between the two gropes of class n that occur above?
+Of course there may be more than two in question since both theorems state existence--but it would be neat if the same grope
+was shown to occur in both contexts. It appears that any braid p in LCS_n(P_k) occurs in one or more grope constrained subgroups.
+Perhaps this latter grope can be compared to the others.
+<pre>
+</pre>
+
+Plan: show the relation between the filtrations given by grope constraints and the lower central series.
+Especially relate the grope constrained groups to the special subgroups in the descending series, Brunnian
+braids and the more general k-trivial braids. Then look for canonical cobordisms and continuous maps respectively
+using and from the constraining gropes in question.
+<pre>
+</pre>
+ 
+b.
+
+Facts: for n>3 the pure braid groups over S^2, with face maps deletion of strands and degeneracies doubling of strands form a
+simplicial group with geometric completion of the homotopy type of S^2.  There is a surjection from the Brunnian braids on n
+strands to the nth homotopy group of S^2. The nth homotopy group of S^3 is given by a quotient of the Brunnian braids on
+n strands over S^2. The Brunnian braids are cycles in the simplicial group, the subgroup we divide by is of boundaries.
+Brunnian braids occur as grope constrained braids.
+<pre>
+</pre>
+
+Question: Fred Cohen asks for a natural geometric meaning of the above mentioned boundary braids. 
+<pre>
+</pre>
+
+Plan: Look among the braids constrained by nested gropes  for cycles and boundaries. If this can be made to fit the
+framework for discovering the homotopy groups of S^3 attempt to generalize the process and look for relations between
+the quotients of grope constrained subgroups of braids over S^n and the homotopy groups of S^n+1.
+<pre>
+</pre>
+
+
+c. 
+
+Fact: a 1+1 dimensional topological quantum field theory can be given by a choice of vectors in a finite dim. vector space V
+for the disk, in V*V for the annulus, and in V*V*V for the pair of pants. 
+<pre>
+</pre>
+
+Question: we would like to formulate TQFT versions of finite type invariants  by describing a field theory of 
+grope cobordisms.
+<pre>
+</pre>
+
+Plan: We need only show how to assign an invariant to a grope annulus, since a grope trinion and a grope disk can both be
+cut into a grope annulus and an ordinary trinion or disk repectively. We propose then to assign to a grope annulus the
+group cohomology of the n-strand constrained subgroup of B_n associated to the grope type.  
+<hr>
+<P>&nbsp;</P>
+<a href="http://www.math.uakron.edu/~sf34/class_home/research.htm"> Back to research page. </a>
+<B><P>Revision Date: </P>
+</B><P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>
+
+

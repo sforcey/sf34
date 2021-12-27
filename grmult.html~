@@ -1,0 +1,183 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>graph multiplihedra</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY TEXT="#000060" LINK="#00ffff" VLINK="#800080" BGCOLOR="#fffff3">
+
+<B><FONT FACE="Technical" SIZE=3><P>
+Graph Multiplihedra -- a tentative beginning. 
+<hr>
+<a href="#algonew">A new algorithm for convex hulls of graph associahedra.</a>
+<pre>
+</pre>
+<a href="#qalgo">An algorithm for convex hulls of graph multilihedra.</a>
+<pre>
+</pre>
+ <a href="#examples">Some 3-d examples of graph multiplihedra.</a>  
+<pre>
+</pre>
+ <a href="#poset">The full poset structure of painted tubes.</a>  
+<pre>
+</pre>
+ <a href="#multicylco">The 4-d multicyclohedron.</a>
+<pre>
+</pre>
+<a href="http://faculty.tnstate.edu/sforcey/class_home/research.htm"> Back to research page. </a>
+<HR>
+<B><FONT FACE="Technical" SIZE=4><P>Here are some notes about graph multiplihedra. The two key sources are S. Devadoss's 	<a href="http://www.williams.edu/go/math/devadoss/research.html">
+	two papers   </a> on graph associahedra, and S.Forcey's <a href="http://faculty.tnstate.edu/sforcey/multi.pdf">
+	paper   </a> on multiplihedra. In fact, the following notes assume that you have first read and enjoyed the excellent short paper by Devadoss <a href="http://www.williams.edu/go/math/devadoss/files/realization.pdf">
+	here.   </a>   </P> 
+
+<a name="algonew" id="algonew"></a>
+</B></FONT><P><IMG SRC="grmult1.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grmult2.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grmult3.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P>Note that the tubing above is missing its outermost colored tube. Exercise: what color must that outer tube be?</P>
+<a name="qalgo" id="qalgo"></a>
+</B></FONT><P><IMG SRC="grmult4.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grmult5.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<a name="examples" id="examples"></a>
+</B></FONT><P><IMG SRC="grmult6.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grmult7.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<a name="poset" id="poset"></a>
+</B></FONT><P><IMG SRC="grmult8.jpg" ALIGN="MIDDLE"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P>Also note that the only rule is as follows: If a tube x contains any red at all then x itself must be red.  </P>
+<FONT FACE="Technical" SIZE=4><P>&nbsp;</P>
+
+<!<applet  
+<!		  archive="jars/jvLite.jar"
+<!                  code="jvLite.class"
+<!		  width="400" 
+<!		  height="400" 
+<!		  >
+<!		  <param name=Model value="multicyclohedron.jvx">
+<!</applet>
+<a name="multicylco" id="multicylco"></a>
+Here is a Schlegel diagram for the graph multiplihedra of the cycle of four vertices. The polytope has 104 vertices and  28 facets. Is it simple?
+</B></FONT><P><IMG SRC="multicyclohedron.gif" ALIGN="MIDDLE"   ></P>
+Here are the vertices of the above "multicyclohedron" to be entered into the 
+	<a href="http://www.math.tu-berlin.de/polymake/index.html#apps/webdemo.html">
+		web demo of polymake   </a> in order to see a rotatable version.
+	<br>
+	POINTS<br>
+	1 1 7 1 4<br>
+	1 1 4 1 7<br>
+	1 7 1 4 1<br>
+	1 4 1 7 1<br>
+	1 3 7 1 2<br>
+	1 7 1 2 3 <br>
+	1 1 2 3 7<br>
+	1 2 3 7 1<br>
+	1 3 2 1 7<br>
+	1 2 1 7 3<br>
+	1 1 7 3 2<br>
+	1 7 3 2 1<br>
+	1 7 3 1 2<br>
+	1 3 1 2 7<br>
+	1 1 2 7 3<br>
+	1 2 7 3 1<br>
+	1 7 2 1 3<br>
+	1 2 1 3 7<br>
+	1 1 3 7 2<br>
+	1 3 7 2 1<br>
+	1 1/2 7 1 4<br>
+	1 1/2 4 1 7<br>
+	1 7 1/2 4 1<br>
+	1 4 1/2 7 1<br>
+	1 3 7 1/2 2<br>
+	1 7 1/2 2 3 <br>
+	1 1/2 2 3 7<br>
+	1 2 3 7 1/2<br>
+	1 3 2 1/2 7<br>
+	1 2 1/2 7 3<br>
+	1 1/2 7 3 2<br>
+	1 7 3 2 1/2<br>
+	1 7 3 1/2 2<br>
+	1 3 1/2 2 7<br>
+	1 1/2 2 7 3<br>
+	1 2 7 3 1/2<br>
+	1 7 2 1/2 3<br>
+	1 2 1/2 3 7<br>
+	1 1/2 3 7 2<br>
+	1 3 7 2 1/2<br>
+	1 1 7 1/2 4<br>
+	1 1 4 1/2 7<br>
+	1 7 1 4 1/2<br>
+	1 4 1 7 1/2<br>
+	1 3 7 1/2 2/2<br>
+	1 7 1/2 2/2 3 <br>
+	1 1/2 2/2 3 7<br>
+	1 2/2 3 7 1/2<br>
+	1 3 2/2 1/2 7<br>
+	1 2/2 1/2 7 3<br>
+	1 1/2 7 3 2/2<br>
+	1 7 3 2/2 1/2<br>
+	1 7 3 1/2 2/2<br>
+	1 3 1/2 2/2 7<br>
+	1 1/2 2/2 7 3<br>
+	1 2/2 7 3 1/2<br>
+	1 7 2/2 1/2 3<br>
+	1 2/2 1/2 3 7<br>
+	1 1/2 3 7 2/2<br>
+	1 3 7 2/2 1/2<br>
+	1 1/2 7 1/2 4<br>
+	1 1/2 4 1/2 7<br>
+	1 7 1/2 4 1/2<br>
+	1 4 1/2 7 1/2<br>
+	1 3/2 7 1/2 2/2<br>
+	1 7 1/2 2/2 3/2 <br>
+	1 1/2 2/2 3/2 7<br>
+	1 2/2 3/2 7 1/2<br>
+	1 3/2 2/2 1/2 7<br>
+	1 2/2 1/2 7 3/2<br>
+	1 1/2 7 3/2 2/2<br>
+	1 7 3/2 2/2 1/2<br>
+	1 7 3/2 1/2 2/2<br>
+	1 3/2 1/2 2/2 7<br>
+	1 1/2 2/2 7 3/2<br>
+	1 2/2 7 3/2 1/2<br>
+	1 7 2/2 1/2 3/2<br>
+	1 2/2 1/2 3/2 7<br>
+	1 1/2 3/2 7 2/2<br>
+	1 3/2 7 2/2 1/2<br>
+	1 1/2 7 1/2 4/2<br>
+	1 1/2 4/2 1/2 7<br>
+	1 7 1/2 4/2 1/2<br>
+	1 4/2 1/2 7 1/2<br>
+	1 3/2 7/2 1/2 2/2<br>
+	1 7/2 1/2 2/2 3/2 <br>
+	1 1/2 2/2 3/2 7/2<br>
+	1 2/2 3/2 7/2 1/2<br>
+	1 3/2 2/2 1/2 7/2<br>
+	1 2/2 1/2 7/2 3/2<br>
+	1 1/2 7/2 3/2 2/2<br>
+	1 7/2 3/2 2/2 1/2<br>
+	1 7/2 3/2 1/2 2/2<br>
+	1 3/2 1/2 2/2 7/2<br>
+	1 1/2 2/2 7/2 3/2<br>
+	1 2/2 7/2 3/2 1/2<br>
+	1 7/2 2/2 1/2 3/2<br>
+	1 2/2 1/2 3/2 7/2<br>
+	1 1/2 3/2 7/2 2/2<br>
+	1 3/2 7/2 2/2 1/2<br>
+	1 1/2 7/2 1/2 4/2<br>
+	1 1/2 4/2 1/2 7/2<br>
+	1 7/2 1/2 4/2 1/2<br>
+	1 4/2 1/2 7/2 1/2<br>
+	<br>
+	<P>&nbsp;</P>
+<a href="http://faculty.tnstate.edu/sforcey/class_home/research.htm"> Back to research page. </a>
+<B><P>Revision Date: </P>
+</B><P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>

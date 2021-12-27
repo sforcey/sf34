@@ -1,0 +1,236 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>graph multiplihedra</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY TEXT="#000060" LINK="#00ffff" VLINK="#800080" BGCOLOR="#fffff3">
+
+<B><FONT FACE="Technical" SIZE=3><P>
+Graph Multiplihedra -- a tentative beginning. 
+<hr>
+<a href="#algonew">A new algorithm for convex hulls of graph associahedra.</a>
+<pre>
+</pre>
+<a href="#qalgo">An algorithm for convex hulls of graph multilihedra.</a>
+<pre>
+</pre>
+ <a href="#examples">Some 3-d examples of graph multiplihedra.</a>  
+<pre>
+</pre>
+ <a href="#multicylco">The 4-d multicyclohedron.</a>
+<pre>
+</pre>
+ <a href="#grcomp">Graph composihedra and opposihedra/cubohedra: quotients of the multiplihedra.</a>
+<pre>
+</pre>
+ <a href="#realize">Realizing quotients of the multiplihedra.</a>
+ <pre>
+</pre>
+ <a href="#poset">The full poset structure of painted tubes.</a>  
+<pre>
+</pre>
+ <a href="#append">Appendix: vertices of the multicyclohedron.</a>
+<pre>
+</pre>
+<a href="http://www.math.uakron.edu/~sf34/class_home/research.htm"> Back to research page. </a>
+<HR>
+<B><FONT FACE="Technical" SIZE=4><P>Here are some notes about graph multiplihedra. The two key sources are S. Devadoss's 	<a href="http://www.williams.edu/go/math/devadoss/research.html">
+	two papers   </a> on graph associahedra, and S.Forcey's <a href="http://www.math.uakron.edu/~sf34/multi.pdf">
+	paper   </a> on multiplihedra. In fact, the following notes assume that you have first read and enjoyed the excellent short paper by Devadoss <a href="http://www.williams.edu/go/math/devadoss/files/realization.pdf">
+	here.   </a>   </P> 
+
+<a name="algonew" id="algonew"></a>
+</B></FONT><P><IMG SRC="grmult1.jpg" ALIGN="MIDDLE" width="681" height="890"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grmult2.jpg" ALIGN="MIDDLE" width="671" height="874"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grmult3.jpg" ALIGN="MIDDLE" width="681" height="818"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P>Note that the tubing above is missing its outermost colored tube. Exercise: what color must that outer tube be?</P>
+<a name="qalgo" id="qalgo"></a>
+</B></FONT><P><IMG SRC="grmult4.jpg" ALIGN="MIDDLE" width="681" height="864"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grmult5.jpg" ALIGN="MIDDLE" width="681" height="877"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<a name="examples" id="examples"></a>
+</B></FONT><P><IMG SRC="grmult6.jpg" ALIGN="MIDDLE" width="681" height="851"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grmult7.jpg" ALIGN="MIDDLE" width="681" height="766"   ></P>
+<FONT FACE="Technical" SIZE=4><P>&nbsp;</P>
+
+<!<applet  
+<!		  archive="jars/jvLite.jar"
+<!                  code="jvLite.class"
+<!		  width="400" 
+<!		  height="400" 
+<!		  >
+<!		  <param name=Model value="multicyclohedron.jvx">
+<!</applet>
+<a name="multicylco" id="multicylco"></a>
+Here is a Schlegel diagram for the graph multiplihedra of the cycle of four vertices. The polytope has 104 vertices and  28 facets. Is it simple?
+</B></FONT><P><IMG SRC="multicyclohedron.gif" ALIGN="MIDDLE" width="1024" height="692"   ></P>
+<a name="grcomp" id="grcomp"></a>
+In the following notes the naming is not yet final. It turns out that Satyan Devadoss and his students
+actually discovered what are called here the graph opposihedra some time ago; in their work on configuration spaces.
+They called these polytopes cubohedra, since they are truncations of cubes.
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grcomp1.jpg" ALIGN="MIDDLE" width="666" height="958"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grcomp2.jpg" ALIGN="MIDDLE" width="701" height="734"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grcomp3.jpg" ALIGN="MIDDLE" width="668" height="865"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+</B></FONT><P><IMG SRC="grcomp4.jpg" ALIGN="MIDDLE" width="662" height="850"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P>
+Note that the cubohedra/opposihedra for the usual associahedra K(n) is K(n+1). 
+Is the final target always an n-dimensional cube, for n the number of graph nodes? 
+This question might be equivalent to the question of the veracity of 
+the following equation: v(OK(G))-v(J(G))+v(CK(G))=2^n, where v(X) gives the number of vertices.
+ </P>
+<a name="realize" id="realize"></a>
+The following notes are about realizing the above quotient polytopes as convex hulls. 
+</B></FONT><P><IMG SRC="qst2.jpg" ALIGN="MIDDLE" width="662" height="850"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P>
+Above we see a square for q in (0,1), allowing s and t to range over [0,1]. (s stands for
+source and t for target. Note that s=0 corresponds to an associative source and t = 0 to an associative target.
+Two pages below we see the full picture, also allowing q to range over [0,1]. New polytopes are introduced! But 
+first here is the calculation of points for all three parameters  exactly one half.
+</B></FONT><P><IMG SRC="qishalf.jpg" ALIGN="MIDDLE" width="662" height="850"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P>
+</B></FONT><P><IMG SRC="qcube.jpg" ALIGN="MIDDLE" width="581" height="374"  ></P>
+<B><FONT FACE="Technical" SIZE=4><P>
+Here is the drawing of actual points calculated for q=1, and various values of s and t. 
+All the five important polytopes appear: associahedron, cubohedron (here K(n+1)), composihedron, multiplihedron,
+and cube. There are also four new polytopes, which are the top and bottom halves of the cube 
+and the multiplihedron 
+when the associahedron is seen as a cross section of the cube (respectively the multiplihedron). 
+Does this also happen for higher dimensions? 
+</B></FONT><P><IMG SRC="qisone.jpg" ALIGN="MIDDLE" width="662" height="850"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P></P>
+<a name="poset" id="poset"></a>
+</B></FONT><P><IMG SRC="grmult8.jpg" ALIGN="MIDDLE" width="681" height="657"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P>Also note that the only rule is as follows:
+ If a tube x contains any red at all then x itself must be red.  </P>
+</B></FONT><P><IMG SRC="grmult2a.jpg" ALIGN="MIDDLE" width="681" height="657"   ></P>
+</B></FONT><P><IMG SRC="grmult2b.jpg" ALIGN="MIDDLE" width="681" height="657"   ></P>
+</B></FONT><P><IMG SRC="grmult2c.jpg" ALIGN="MIDDLE" width="681" height="657"   ></P>
+</B></FONT><P><IMG SRC="grmult2d.jpg" ALIGN="MIDDLE" width="681" height="657"   ></P>
+<B><FONT FACE="Technical" SIZE=4><P>
+<a name="append" id="append"></a>
+Here are the vertices of the above "multicyclohedron" to be entered into the 
+	<a href="http://www.math.tu-berlin.de/polymake/index.html#apps/webdemo.html">
+		web demo of polymake   </a> in order to see a rotatable version.
+	<br>
+	POINTS<br>
+	1 1 7 1 4<br>
+	1 1 4 1 7<br>
+	1 7 1 4 1<br>
+	1 4 1 7 1<br>
+	1 3 7 1 2<br>
+	1 7 1 2 3 <br>
+	1 1 2 3 7<br>
+	1 2 3 7 1<br>
+	1 3 2 1 7<br>
+	1 2 1 7 3<br>
+	1 1 7 3 2<br>
+	1 7 3 2 1<br>
+	1 7 3 1 2<br>
+	1 3 1 2 7<br>
+	1 1 2 7 3<br>
+	1 2 7 3 1<br>
+	1 7 2 1 3<br>
+	1 2 1 3 7<br>
+	1 1 3 7 2<br>
+	1 3 7 2 1<br>
+	1 1/2 7 1 4<br>
+	1 1/2 4 1 7<br>
+	1 7 1/2 4 1<br>
+	1 4 1/2 7 1<br>
+	1 3 7 1/2 2<br>
+	1 7 1/2 2 3 <br>
+	1 1/2 2 3 7<br>
+	1 2 3 7 1/2<br>
+	1 3 2 1/2 7<br>
+	1 2 1/2 7 3<br>
+	1 1/2 7 3 2<br>
+	1 7 3 2 1/2<br>
+	1 7 3 1/2 2<br>
+	1 3 1/2 2 7<br>
+	1 1/2 2 7 3<br>
+	1 2 7 3 1/2<br>
+	1 7 2 1/2 3<br>
+	1 2 1/2 3 7<br>
+	1 1/2 3 7 2<br>
+	1 3 7 2 1/2<br>
+	1 1 7 1/2 4<br>
+	1 1 4 1/2 7<br>
+	1 7 1 4 1/2<br>
+	1 4 1 7 1/2<br>
+	1 3 7 1/2 2/2<br>
+	1 7 1/2 2/2 3 <br>
+	1 1/2 2/2 3 7<br>
+	1 2/2 3 7 1/2<br>
+	1 3 2/2 1/2 7<br>
+	1 2/2 1/2 7 3<br>
+	1 1/2 7 3 2/2<br>
+	1 7 3 2/2 1/2<br>
+	1 7 3 1/2 2/2<br>
+	1 3 1/2 2/2 7<br>
+	1 1/2 2/2 7 3<br>
+	1 2/2 7 3 1/2<br>
+	1 7 2/2 1/2 3<br>
+	1 2/2 1/2 3 7<br>
+	1 1/2 3 7 2/2<br>
+	1 3 7 2/2 1/2<br>
+	1 1/2 7 1/2 4<br>
+	1 1/2 4 1/2 7<br>
+	1 7 1/2 4 1/2<br>
+	1 4 1/2 7 1/2<br>
+	1 3/2 7 1/2 2/2<br>
+	1 7 1/2 2/2 3/2 <br>
+	1 1/2 2/2 3/2 7<br>
+	1 2/2 3/2 7 1/2<br>
+	1 3/2 2/2 1/2 7<br>
+	1 2/2 1/2 7 3/2<br>
+	1 1/2 7 3/2 2/2<br>
+	1 7 3/2 2/2 1/2<br>
+	1 7 3/2 1/2 2/2<br>
+	1 3/2 1/2 2/2 7<br>
+	1 1/2 2/2 7 3/2<br>
+	1 2/2 7 3/2 1/2<br>
+	1 7 2/2 1/2 3/2<br>
+	1 2/2 1/2 3/2 7<br>
+	1 1/2 3/2 7 2/2<br>
+	1 3/2 7 2/2 1/2<br>
+	1 1/2 7 1/2 4/2<br>
+	1 1/2 4/2 1/2 7<br>
+	1 7 1/2 4/2 1/2<br>
+	1 4/2 1/2 7 1/2<br>
+	1 3/2 7/2 1/2 2/2<br>
+	1 7/2 1/2 2/2 3/2 <br>
+	1 1/2 2/2 3/2 7/2<br>
+	1 2/2 3/2 7/2 1/2<br>
+	1 3/2 2/2 1/2 7/2<br>
+	1 2/2 1/2 7/2 3/2<br>
+	1 1/2 7/2 3/2 2/2<br>
+	1 7/2 3/2 2/2 1/2<br>
+	1 7/2 3/2 1/2 2/2<br>
+	1 3/2 1/2 2/2 7/2<br>
+	1 1/2 2/2 7/2 3/2<br>
+	1 2/2 7/2 3/2 1/2<br>
+	1 7/2 2/2 1/2 3/2<br>
+	1 2/2 1/2 3/2 7/2<br>
+	1 1/2 3/2 7/2 2/2<br>
+	1 3/2 7/2 2/2 1/2<br>
+	1 1/2 7/2 1/2 4/2<br>
+	1 1/2 4/2 1/2 7/2<br>
+	1 7/2 1/2 4/2 1/2<br>
+	1 4/2 1/2 7/2 1/2<br>
+	<br>
+	<P>&nbsp;</P>
+<a href="http://www.math.uakron.edu/~sf34/class_home/research.htm"> Back to research page. </a>
+<B><P>Revision Date: </P>
+</B><P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>
