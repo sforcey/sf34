@@ -1,0 +1,21 @@
+def compte_saneblidze(n):
+    """
+    compte les sommets du polytope de Saneblidze
+
+    selon Loday
+
+    on trouve
+
+    2, 5, 12, 29, 72, 185
+    """
+    W = Words("m0p", n)
+
+    def good(w):
+        if w[0] == '0':
+            return False
+        idx = Word('0').first_pos_in(w)
+        if not(idx is None):
+            return w[:idx] == Word('p' * idx)
+        return True
+
+    return len([w for w in W if good(w)])

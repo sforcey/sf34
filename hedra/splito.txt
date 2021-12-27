@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Hedra Zoo: Splitohedron</TITLE>
+<style type="text/css">
+img {
+  border-color:#fffff3; 
+  border-style:solid
+}
+</style>
+</HEAD>
+
+<BODY TEXT="#000060" BGCOLOR="#fffff3">
+<!-- LINK="#00ffff" VLINK="#800080" -->
+This page is an entry in an 
+<B><FONT FACE="Technical" SIZE=5><P>
+Encyclopedia of Combinatorial Polytope Sequences<br>
+<B><FONT FACE="Technical" SIZE=4>
+<hr>
+<br>
+<a href="http://www.math.uakron.edu/~sf34/hedra.htm#splito"> Back to big table. </a>
+<HR>
+<B><FONT FACE="Technical" SIZE=3>
+ <br>
+
+<a name="splito" id="splito">Splitohedron</a>
+<table cols=3 cellpadding=25>
+<tbody>
+<td>
+<a href="http://www.math.uakron.edu/~sf34/hedra/bme.htm">
+	<img  src="triangle.gif"> </a> <br>
+(No 3d term.)<br>
+[<a href = "http://www.math.uakron.edu/~sf34/hedra/polymake_for_splito.txt">polymake for <em>n</em>=5,6</a>]<br>
+[<a href = "http://www.math.uakron.edu/~sf34/hedra/BNBtest.m">MatLab code for running <em>PolySplit</em></a>]<br>
+[<a href = "http://www.math.uakron.edu/~sf34/hedra/BMEineq.m">also need <em>matrix generator</em></a>]<br>
+[<a href = "http://www.math.uakron.edu/~sf34/hedra/DILP1.m">and    <em>branch and bound algorithm</em></a>]<br>
+[<a href = "http://www.math.uakron.edu/~sf34/hedra/distance.m">and    <em>distance algorithm</em></a>]<br>
+[<a href = "http://www.math.uakron.edu/~sf34/hedra/RFmetric.m">and    <em>RF-metric algorithm</em></a>]<br>
+</td>
+<td> 
+<br>
+• Splitohedra <em> Sp_n </em> [<a href = "https://arxiv.org/abs/1608.01622">arxiv</a>] (S. Forcey, L. Keefe, W. Sands)
+<br>
+• relaxation of the  <a href="#BME">Balanced Minimal Evolution Polytope</a> BME(n).<br>
+• intersection of half-spaces{<em>split-facets, intersecting cherry faces, <br>caterpillar facets and the cherry clade-faces</em>} from BME(n)<br> and also obeying the {<em>Kraft equalities</em>}. <br>
+<td>
+• Dimensions (start <em>n</em> =3): <br> 0, 2, 5, 9, 14 ... <em>(n choose 2)-n</em><br>
+• Number of Vertices in <em>nth</em> polytope:<br>1, 3, 27, 2335, ... OPEN [<a href = "http://oeis.org/search?q=1%2C+3%2C+27%2C+2335&sort=&language=&go=Search"> OEIS ?</a>]<br>
+• Number of Facets:<br> 0, 3, 40, 85, 161 ... <em>(2^n+n^3-3n^2-2)/2</em>[<a href = "http://oeis.org/search?q=3%2C+40%2C+85&sort=&language=&go=Search"> OEIS ?</a>]<br>
+• f-vectors: <br> 1, 3, 3, 1, 27, 165, 310, 210, 40, 1, 2335, ... [<a href = "http://oeis.org/search?q=3%2C+3%2C+1%2C+27%2C+165%2C+310%2C+210%2C+40&sort=&language=&go=Search"> OEIS ?</a>]
+</td>
+</tbody>
+</table>
+
+
+<h5><a href="http://www.math.uakron.edu/~sf34/hedra.htm#top">top</a> &nbsp&nbsp  <a href="http://www.math.uakron.edu/~sf34/hedra.htm#index">index</a> </h5> 
+<HR>
+
+<P>&nbsp;</P></FONT></BODY>
+</HTML>
