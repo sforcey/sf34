@@ -1,0 +1,175 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Last Edited 07/14/08 by SD
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt]{amsart}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+%\usepackage{fullpage}
+\usepackage[all]{xy}
+\xyoption{v2} \xyoption{knot}
+
+\let\url=\undefined
+\usepackage
+[bookmarks,colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue] {hyperref}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Group Notation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\PGL} {\Pj\Gl_2(\R)}                           %PGL_2(R)
+\newcommand{\PGLC} {\Pj\Gl_2(\C)}                          %PGL_2(C)
+\newcommand{\RP} {\R\Pj^1}                                 %RP^1
+\newcommand{\CP} {\C\Pj^1}                                 %CP^1
+\newcommand{\C} {{\mathbb C}}                              %complex
+\newcommand{\R} {{\mathbb R}}                              %reals
+\newcommand{\Z} {{\mathbb Z}}                              %integers
+\newcommand{\Pj} {{\mathbb P}}                             %projective space
+\newcommand{\Sg} {{\mathbb S}}                             %symmetric group
+\newcommand{\Gl} {{\rm Gl}}                                %g.linear group
+
+\newcommand{\suchthat} {\:\: | \:\:}
+\newcommand{\ore} {\ \ {\it or} \ \ }
+\newcommand{\oand} {\ \ {\it and} \ \ }
+
+\newcommand{\oM} [1] {\ensuremath{{\mathcal M}_{0,#1}(\R)}}                 %open
+\newcommand{\M} [1] {\ensuremath{{\overline{\mathcal M}}{_{0, #1}(\R)}}}    %compact DMK
+\newcommand{\cM} [1] {\ensuremath{{\mathcal M}_{0,#1}}}                     %open
+\newcommand{\CM} [1] {\ensuremath{{\overline{\mathcal M}}{_{0, #1}}}}       %compact DMK
+
+\newcommand{\Tubeset} {\mathfrak{T}}                                        %set of all tubings
+
+\newcommand{\D} {\Delta}
+\newcommand{\K} {\mathcal{K}}                           %Polytope
+\newcommand{\J} {\mathcal{J}}
+
+\newcommand{\sm}{\varepsilon}
+
+\newcommand{\rec}[1] {G^*(#1)}                  %reconnected complement
+
+\newcommand{\KG} {{\K} G}
+\newcommand{\JG} {{\J} G}                %graph multiplihedra
+
+\newcommand{\temp} {\nabla}
+%\newcommand{\temp} {\underline{\mathbf{\Delta}}}
+\newcommand{\JGr} {\JG_r}
+\newcommand{\JGd} {\JG_d}
+
+
+\newcommand{\tubeA}{\raisebox{-.5ex}{\scalebox{.27}{\includegraphics{signat.pdf}}}}
+\newcommand{\tubeB}{\raisebox{-.6ex}{\scalebox{.2}{\includegraphics{ribbon.pdf}}}}
+\newcommand{\tubeC}{\raisebox{-.6ex}{\includegraphics{tube-C.eps}}}
+
+\def\cal#1{\mathcal{#1}}
+\newcommand{\bcal}[1]{\mbox{\boldmath${\cal {#1}}$}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  paper formatting
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{conj}[thm]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{exmp}{Example}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{hnote}{Historical Note}
+\newtheorem*{nota}{Notation}
+\newtheorem*{ack}{Acknowledgments}
+\numberwithin{equation}{section}
+
+
+
+
+
+\keywords{multiplihedron, graph associahedron, realization, convex hull}
+
+%\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%NOTE: The \baselineskip=15pt below is the minimum needed to make the paper look decent.
+%      There are many superscripts {\tilde, \overline} which cause erratic
+%      spaces between sentences. \baselineskip corrects these problems.  Also see the
+%      \baselineskip=12pt by References.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\baselineskip=14pt
+
+
+\begin{document}
+%\pagestyle{myheadings} \markboth{}{} \noindent \thispagestyle{empty}
+%\vspace{0.5cm}
+\noindent October 24, 2008\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{
+}\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\ \tubeB
+\begin{tabular}{llllll}\\
+&&&&&Department of Physics and Mathematics  \\
+&&&&&Tennessee State University \\
+&&&&&3500 John A. Merritt Blvd. \\
+&&&&&Nashville, TN 37209-1561, USA\\
+&&&&\\
+\end{tabular}
+\noindent Chair, Department of Mathematics\\
+ Syracuse University\\
+ Syracuse, NY 13244\\
+\\
+Dear Dr. Poletsky and search committee,
+\\\\
+This letter accompanies my application for your open tenured or tenure track positions in
+mathematics. I believe that my interests will fit well into the research community in your
+department. Broadly, my research lies in the areas of combinatorial algebra, geometric
+combinatorics, structured categories and homotopy theory. Projects with collaborators currently
+underway include a study of the Hopf algebras and modules that arise from both geometric and
+combinatorial objects such as the associahedron and multiplihedron. Another project involves the
+classification and properties of combinatorial operads that live in structured categories. I am
+interested in the interplay between low dimensional topology and higher dimensional categories, and
+excited about the potential for applying all these abstract theories to questions in physics and
+computer science.
+\\\\
+I am currently serving at the level of Assistant Professor at Tennessee State University. My
+experience here has been wonderful, both as regards research opportunities and teaching
+responsibilities. One of my primary volunteer activities has been to organize, run and fund (via
+grant) our Research Seminar. A related project of mine is the development of our course entitled
+``Research Experience.'' I have also advised more than a few students on their masters theses and
+senior projects. All together, these experiences have reinforced my commitment to integrating
+teaching and research -- a commitment that certainly would not be out of place in the Syracuse
+mathematics department.
+\\\\
+Letters of reference will be provided by the following:
+\\\\
+ \begin{tabular} {llll}
+ 1. & Dr. Ronald Brown & Bangor University & ronnie.profbrown@btinternet.com \\
+ 2. & Dr. Satyan Devadoss & Williams College & Satyan.Devadoss@williams.edu\\
+ 3. & Dr. Sandra Scheick & Tennessee State University & sscheick@tnstate.edu (teaching) \\
+ 4.& Dr. Frank Sottile & Texas A\&M & sottile@math.tamu.edu \\
+5. & Dr. James Stasheff & University of Pennsylvania & jds@math.upenn.edu\\
+\end{tabular}
+\\\\
+Thank you for your time and consideration and please let me know if there is any more information
+you need to help evaluate my application.
+\\\\
+
+\begin{tabular}{lllllll}
+&&&Sincerely, \\
+&&&\ \tubeA \ \ \\
+&&&Dr. Stefan Forcey \\
+&&&6521 Mercomatic Ct.\\
+&&&Nashville, TN 37209 \\
+&&&(615)963-5849\\
+&&& sforcey@tnstate.edu\\
+&&& \url{http://faculty.tnstate.edu/sforcey }\\
+\end{tabular}
+ \end{document}

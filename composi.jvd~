@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE jv-disp SYSTEM "http://www.javaview.de/rsrc/jv-disp.dtd">
+<jv-disp>
+	<meta generator="JavaView v.3.95"/>
+	<meta dtd="1.10.001"/>
+	<meta date="Wed Jul 12 15:53:03 CDT 2006"/>
+	<version type="dump">0.99</version>
+	<title>DisplayAWT</title>
+	<displays>
+		<display depthcue="hide">
+			<bndbox>
+				<color type="rgb">0 0 255</color>
+				<thickness>1.0</thickness>
+			</bndbox>
+			<boxRatio>1.0 1.0 1.0</boxRatio>
+			<cameras select="Perspective">
+				<camera projection="Perspective" name="Perspective">
+					<position>-6.196023720324437 2.613639586105117 6.493526637369246</position>
+					<interest>0.20000000000000007 0.6000000000000001 -0.06666666666666687</interest>
+					<fieldOfView>0.5</fieldOfView>
+					<roll>-133.07878549836715</roll>
+					<clipping enable="hide">
+						<near>10.0</near>
+						<far>-10.0</far>
+					</clipping>
+				</camera>
+			</cameras>
+			<lights select="1" lightingModel="Light">
+				<light reference="scene" shading="fullSphere" highlight="off" switch="on" name="Sky" type="sky" visible="hide">
+					<position>0.0 0.0 10.0</position>
+					<interest>0.0 0.0 0.0</interest>
+					<color type="rgb">255 255 255</color>
+					<intensity>0.3</intensity>
+					<exponent>10.0</exponent>
+					<angle>20.0</angle>
+					<corona>15.0</corona>
+					<falloff>10.0</falloff>
+				</light>
+				<light reference="camera" shading="halfSphere" highlight="off" switch="on" name="Head" type="head" visible="hide">
+					<position>0.0 0.0 10.0</position>
+					<interest>0.0 0.0 0.0</interest>
+					<color type="rgb">255 255 255</color>
+					<intensity>0.8</intensity>
+					<exponent>10.0</exponent>
+					<angle>20.0</angle>
+					<corona>15.0</corona>
+					<falloff>10.0</falloff>
+				</light>
+			</lights>
+			<transform majorMode="rotate" mode="camera"/>
+			<background>
+				<color type="rgb">225 225 225</color>
+			</background>
+			<foreground>
+				<color type="rgb">0 0 0</color>
+			</foreground>
+			<window>
+				<x>375</x>
+				<y>5</y>
+				<width>640</width>
+				<height>512</height>
+			</window>
+		</display>
+	</displays>
+</jv-disp>
+

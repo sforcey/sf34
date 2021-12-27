@@ -1,0 +1,243 @@
+<html>
+  <head>
+   <title>Click-A-Mole</title>
+  </head>
+  <body>
+  <script>
+var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
+        window.setTimeout(callback, 1000/60)
+    };
+var canvas = document.createElement("canvas");
+var width = 1200;
+var height = 700;
+canvas.width = width;
+canvas.height = height;
+var context = canvas.getContext('2d');
+var img = new Image();
+  img.src = "MOLE.gif";
+var x = 0;
+var y = 0;  
+
+var num = 0;    //Counter to delay moles.
+var randint = 0;
+var score = 0;
+var time = 0;
+
+
+// Hexadecimal Color is the Amount of -Red, Green, Blue (in order)
+
+var render = function () {
+  
+
+
+  context.fillStyle = "#663300"; //  <-----Backround Color Dirt
+  context.fillRect(0, 0, width, height); // ^---Backround Dimensions
+
+
+ 
+
+ context.drawImage(img, score, 75, 100, 100);
+
+ context.drawImage(img, score, 0, 100, 100);
+
+
+context.fillStyle = "#FF0000";
+context.fillRect(10, 85, 1180, 10 );
+context.fillRect(600, 80, 5, 20);
+context.fillRect(300, 80, 5, 20);
+context.fillRect(900, 80, 5, 20);
+
+
+//Round Circles (Mole Holes First Row)
+context.beginPath();
+    context.arc(100, 300, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+
+context.beginPath();
+    context.arc(300, 300, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+
+context.beginPath();
+    context.arc(500, 300, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+
+    
+context.beginPath();
+    context.arc(700, 300, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+
+context.beginPath();
+    context.arc(900, 300, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+
+context.beginPath();
+    context.arc(1100, 300, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+
+//Mole Holes 2nd Row
+
+context.beginPath();
+    context.arc(100, 550, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+
+context.beginPath();
+    context.arc(300, 550, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+
+context.beginPath();
+    context.arc(500, 550, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+
+context.beginPath();
+    context.arc(700, 550, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+
+context.beginPath();
+    context.arc(900, 550, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+
+context.beginPath();
+    context.arc(1100, 550, 50, 2 * Math.PI, false);
+    context.fillStyle = "#000000";
+    context.fill();
+   
+
+
+context.drawImage(img, x, y, 150, 150);
+
+};
+
+
+
+var update = function () {
+
+
+
+if(num == 20) {                                                                        //Times Out MOLE by checking if num equals twenty(every twenty loops Randint Picks new MOLE spot)
+randint = Math.floor((Math.random() * 12) + 1);
+num = 0;
+console.log(num);
+}
+  
+
+//if (mouseX-x < 10 && mouseY - y <10) { score++;};
+
+
+
+if (randint == 1) {                                                                //Randint Stuff Positions MOLE
+
+x = 25; y= 200; 
+
+}else if (randint== 2) {
+
+x = 225; y = 200;
+
+}else if(randint == 3){
+
+x=425; y= 200;
+
+}else if(randint == 4 ){
+
+x=625; y= 200;
+
+}else if(randint == 5){
+
+x=825; y= 200;
+
+}else if(randint == 6){
+
+x=1025; y= 200;
+
+}else if(randint == 7){
+x = 25; y= 450; 
+
+}else if(randint == 8){
+x = 225; y = 450;
+
+}else if(randint == 9){
+x=425; y= 450;
+
+}else if(randint == 10){
+x=625; y= 450;
+
+}else if(randint == 11){
+x=825; y= 450;
+
+}else if(randint == 12){
+x=1025; y= 450;
+
+   }
+
+if (time == 1500) {document.write("<h1>GAME OVER SCORE=" +score+ "    <br>THANKS FOR PLAYING! <br> CLICK RELOAD TO START NEW GAME"); };
+};
+
+
+
+
+//==============
+//Loop
+//==============
+
+
+var step = function () {
+    update();
+    render();
+    num++;
+    time++;
+    animate(step);
+};
+
+
+//==============
+//==============
+
+
+
+
+
+
+
+
+
+
+
+
+
+function initCanvas(){ 
+canvas.addEventListener('mousemove', function(event){
+        var mouseX = event.clientX - canvas.offsetLeft;
+        var mouseY = event.clientY - canvas.offsetTop;
+        
+if (Math.abs(mouseX-x) < 100 && Math.abs(mouseY - y) <100) { score++; console.log(x+y);};       //Checks to see if the mouse is within 100 of the MOLE
+console.log(score);
+
+          //console.log(mouseX+ "|"+ mouseY);
+    });
+
+};
+
+
+window.addEventListener('load', function(event) {
+    initCanvas();
+});
+
+
+
+document.body.appendChild(canvas);
+animate(step);
+
+    </script>
+  </body>
+</html>
+      

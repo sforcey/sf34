@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<html>
+	<head>
+		<meta generator="JavaView v.3.95"/>
+		<meta date="Wed Jul 12 15:53:03 CDT 2006"/>
+		<title>composi.jvx</title>
+	</head>
+	<body>
+		<h2>Applet shows composi.jvx</h2>
+		<applet height="512" archive="jars/javaview.jar" width="640" code="javaview.class">
+			<param name=model value="composi.jvx">
+			<param name=displayFile value="composi.jvd">
+			<param name=panel value="material">
+		</applet>
+	</body>
+</html>

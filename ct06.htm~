@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>categorified associahedra</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY TEXT="#000060" LINK="#00ffff" VLINK="#800080" BGCOLOR="#fffff3">
+
+<B><FONT FACE="Technical" SIZE=3><P>
+Talk from CT06:
+</FONT>
+<HR>
+</P>
+<P>
+<IMG SRC=
+"http://faculty.tnstate.edu/sforcey/ct06_1.jpg"
+
+>
+</P>
+<FONT FACE="Technical" SIZE=3><P>
+Categorification usually refers to taking a mathematical concept and replacing some or all of the sets involved in 
+its definition with categories, i.e. we replace Set with Cat. More loosely, we might replace Set with an arbitrary category
+V with perhaps some desirable characteristics. A familiar example of this process is the definition of an enriched category
+where V is monoidal and the usual morphism sets are replaced by morphism objects. Let's try it with the definition of 
+bicategory, where there are usually categories of morphisms. Thus we need to replace Cat with an arbitrary 2-category. (An interesting example might be the 2-category V-Cat, where V is monoidal. Actually a bicategory would work just as well.)
+</P>
+<P>
+<IMG SRC=
+"http://faculty.tnstate.edu/sforcey/ct06_2.jpg"
+
+>
+</P>
+The unit conditions for the enriched bicategory are not hard to draw as well. For today however we want to focus on the 
+"cocycle" conditions. The term was popularized by Ross Street, and its connections to homology are described in many of his papers, including "The algebra of oriented simplexes."
+<P>
+<IMG SRC=
+"http://faculty.tnstate.edu/sforcey/ct06_3.jpg"
+
+>
+</P>
+The remainder will focus on the above goal, which is really just step one. Step two is to find a parity complex structure
+on the polytopes in order to use them as source and target of higher dimensional arrows. This might be bypassed, however, if we choose instead to take an easier route in which (weak) enrichment over an operad algebra
+is described in terms of an action (on a graph over the algebra) of a left module over that operad. 
+The study of the polytopes is motivated by
+ curiosity and also the fact that they point us precisely in the direction of the use of left modules. Here 
+ is what we know so far about the composihedra, CK(n).
+See Paddy McCrudden, Balanced Coalgebroids,
+Theory and Applications of Categories, Vol. 7, No. 6, 2000, for some of these
+in the axioms for pseudomonoids.
+
+<P>
+<IMG SRC=
+"http://faculty.tnstate.edu/sforcey/ct06_4.jpg"
+
+>
+</P>
+In fact, there is a lot more to tell. Most importantly is the existence of facet inclusions:
+<hr>
+K(k) x CK(j_1) x ... x CK(j_k) into CK(n) where n is the sum of the j_i.  
+<hr>
+This is the left module structure.
+
+<P>
+Recall that A_n spaces are not quite topological groups, or even monoids. Their multiplication is only associative
+up to homotopy. Stasheff showed that we can recognize them by finding an action of the associahedra, K(i) for i = 1 to n. 
+The classic example of course is the loop space of a space, which is an A_n space for all n. Recall that A_n maps are not 
+quite homomorphisms. They respect the multiplication of the A_n spaces up to homotopy. In the following slide we present a 
+very brief introduction to the literature on A_n maps. [B V] is the lecture notes on 
+"Homotopy invariant algebraic structures" of Boardman and Vogt, and [I M] is the paper "Higher homotopy associativity"  by Iwase and Mimura.
+<IMG SRC=
+"http://faculty.tnstate.edu/sforcey/ct06_5.jpg"
+
+>
+</P>
+Category theorists may recognize the shape of these multiplihedra J(i) as being the gluing together of the source and target for the axiom
+which must be satisfied by a morphism of categories, bicategories, and tricategories for i = 2, 3, and 4 respectively
+(see Tom Leinster's paper "Basic bicategories" and of course Gordon, Power and Street's paper "Coherence for tricategories.") The
+J(i) do form an operad bimodule over the K(i), which relates this talk to the topic of the <a href="http://dmawww.epfl.ch/~hess/CT2006_beam.pdf"> presentation of Katheryn Hess </a> 
+at this conference.
+
+<P>
+<IMG SRC=
+"http://faculty.tnstate.edu/sforcey/ct06_6.jpg"
+
+>
+</P>
+Note that taking Y to be associative instead will cause the J(n) to collapse to become the K(n), a case considered by
+Stasheff and by Boardman and Vogt. The case in question here was at first assumed to be the same, but the J(n) are not quite symmetric enough--thus our new family of polytopes.
+
+<P>
+<IMG SRC=
+"http://faculty.tnstate.edu/sforcey/ct06_7.jpg"
+
+>
+</P>
+[J.L.L.] is Jean Louis Loday's paper on realizing the associahedra. He proves the equality by which we can realize the K(n)
+as a convex hull. The corresponding equalities for the J(n) and CK(n) are not yet proven. Experimentally they do hold up, as
+evidenced in the next few pictures. The last two, labeled 10 and 11, are Schlegel diagrams of CK(5) and J(5) respectively. They were generated by polymake, as was the title page of this presentation.
+
+<P>
+<IMG SRC=
+"http://faculty.tnstate.edu/sforcey/ct06_8.jpg"
+
+>
+</P>
+<P>
+<IMG SRC=
+"http://faculty.tnstate.edu/sforcey/ct06_9.jpg"
+
+>
+</P>
+<P>
+<IMG SRC=
+"http://faculty.tnstate.edu/sforcey/ct06_10.jpg"
+
+>
+</P>
+<P>
+<IMG SRC=
+"http://faculty.tnstate.edu/sforcey/ct06_11.jpg"
+
+>
+</P>
+<a href="http://faculty.tnstate.edu/sforcey/class_home/research.htm"> Back to research page. </a>
+
+
+<B><FONT FACE="Technical" SIZE=4><P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>
