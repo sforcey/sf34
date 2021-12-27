@@ -1,0 +1,235 @@
+Resume: Stefan Forcey
+
+Home Address				School Address
+(through  5/7/98)
+500 Houston St.				Virginia Tech
+Blacksburg VA 24060			Mathematics Department
+					460 McBryde Hall
+Phone: (540) 961-9693			Blacksburg VA 24060
+School: (540) 231-4082		E-mail: sforcey@math.vt.edu
+
+Education:	-High School:  L.C.A., Lynchburg, VA GPA 4.0
+		-Undergraduate:  Liberty University GPA 4.0 	
+		Degree:  B.S. in Mathematics with Computer Science 
+		concentration.
+		-Graduate: currently enrolled in master's program at
+		 Virginia Tech.
+ 		 Department : Mathematics; program: Mathematical Physics.
+		-Math, Physics, Computer Science courses: see attachment.
+
+Computer:	-Experienced in programming in BASIC, PASCAL, PROLOG, LISP, 
+ 		C++, and UNIX. Experienced in use of MSDOS, MS Office, Windows
+		95, WordPerfect, Mac OS 8.1, Eudora Light, CCMail, 
+		and other applications.
+
+Experience:	-Framatome Technologies, Lynchburg VA. Job description included 
+		comparisons of, predictions  of, and extrapolation from data
+		measured in the reactor cores of nuclear power plants.
+		 Familiar with Nodal expansion method , cross section
+		generating, and decay/shuffle codes  from work on reactor core
+		reports and high level waste research.
+			(Jan. 1996 - Aug. 1997)
+
+		-Camp counselor, life guard and bus driver for Thomas Rd.
+		 Baptist Church, Lynchburg VA.	
+			(Summer 1995, 1996)
+
+		-Life guard for Sandusky Swim Club, Lynchburg VA.
+			(Summer 1994)
+
+		-Volunteer  assistance in preparing graphs of data related to
+		accelerator experiments  for Dr. M.T. Pigott at Los Alamos 
+		National Laboratory. I received minimal work experience here;
+		but  my interest  in science was sparked by being around 
+		scientists.
+			(Summer 1991)
+
+Professional
+Interest:	-I have a strong interest in physics and mathematics, as well
+		 as the use of computers in solving problems. I am especially 
+		 interested in scientific research, but enjoy  problem solving
+		 of almost any kind.
+
+References:	Mr. Claude Mays, Framatome Technologies Inc.  3315 
+		Old Forest Rd. Lynchburg VA, 24506. (804) 832-3000.
+
+		Mr. Scott Robertson, Framatome Technologies Inc.  3315 
+		Old Forest Rd. Lynchburg VA, 24506. (804) 832-3000.
+
+		Dr. Glynn Wooldridge, L.U. 1971 University BLVD.
+		Lynchburg VA, (804) 582-2093.
+
+Undergraduate Mathematics Courses
+
+Course			Text (s)			Author(s)	Grade
+Calculus I. 		Calculus 5th ed.		S. Grossman.	  A
+Calculus II.		Calculus 5th ed.		S. Grossman.	  A
+Calculus III.		Calculus 5th ed.		S. Grossman.	  A
+			
+Intro. to Statistical	Probability and Statistics	R. Walpole &	  A
+Analysis.		for Engineers and Scientists.	R. Myers.
+  
+Intro. to Mathematical	Intro. to Probability and 	M. Engelhardt &	  A
+Statistics.		Mathematical Statistics. 	L. Bain.
+
+Intro. to Experimental 	Design and Analysis of	D. Montgomery.		  A
+Design in Statistics.	Experiments.
+
+Linear Algebra. *	Linear Algebra and		D. Lay.		  A
+			its Applications.
+
+Numerical Analysis.	Numerical Analysis 5th ed.	R. Burden &D. Faires  A
+
+Abstract Algebra.	Abstract Algebra 5th ed.	Hillman & 	  A
+							Alexanderson.
+
+Complex Variables. 	Complex Variables 		J. Brown &	  A
+			and Applications.		R. Churchill.
+
+Differential Equations.	A First Course in 		D. Zill.	  A
+			Differential Equations.
+
+Real Analysis.		An Intro. to Analysis.		W. Wade.	  A
+
+
+
+Undergraduate Physics Courses
+
+
+University Physics I. **Physics for Scientists and 	R. Serway.	  A
+			Engineers  3rd ed.
+University Physics II. **Physics for Scientists and 	R. Serway.	  A
+			Engineers  3rd ed.
+
+Relativity and Modern 	Modern Physics.		R. Serway, C. Moses	  A
+Physics. ***						& C. Moyer
+
+Classical Dynamics. ***	Classical Dynamics of		J. Marion &	  A
+			Particles  and Systems.		S. Thornton.
+
+Electromagnetic Field 	Foundations of 			Reitz & Milford	  A
+Theory. ***		Electromagnetic Field Theory.
+
+
+Undergraduate Computer Science Courses 
+
+
+
+Course			Text (s)			Author(s)	Grade
+
+PASCAL I and II.	Turbo Pascal.			N. Dale & C. Weems.  A
+
+Theory of Programming	Programming Language		M. Marcotty &	  A
+Languages. * 		Landscape.			H. Ledgard.
+
+Operating Systems. *	Operating  System 		Silberschatz &	  A
+			Concepts.			Galvin.
+
+Computer Architecture.	Computer Organization 		Stallings.	  A
+			and Architecture.
+
+High Level Programming	Advanced C++.			J. Coplien.	  A
+Languages.
+
+Artificial Intelligence.Artificial Intelligence		D. Patterson.	  A
+			and Expert Systems.
+
+
+Graduate Level Courses
+
+
+Real Analysis  1 (1st sem.)Real Analysis.		Royden.		  A
+Real Analysis  2 (2nd sem.)Real Analysis.		Royden.	  
+
+Complex Analysis  1	Basic Complex Analysis.		Marsden  &	  A
+Complex Analysis  2	Basic Complex Analysis.		Hoffman.  (Current)
+
+Classical Electromagnetism 1	Classical Electrodynamics.Jackson. 	  A-
+Classical Electromagnetism 2	Classical Electrodynamics.Jackson. (sitting in)
+
+Matrix Theory.							  (Current)
+
+Observational Astrophysics. **					  (Current)
+
+REAL ANALYSIS
+
+A
+
+                
+   
+                          COMPLEX ANALYSIS
+
+A
+ 
+                          MATRIX THEORY
+
+A
+  
+                          OBSERVATION ASTRO
+
+A
+                          FROM CALCULUS TO COHOMOLOGY
+
+A
+ 
+                          INTRO ASTROICS
+
+A
+
+                
+  
+                          CLASSICAL MECHANICS
+
+B
+
+                
+         
+                
+                          INTR ABSTRACT ALGEBRA
+
+A
+
+                
+ 
+                
+                          FUNCTIONAL ANALYSIS
+
+A
+   
+                          QUANTUM MECHANICS
+
+A
+
+                
+     
+                          METH OF THEORET 
+
+A-
+
+                
+    
+                          FROM CALCULUS TO COHOMOLOGY
+
+A
+   
+                          FUNCTIONAL ANALYSIS
+
+A
+        
+                          QUANTUM MECHANICS
+
+A
+
+                
+      
+                
+                           Quantum Mech
+
+  
+      
+                
+                          Gen Relativity Cosmol
+
+* 	These courses were petitioned for honors credit and thus included additional  	independent research.
+**	These courses included laboratory work.
+***	These courses were taken as independent study courses.
