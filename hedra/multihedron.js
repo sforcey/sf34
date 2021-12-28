@@ -1,7 +1,7 @@
-import * as THREE from 'three.module.js';
-//import { OrbitControls } from 'OrbitControls.js';
-import { ConvexGeometry } from 'ConvexGeometry.js';
-//import { GLTFExporter } from 'GLTFExporter.js';
+import * as THREE from './three.module.js';
+//import { OrbitControls } from './OrbitControls.js';
+import { ConvexGeometry } from './ConvexGeometry.js';
+//import { GLTFExporter } from './GLTFExporter.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );  //default 75 fov
