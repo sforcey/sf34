@@ -1,4 +1,4 @@
-import * as THREE from 'three.min.js';
+import * as THREE from 'three.module.js';
 import { OrbitControls } from 'OrbitControls.js';
 import { ConvexGeometry } from 'ConvexGeometry.js';
 import { GLTFExporter } from 'GLTFExporter.js';
