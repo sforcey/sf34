@@ -2,7 +2,7 @@ import * as THREE from './three.module.js';
 import { OrbitControls } from './OrbitControls.js';
 import { ConvexGeometry } from './ConvexGeometry.js';
 //import { GLTFExporter } from './GLTFExporter.js';
-import { STLExporter } from './GLTFExporter.js';
+import { STLExporter } from './STLExporter.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );  //default 75 fov
@@ -88,6 +88,31 @@ exporter.parse(
 );
 */
 
+
+const link = document.createElement( 'a' );
+link.style.display = 'none';
+document.body.appendChild( link );
+
+function save( blob, filename ) {
+	link.href = URL.createObjectURL( blob );
+	link.download = filename;
+	link.click();
+}
+
+function saveArrayBuffer( buffer, filename ) {
+	save( new Blob( [ buffer ], { type: 'application/octet-stream' } ), filename );
+}
+
+const exporter = new STLExporter();
+
+// Parse the input and generate the stl output
+function exportBinary() {
+	const result = exporter.parse( multihedron, { binary: true } );
+	saveArrayBuffer( result, 'multiplihedron.stl' );
+}
+
+const downloadButton = document.getElementById( 'downloadSTL' );
+downloadButton.addEventListener( 'click', exportBinary );
 
 
 requestAnimationFrame(animate);
