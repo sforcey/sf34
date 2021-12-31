@@ -1,0 +1,347 @@
+<html>
+<title>Stefan Forcey</title>
+<BODY BACKGROUND = "../blkbrdb.jpg"  TEXT="#ffff83" LINK="#00ffff" VLINK="#fffff2" BGCOLOR="#000060" ALINK="#fffff3" >
+<FONT FACE="ARIAL,HELVETICA">
+<P ALIGN=CENTER>
+</P>
+<HR>
+<H3> <P ALIGN=CENTER> Projects: Stefan Forcey and students  </P>
+<br>
+<P ALIGN=CENTER>
+<img alt="\color{white} a_n = C(n-1) + \sum_{i=1}^{n-1}a_ia_{n-i}" src=http://www.texify.com/img/%5CLARGE%5C%21%5Ccolor%7Bwhite%7D%20a_n%20%3D%20C%28n-1%29%20%2B%20%20%5Csum_%7Bi%3D1%7D%5E%7Bn-1%7Da_ia_%7Bn-i%7D.gif align=center border=0>
+</P>
+<br>
+<H5>
+<a href="http://faculty.tnstate.edu/sforcey/">
+   Back to main page. </a>
+<HR>
+<H4>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+	<img  src="../thum.JPG" >
+</td>
+<td> 
+Geometric combinatorial Hopf Algebras and modules. <br>
+<a href="http://faculty.tnstate.edu/sforcey/propsumm_gr_pb.pdf">
+	Summary </a> and <a href="http://faculty.tnstate.edu/sforcey/prop_graph_pb.pdf">
+	proposal. </a> <br> 
+Notes about the combinatorial Hopf Zoo:<br>
+<a href="http://faculty.tnstate.edu/sforcey/mapsi.html">
+	introduction, </a><br>
+<a href="http://faculty.tnstate.edu/sforcey/maps1.html">
+	Part 1,</a><br>
+<a href="http://faculty.tnstate.edu/sforcey/maps1b.html">
+	Part 1b,</a><br>
+<a href="http://faculty.tnstate.edu/sforcey/maps2.html">
+	Part 2.</a><br>
+<a href="http://faculty.tnstate.edu/sforcey/maps3.html">
+	Part 3.</a><br>
+<a href="http://faculty.tnstate.edu/sforcey/maps4.html">
+	Part 4.</a><br>
+<a href="http://faculty.tnstate.edu/sforcey/maps5.html">
+	Part 5.</a><br>
+Here are the products in the  <a href="http://www.math.tamu.edu/~sottile/pages/HopfAlgebras/index.html">
+	Hopf algebras </a> by Aaron Lauve and Frank Sottile. Here's the specific data about the multiplihedra <a href="http://www.math.tamu.edu/~sottile/pages/HopfAlgebras/MSym/index.html">  Hopf module </a>.
+<HR>
+</td>
+</tbody>
+</table>
+<HR>
+<H4>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+	<img  src="../pseudo_sm.jpg" >
+</td>
+<td>  
+<a href="http://faculty.tnstate.edu/sforcey/pseudo.pdf">
+	Quotients of the multiplihedron as categorified associahedra. </a>
+	Also available from <a href="http://arxiv.org/abs/0803.2694">
+		arXiv .</a> OEIS entry <a href="http://www.research.att.com/~njas/sequences/A007317">
+	here .</a>
+</td>
+</tbody>
+</table>
+<HR>
+<img  src="../mga.jpg" >
+<table cols=2 cellpadding=2>
+<tbody>
+
+<td>  
+<HR>
+Notes about the Multigraph associahedra: <br>
+<a href="http://faculty.tnstate.edu/sforcey/mm.html">
+	Part 1</a><br>
+<a href="http://faculty.tnstate.edu/sforcey/mm2.html">
+	Part 2.</a><br>
+ and here are  <a href="http://faculty.tnstate.edu/sforcey/mga.pdf">
+	 3d examples. </a>
+<br>
+<a href="http://faculty.tnstate.edu/sforcey/mm3.html">
+	Part 3.</a><br>
+</td>
+</tbody>
+</table>
+<HR><table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+	<img  src="../multi_sm.jpg" >
+</td>
+<td>  
+<a href="http://faculty.tnstate.edu/sforcey/multi.pdf">
+		Convex hull realizations for the multiplihedra. </a>
+	Also available from <a href="http://arxiv.org/abs/0706.3226">
+		arXiv .</a> OEIS entry <a href="http://www.research.att.com/~njas/sequences/A121988">
+	here .</a>
+<HR>
+<a href="http://faculty.tnstate.edu/sforcey/mult.htm">
+	AMS chalkboard talk. </a>
+<HR>
+
+Here is Sikimeti Mau's <a href="http://arxiv.org/abs/0802.2120"> paper </a> with Chris Woodward about using the multiplihedron to define morphisms of cohomological field theories.
+</td>
+</tbody>
+</table>
+<HR>
+<H4>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+ <img  src="../rsrchgr.jpg" >
+</td>
+<td> 
+	
+	<a href="http://arxiv.org/abs/0807.4159">  Graph multiplihedra -- the paper. </a>
+	<HR>
+	<a href="http://faculty.tnstate.edu/sforcey/grmult.html"> Graph multiplihedra -- early notes.  </a>
+	These contain alternate realizations of the polytopes. Colored tubes = marked tubes with the following translation: 
+	red = thick, blue = thin, red with blue interior =broken.
+	
+ <HR>
+Generalizing the multiplihedron: colored nested sets, colored cluster complexes and other definitions in progress.
+	<br>
+	A possible <a href="http://faculty.tnstate.edu/sforcey/mul_cyc.pdf"> type B_2 multiplihedron. </a><br>
+	Resources: cluster algebra <a href="http://www.math.lsa.umich.edu/~fomin/cluster.html"> portal </a>; associahedra and noncrossing <a href="http://www.math.ucsb.edu/~jon.mccammond/associahedra/"> partitions </a>.
+</td>
+</tbody>
+</table>
+<HR>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+ <img  src="../rsrch3.jpg" >
+</td>
+<td>  
+	Higher morphisms for enriched categories: enriched 2-natural transformations, enriched modifications<a href="http://faculty.tnstate.edu/sforcey/class_home/symversion.pdf"> and all that!  </a>
+<HR>
+ <a href="http://faculty.tnstate.edu/sforcey/class_home/thesis/vert.pdf">
+   Vertically Iterated Classical Enrichment </a>
+Also available from the <a href="http://arxiv.org/abs/math.CT/0403214"> arXiv </a>
+and from <a href="http://www.tac.mta.ca/tac/"> TAC. </a>
+</td>
+</tbody>
+</table>
+<HR>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+	<img  src="../rsrchglobe.jpg" >
+</td>
+<td><a href="http://faculty.tnstate.edu/sforcey/globe.pdf">
+		Ideas for n-dendroidal sets: start with n=2. </a>
+<HR> 
+</td>
+</tbody>
+</table>
+<HR>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+	<img  src="../rsrch1a.jpg" >
+</td>
+<td><a href="http://faculty.tnstate.edu/sforcey/crystal_operads_files/frame.htm">
+		Crystals and Operads: SECA4 slides. </a>
+	<HR>
+	<a href="http://faculty.tnstate.edu/sforcey/crystal_operads.ppt">Powerpoint version of above.	
+<HR> 
+</td>
+</tbody>
+</table>
+<HR>
+<H4>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+ <img  src="../rsrch5.jpg" >
+</td>
+<td> 
+<a href="http://faculty.tnstate.edu/sforcey/bim_enrich.pdf">
+   Enrichment using an operad bimodule. </a>
+<HR>
+ <a href="http://faculty.tnstate.edu/sforcey/ct06.htm">
+   CT06 talk on composihedra, enriched bicategories, and realization. </a>
+<HR>
+ <a href="http://faculty.tnstate.edu/sforcey/prop_en_loop.pdf">
+   New project description, including operad bimodule ideas. </a>
+<HR>
+<a href="http://faculty.tnstate.edu/sforcey/bib5.pdf">
+   Bibliography for above. </a>
+<HR>
+ <a href="http://faculty.tnstate.edu/sforcey/weaken.htm">
+   Talks on Weak Higher Dimensional Enrichment </a>
+</td>
+</tbody>
+</table>
+<HR>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+	<img  src="../cutout_color_thumb.jpg" >
+</td>
+<td> 
+ <a href="http://faculty.tnstate.edu/sforcey/cutout2.pdf">
+	 Make your own composihedra: pdf </a> <br> cut out, fold on interior lines, use triangles to fill in final quadrilateral.
+ <HR>
+<a href="http://faculty.tnstate.edu/sforcey/cutout_color.jpg">
+	Make your own composihedra: color jpg </a>
+</td>
+</tbody>
+</table>
+<HR>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+ <img  src="../rsrch6.jpg" >
+</td>
+<td>  
+ <a href="http://faculty.tnstate.edu/sforcey/derbraid.htm">
+   Derived Braids </a>
+<HR>
+<a href="http://faculty.tnstate.edu/sforcey/newbraidrev2.pdf">
+	The solution to some problems posed above: families of interchanging
+	braids. </a>Also available from AGT:
+<a href="http://www.msp.warwick.ac.uk/agt/2007/07/p048.xhtml">
+	 Classification of braids which give rise to interchange. </a>
+</td>
+</tbody>
+</table>
+
+<HR>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+ <img  src="../rsrch7.jpg" >
+</td>
+<td> 
+<a href="http://faculty.tnstate.edu/sforcey/grope3a.pdf">
+	Introduction </a>
+<HR>
+ <a href="http://faculty.tnstate.edu/sforcey/gropebraid.htm">
+   Grope Constrained Braids </a>
+<HR>
+<a href="http://faculty.tnstate.edu/sforcey/grope3.pdf">
+   Proposal version of above: some new ideas in section on string links.</a>
+<HR>
+<a href="http://faculty.tnstate.edu/sforcey/bib4.pdf">
+   Bibliography for above. </a>
+</td>
+</tbody>
+</table>
+<HR>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+	<img  src="../ineq.jpg" >
+</td>
+<td>  
+<HR>
+ <a href="http://home.wlu.edu/~siehlerj/computing/index.html">
+   Collaborator: Jesse Siehler </a>
+<HR>
+ <a href="http://faculty.tnstate.edu/sforcey/street.htm">
+   Talk on operads from Streetfest </a>
+<HR>
+ <a href="http://faculty.tnstate.edu/sforcey/operadpqrev.pdf">
+	  Operads in iterated monoidal categories. </a>
+Also available from 
+<a href="http://emis.library.cornell.edu/journals/JHRS/volumes/2007/volume2-1.htm">
+	 JHRS. </a>
+<HR>
+ <a href="http://faculty.tnstate.edu/sforcey/newproducts.pdf">
+	 Even more fun--higher products for Young diagrams. </a>
+<HR>
+ <a href="http://faculty.tnstate.edu/sforcey/2fold-twist.pdf">
+	 Work in progress on twisted interchangers. </a>
+</td>
+</tbody>
+</table>
+<HR>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+ <img  src="../rsrch9.jpg" >
+</td>
+<td>
+ <a href="http://faculty.tnstate.edu/sforcey/automads.pdf">
+   Operads and cellular automata--work in progress </a>
+</td>
+</tbody>
+</table>
+<HR>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+ <img  src="../rsrch1.jpg" >
+</td>
+<td>
+ <a href="http://faculty.tnstate.edu/sforcey/class_home/thesis/total.pdf">
+   Enrichment as Categorical Delooping I: Enrichment Over Iterated Monoidal Categories </a>
+Also available from the <a href="http://arxiv.org/abs/math.CT/0304026"> arXiv </a>
+</td>
+</tbody>
+</table>
+<HR>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+ <img  src="../rsrch2.jpg" >
+</td>
+<td>  
+ <a href="http://www.maths.warwick.ac.uk/agt/AGTVol4/agt-4-7.abs.html">
+    Published (in AGT) version of above: Enrichment Over Iterated Monoidal Categories </a>
+</td>
+</tbody>
+</table>
+<HR>
+<table cols=2 cellpadding=2>
+<tbody>
+<td>
+
+ <img  src="../rsrch4.jpg" >
+</td>
+<td>  
+ <a href="http://faculty.tnstate.edu/sforcey/class_home/thesis/total2tac.pdf">
+   Higher Dimensional Enrichment </a>
+Also available from the <a href="http://arxiv.org/abs/math.CT/0306086"> arXiv </a>
+</td>
+</tbody>
+</table>
+<HR>
+
+ 
+ </H4>
+<HR> <H6> Revision Date: 4/01/03 </H6> </body>
