@@ -1,0 +1,861 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 11">
+<link id=Main-File rel=Main-File href="../crystal_operads.htm">
+<link rel=Preview href=preview.wmf>
+<meta name=Robots content=NoIndex>
+<script src=script.js></script><script><!--
+
+if( !(IsWin("PPTOtl")||IsWin("PPTNav")||IsWin("PPTOtlNav")) )
+{
+	obj = GetObj("Main-File")
+	parent.location.href=obj.href
+}
+
+var gOtlHiliteClr="#ffffff",gOtlNormalClr="#000000",gOtlActiveClr="#ffff00",gSelected="",gTxtState=false,gChildEntryTable=new Array()
+
+function Load()
+{
+	if( IsWin("PPTOtl" ) ){ LoadOtl(); parent.gOtlLoaded=true; return }
+	if( g_supportsPPTHTML ) {
+		if( IsWin("PPTNav" ) ){ LoadNav("NavObj",UpdNav); parent.gNavLoaded=true; return }
+		if( IsWin("PPTOtlNav" ) ){ LoadNav("OtlNavObj",UpdOtlNav); parent.gOtlNavLoaded=true; return }
+	}
+}
+function Upd(){ if( IsWin("PPTNav") ) LoadNav("NavObj",UpdNav) }
+function LoadNav( oId,UpdFunc )
+{
+	document.ondragstart=CancelDrag
+	document.onselectstart=CancelDrag
+	document.body.style.margin=2
+	UpdFunc()
+	obj=document.all.item(oId)
+	obj.style.display="block"
+	obj.style.visibility="visible"
+	document.bgColor="threedface"
+
+	if( parent.frames["PPTNts"] )
+		notesBtn.style.display = ""
+	if( parent.gHasNarration )
+		nb_voiceBorder.style.display = ""
+}
+function LoadOtl()
+{
+	var otl=GetObj("OtlObj")
+	otl.style.display="block"
+	otl.style.visibility="visible"
+	if( gOtlActiveClr == "" ) gOtlActiveClr=document.linkColor
+	if( gOtlHiliteClr == "" ) gOtlHiliteClr=document.fgColor
+	if( gOtlNormalClr == "" )
+		gOtlNormalClr=document.bgColor
+	else
+		document.bgColor=gOtlNormalClr  
+
+	InitArray()
+
+	if( ObjExists( parent.gCurSld ) ) {
+		ChangeState( parent.gCurSld,gOtlNormalClr,gOtlHiliteClr )
+		gSelected=parent.gCurSld
+	}
+	else gSelected = -1
+
+	UpdOtl()
+}
+function UpdOtl(){ UpdIdx(parent.gCurSld) }
+function UpdIdx( idx )
+{
+	if( gSelected != idx ) {
+		if( gSelected > 0 )
+			ChangeState( gSelected,gOtlHiliteClr,gOtlNormalClr )
+
+		if( ObjExists( idx ) ) {
+			gSelected = idx
+			ChangeState( gSelected,gOtlNormalClr,gOtlHiliteClr )
+		}
+		else gSelected = -1
+	}
+
+	if( gTxtState != parent.gOtlTxtExp ) {
+		state = "block"
+		if( !parent.gOtlTxtExp )
+			state="none"
+
+		for(ii=0; ii<gChildEntryTable.length; ii++) {
+			obj=gChildEntryTable[ii];
+			if( obj.id == null ) continue;
+
+			if( obj.id.indexOf("PPTC") >= 0 )
+				obj.style.display=state;
+		} 
+		gTxtState=parent.gOtlTxtExp
+		if( ObjExists( gSelected ) )
+			ChangeState( gSelected,gOtlNormalClr,gOtlHiliteClr )
+	}
+}
+function InitArray()
+{
+	count=0
+	var list=GetTags(document,"DIV");
+	for(ii=0; ii<list.length; ii++) {
+		obj=list.item(ii)
+		if( obj.id == null ) continue
+
+		if( obj.id.indexOf("PPTC") >= 0 )  
+			gChildEntryTable[count++]=obj
+	}
+}
+function ChangeState( idx,fgColor,bgColor )
+{
+	obj=GetObj("PPTL"+idx)
+	obj.style.color=fgColor
+
+	obj=GetObj("PPTP"+idx)
+	obj.style.backgroundColor=bgColor
+}
+function ChgClr( o,clr ){ if( o.id != "PPTL"+gSelected ) o.style.color=clr }
+function Over( src ){ ChgClr(GetLink(src),gOtlActiveClr) }
+function Out( src ){ ChgClr(GetLink(src),gOtlHiliteClr) }
+function Follow(src){ window.location.href = GetLink(src).href; }
+function ObjExists( ii ) { obj=GetObj("PPTP"+ii ); return( obj ) }
+function GoToSld( href ){ UpdIdx(parent.GetSldNum(href)); parent.GoToSld( href ) }
+function CancelDrag(){ window.event.cancelBubble=true;window.event.returnValue=false}
+function GetLink(src)
+{
+   if(src.tagName=="A") return src
+   else return GetTags(src,"A").item(0)
+}
+
+function UpdNav()
+{
+	txt = "<center>";
+	if( parent.GetHrefObj( parent.gCurSld ).mOrigVis == 1 )
+		txt += "Slide " + parent.GetCurSldNum() + " of " + parent.GetNumSlds()
+	else
+		txt += "Hidden Slide"
+	txt += "</center>";
+	nav_text.innerHTML = txt;
+
+	if( !parent.HasPrevSld() )
+		gBtnArr["nb_prev"].Enabled(0)
+	else
+		gBtnArr["nb_prev"].Enabled(1)
+
+	if( !parent.HasNextSld() )
+		gBtnArr["nb_next"].Enabled(0)
+	else
+		gBtnArr["nb_next"].Enabled(1)
+	gBtnArr["nb_nts"].Enabled(1)
+	gBtnArr["nb_ntsBorder"].SetFlag( parent.gHasNts )
+
+	gBtnArr["nb_sldshw"].Enabled(1)
+	gBtnArr["nb_voice"].Enabled(1)
+}
+
+function ExecBtn()
+{
+	if (event.keyCode == 13)
+	{
+		BtnOnDown();
+		BtnOnUp();
+	}
+}
+function UpdOtlNav()
+{
+	gBtnArr["nb_otl"].SetEnabled();
+
+	if( parent.gOtlOpen )
+		gBtnArr["nb_otlTxt"].Enabled( true );
+	else
+		document.all.item("nb_otlTxtBorder").style.visibility = "hidden";
+}
+
+
+
+
+//--></script>
+<style>
+<!--.PTxt
+	{position:relative;
+	width:100%;
+	margin-top:5px;
+	padding-left:2px;
+	font-weight:bold;}
+.CTxt
+	{position:relative;
+	width:100%;
+	margin-top:5px;}
+a
+	{color:white;
+	text-decoration:none;}
+ul
+	{color:white;
+	margin-bottom:0px;
+	margin-left:20px;}
+.sldNum
+	{margin-top:5px;
+	color:white;}
+.button
+	{position:absolute;
+	width:32px;
+	height:20px;
+	border-style:solid;
+	border-width:1px;
+	border-color:threedface;}
+-->
+</style>
+</head>
+
+<body onload="Load()" style='margin:2px'>
+
+<div id=NavObj onload="Load()" onmouseover="BtnOnOver()"
+onmousedown="BtnOnDown()" onmouseout="BtnOnOut()" onmouseup="BtnOnUp()"
+onkeypress="ExecBtn()" style='display:none;visibility:hidden'>
+<table id="notesBtn" style='display:none;position:relative;width:55px' align=left cellpadding=0
+ cellspacing=0>
+ <td nowrap>
+ <div id="nb_ntsElem" title="Show/Hide
+Notes" align=center style='position:relative;margin-left:5px;margin-right:5px;padding:3px;
+ font-family:Arial;color:buttontext;font-size:9pt; cursor:default'>
+ <img src="notes_flag.gif" id="nb_nts" style='display:none'> &nbsp;Notes</div>
+ <div id="nb_ntsBorder" title ="Show/Hide
+Notes" onfocus="BtnOnOver()" onblur="BtnOnOut()" TABINDEX=1 style='position:absolute;top:0%;left:0%;width:100%;height:20px'>
+
+ </div>
+ </td>
+</table>
+
+
+<table style='position:relative;width:70px' align=right cellpadding=0 cellspacing=0>
+ <td nowrap>
+ <div id="nb_sldshwText" title="Full Screen Slide Show" align=center style='position:relative;margin-left:20px;padding:3px;
+ font-family:Arial;color:buttontext;font-size:9pt;cursor:default'>Slide
+Show</div>
+ <div id="nb_sldshwBorder" title="Full Screen Slide Show" onfocus="BtnOnOver()" onblur="BtnOnOut()" TABINDEX=5 style='position:absolute;top:0%;left:0%;width:100%;height:20px'>
+ <div style='position:absolute;clip:rect(0px, 18px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_sldshw" style='position:relative;left:-254px'></div>
+ </div>
+ </td>
+ <td>
+ <div id="nb_voiceBorder" style='display:none;position:absolute;top:0;left:-40px;
+ width:20px;height:20px' onfocus="BtnOnOver()" onblur="BtnOnOut()" TABINDEX=4 class=button>
+ <div style='position:absolute;clip:rect(0px, 18px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_voice" title="Pause/Play Narration" style='position:
+ relative;left:-290px'></div>
+ </div>
+ </td>
+</table>
+
+<table style='position:relative' align=center cellpadding=0 cellspacing=0>
+ <td nowrap>
+ <div id="nb_prevBorder" onfocus="BtnOnOver()" onblur="BtnOnOut()" TABINDEX=2 class=button style='left:-30px'>
+ <div style='position:absolute;clip:rect(0px, 30px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_prev" title="Previous Slide" style='position:relative;
+ left:0px'></div>
+ </div>
+ <span id="nav_text" style='position:relative;top:3px;width:100px;font-family:
+ Arial;color:buttontext;font-size:9pt'></span>
+ <div id="nb_nextBorder" onfocus="BtnOnOver()" onblur="BtnOnOut()" TABINDEX=3 class=button>
+ <div style='position:absolute;clip:rect(0px, 30px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_next" title="Next Slide" style='position:relative;
+ left:-90px'></div>
+ </div>
+ </td>
+</table>
+</div>
+
+<div id=OtlNavObj onload="Load()" onmouseover="BtnOnOver()"
+onmousedown="BtnOnDown()" onmouseout="BtnOnOut()" onmouseup="BtnOnUp()"
+onkeypress="ExecBtn()" style='display:none;visibility:hidden'>
+
+<table style='position:relative;width:70px' align=left cellpadding=0 cellspacing=0>
+ <td nowrap><div title="Show/Hide
+Outline" id="nb_otl" onfocus="BtnOnOver()" onblur="BtnOnOut()" TABINDEX=11
+ style='position:absolute;top:0%;left:0%;width:100%;height:100%;cursor:default'>
+ <div id="nb_otlElem" align=center style='position:relative;padding:3px;font-family:Arial;
+ color:buttontext;font-size:9pt'>Outline</div></div>
+ </td>
+</table>
+
+<table style='position:relative' align=center cellpadding=0 cellspacing=0>
+ <td>
+ <div style='position:absolute;left:-18px;width:24px;height:20px;border-style:
+ solid;border-width:1px;border-color:threedface' onfocus="BtnOnOver()" onblur="BtnOnOut()" TABINDEX=12 id="nb_otlTxtBorder">
+ <div style='position:absolute;clip:rect(0px, 22px, 18px, 0px)'><img
+ src=buttons.gif id="nb_otlTxt" title="Expand/Collapse Outline"
+ style='position:relative;left:-157px'></div>
+ </div>
+ </td>
+</table>
+
+</div>
+
+<div id=OtlObj style='display:none;visibility:hidden;'>
+
+
+<table width="100%" style='font-family:Arial;font-size:9pt'>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>1</font></div>
+  </td>
+  <td width="100%">
+  <div id=PPTP1 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0001.htm');" id=PPTL1>N-fold operads: braids,
+  Young diagrams, and dendritic growth.</a></font></div>
+  <div id=PPTC1 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Stefan Forcey, Tennessee State University</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>2</font></div>
+  </td>
+  <td>
+  <div id=PPTP2 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0002.htm');" id=PPTL2>Abstract</a></font></div>
+  <div id=PPTC2 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Iterated monoidal categories are most famous for modeling loop-spaces
+       via their nerves. There is still an open question about how faithful
+       this modeling is. An example of a 2-fold monoidal category is a braided
+       category together with a four strand braid from a double coset of the
+       braid group which will play the role of interchanger.</li>
+   <li>&nbsp;Examples of n-fold monoidal categories include ordered sets with n
+       different binary operations. For each pair of operations an inequality
+       expresses the interchange. We will present several example sets with
+       their pairs of operations, beginning with max and plus on the natural
+       numbers and proceeding to two new ways of adding and multiplying Young
+       diagrams. The additions are vertical and horizontal stacking, and the
+       multiplications are two ways of packing one Young diagram into another
+       based respectively on stacking first horizontally and then vertically,
+       and vice-versa.</li>
+   <br>
+   <br>
+   <li>&nbsp;N-fold monoidal categories generalize braided and symmetric
+       categories while retaining precisely enough structure to support
+       operads. The category of n-fold operads inherits the iterated monoidal
+       structure. &nbsp;We will look at sequences that are minimal operads in
+       the totally ordered categories just introduced, and discuss how these
+       sequences grow. It turns out that the later terms are completely
+       determined by the choice of initial terms, and if this choice is made
+       carefully there appears a remarkable correspondence to certain natural
+       processes. In fact, the growth rate of physical dendrites such as
+       metallic crystals and snowflakes oscillates in a way directly comparable
+       to that of our operads.</li>
+   <li>&nbsp;In relation to other topics at the conference, we will pose some
+       open questions about how the nerves of n-fold operads might be
+       described, and whether or not they do indeed form dendroidal sets. If
+       time permits we will also discuss the possibility of using our families
+       of n-dimensional Young diagrams to answer the open question of whether
+       every n-fold loop space is represented by the nerve of an iterated
+       monoidal category.</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>3</font></div>
+  </td>
+  <td>
+  <div id=PPTP3 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0003.htm');" id=PPTL3>Outline</a></font></div>
+  <div id=PPTC3 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Examples of 2-fold monoidal categories.</li>
+   <li>Operads in 2-fold monoidal categories.</li>
+   <li>Examples of operads.</li>
+   <li>Crystals!</li>
+   <li>Open questions.</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>4</font></div>
+  </td>
+  <td>
+  <div id=PPTP4 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0004.htm');" id=PPTL4>I.<br>
+    2-fold monoidal categories.</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>5</font></div>
+  </td>
+  <td>
+  <div id=PPTP5 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0005.htm');" id=PPTL5>Examples of 2-fold
+  monoidal categories.</a></font></div>
+  <div id=PPTC5 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>1) A braided category V.</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>6</font></div>
+  </td>
+  <td>
+  <div id=PPTP6 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0006.htm');" id=PPTL6>2) The non-negative
+  ordered integers.</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>7</font></div>
+  </td>
+  <td>
+  <div id=PPTP7 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0007.htm');" id=PPTL7>3) Young diagrams with
+  lexicographic ordering by columns.</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>8</font></div>
+  </td>
+  <td>
+  <div id=PPTP8 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0008.htm');" id=PPTL8>…example 3) cont.</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>9</font></div>
+  </td>
+  <td>
+  <div id=PPTP9 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0009.htm');" id=PPTL9>4) Young diagrams with
+  lexicographic ordering by columns.</a></font></div>
+  <div id=PPTC9 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li></li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>10</font></div>
+  </td>
+  <td>
+  <div id=PPTP10 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0010.htm');" id=PPTL10>…example 4) cont.</a></font></div>
+  <div id=PPTC10 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li></li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>11</font></div>
+  </td>
+  <td>
+  <div id=PPTP11 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0011.htm');" id=PPTL11>…example 4) cont.</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>12</font></div>
+  </td>
+  <td>
+  <div id=PPTP12 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0012.htm');" id=PPTL12>II. 2-Fold
+  Operads<br>
+    Recall that an operad in a braided category is a sequence of objects <br>
+    C(n)<br>
+    with a composition <br>
+    where j is the sum of the j <sub>i</sub>. The composition obeys this sort
+  of commuting diagram, where an element of C(n) is represented by an n-leaved
+  corolla:</a></font></div>
+  <div id=PPTC12 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li></li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>13</font></div>
+  </td>
+  <td>
+  <div id=PPTP13 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0013.htm');" id=PPTL13>The important thing to
+  notice here is that the interchange h is all we need in order to sensibly
+  demand the associativity axiom. The “shuffle” is replaced by the interchanger
+  in the following manner:</a></font></div>
+  <div id=PPTC13 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li></li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>14</font></div>
+  </td>
+  <td>
+  <div id=PPTP14 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0014.htm');" id=PPTL14>III. Examples of 2-fold
+  operads.</a></font></div>
+  <div id=PPTC14 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>An operad in the non-negative integers, where</li>
+   <br>
+   <br>
+   <br>
+   <li><span style='mso-spacerun:yes'> </span>is a sequence C(j), j&gt;0, <span
+       style='mso-spacerun:yes'> </span>for which</li>
+   <br>
+   <br>
+   <br>
+   <li>and for which C(1)=0. The first condition simplifies to</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>15</font></div>
+  </td>
+  <td>
+  <div id=PPTP15 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0015.htm');" id=PPTL15><span
+  style='mso-spacerun:yes'> </span>A minimal operad in the non-negative
+  integers relative to a given string 0, C(2), …, C(k)<br>
+    <span style='mso-spacerun:yes'> </span>is defined by extending the
+  sequence:<br>
+    <span style='mso-spacerun:yes'> </span>C(n) = max{C(i) + C(n-i)}<sub>i=1…n-1</sub>
+  for <span style='mso-spacerun:yes'> </span>n &gt; k.</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>16</font></div>
+  </td>
+  <td>
+  <div id=PPTP16 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0018.htm');" id=PPTL16><span
+  style='mso-spacerun:yes'> </span>A sequence of Young diagrams<span
+  style='mso-spacerun:yes'>  </span>C(n) with C(1)=0 is an operad iff<span
+  style='mso-spacerun:yes'>  </span>the height of the first columns f(n) obeys:</a></font></div>
+  <div id=PPTC16 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li></li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>17</font></div>
+  </td>
+  <td>
+  <div id=PPTP17 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0032.htm');" id=PPTL17><span
+  style='mso-spacerun:yes'> </span>A minimal operad in Young diagrams relative
+  to a given string 0, C(2), …, C(k)<br>
+    <span style='mso-spacerun:yes'> </span>is defined by extending the sequence
+  for n &gt; k using lexicographic max:</a></font></div>
+  <div id=PPTC17 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li></li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>18</font></div>
+  </td>
+  <td>
+  <div id=PPTP18 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0019.htm');" id=PPTL18>More examples: minimal
+  operads in Young diagrams</a></font></div>
+  <div id=PPTC18 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>6)</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>19</font></div>
+  </td>
+  <td>
+  <div id=PPTP19 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0020.htm');" id=PPTL19>7)</a></font></div>
+  <div id=PPTC19 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li></li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>20</font></div>
+  </td>
+  <td>
+  <div id=PPTP20 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0021.htm');" id=PPTL20>8)</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>21</font></div>
+  </td>
+  <td>
+  <div id=PPTP21 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0022.htm');" id=PPTL21>IV. Crystals</a></font></div>
+  <div id=PPTC21 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>In</li>
+   <li>Growth pulsations in symmetric dendritic crystallization in thin polymer
+       blend films</li>
+   <li>Vincent Ferreiro, Jack F. Douglas, James Warren, and Alamgir Karim
+       describe the measurements they took in 2002 as certain crystals formed
+       in solution. Their first observation was:</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>22</font></div>
+  </td>
+  <td>
+  <div id=PPTP22 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0023.htm');" id=PPTL22><span
+  style='mso-spacerun:yes'> </span></a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>23</font></div>
+  </td>
+  <td>
+  <div id=PPTP23 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0024.htm');" id=PPTL23><span
+  style='mso-spacerun:yes'> </span>Operad model of “Crystal growth” <br>
+    <span style='mso-spacerun:yes'> </span>C<sub>0, 0, 0, 0, 0, 1, 2, 3, 4, 5,
+  6<span style='mso-spacerun:yes'>   </span></sub><sub><span
+  style='mso-spacerun:yes'> </span></sub>vs.<span style='mso-spacerun:yes'> 
+  </span><span style='mso-spacerun:yes'> </span>RoundDown(55(n-2)/100-Sin(56(n-2)/100)</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>24</font></div>
+  </td>
+  <td>
+  <div id=PPTP24 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0025.htm');" id=PPTL24>The second observation
+  made by the crystal gazers was:</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>25</font></div>
+  </td>
+  <td>
+  <div id=PPTP25 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0027.htm');" id=PPTL25>&quot;The rate of
+  growth and...&quot;</a></font></div>
+  <div id=PPTC25 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>The rate of growth and period of oscillation of the width of the
+       dendritic crystal arm appear to be roughly the same as the corresponding
+       numbers for the radius of the dendrite, but precisely out of phase.</li>
+   <br>
+   <br>
+   <li>Recall that the terms of 2-fold operads of Young diagrams, minimal
+       relative to a given starting sequence, do take turns increasing in size
+       vertically and horizontally. However, the length of a “side-branch”
+       grows only logarithmically.</li>
+   <br>
+   <br>
+   <li>But, the number of blocks in the entire structure grows linearly. Thus
+       the number of blocks to the right of the first column grows at the same
+       average rate as the height of the first column. These two growth rates
+       oscillate out of phase, just as is seen in the crystal.</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>26</font></div>
+  </td>
+  <td>
+  <div id=PPTP26 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0034.htm');" id=PPTL26><span
+  style='mso-spacerun:yes'> </span></a></font></div>
+  <div id=PPTC26 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li></li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>27</font></div>
+  </td>
+  <td>
+  <div id=PPTP27 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0028.htm');" id=PPTL27>V. Some open
+  questions/projects.</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>28</font></div>
+  </td>
+  <td>
+  <div id=PPTP28 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0031.htm');" id=PPTL28>References</a></font></div>
+  <div id=PPTC28 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>[F,D,W,K]</li>
+   <li>Vincent Ferreiro, Jack F. Douglas, James Warren, Alamgir Karim</li>
+   <li>Growth pulsations in symmetric dendritic crystallization in thin polymer
+       blend films</li>
+   <li>PHYSICAL REVIEW E, VOLUME 65, 051606</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+</table>
+
+
+
+</div>
+
+<div style='display:none'><a href=master76.htm></a><a href=master76.xml></a><a
+href=preview.wmf></a><a href=master02.htm></a><a href=pres.xml></a><a
+href=slide0001.htm></a><a href="slide0001_image001.png"></a><a
+href="slide0001_image002.jpg"></a><a href="slide0001_image003.png"></a><a
+href="slide0001_image004.jpg"></a><a href=slide0002.htm></a><a
+href=slide0003.htm></a><a href=slide0004.htm></a><a
+href="slide0004_image005.wmz"></a><a href=oledata.mso></a><a
+href="slide0004_image006.gif"></a><a href="slide0004_image007.wmz"></a><a
+href="slide0004_image008.gif"></a><a href=slide0005.htm></a><a
+href="slide0005_image009.wmz"></a><a href="slide0005_image010.gif"></a><a
+href="slide0005_image011.png"></a><a href="slide0005_image012.jpg"></a><a
+href="slide0005_image013.png"></a><a href="slide0005_image014.jpg"></a><a
+href=slide0006.htm></a><a href="slide0006_image015.wmz"></a><a
+href="slide0006_image016.gif"></a><a href="slide0006_image017.wmz"></a><a
+href="slide0006_image018.gif"></a><a href=slide0007.htm></a><a
+href="slide0007_image019.wmz"></a><a href="slide0007_image020.gif"></a><a
+href="slide0007_image021.png"></a><a href="slide0007_image022.jpg"></a><a
+href="slide0007_image023.png"></a><a href="slide0007_image024.jpg"></a><a
+href="slide0007_image025.png"></a><a href="slide0007_image026.jpg"></a><a
+href=slide0008.htm></a><a href="slide0008_image027.png"></a><a
+href="slide0008_image028.jpg"></a><a href="slide0008_image029.gif"></a><a
+href="slide0008_image030.png"></a><a href="slide0008_image031.jpg"></a><a
+href=slide0009.htm></a><a href="slide0009_image032.wmz"></a><a
+href="slide0009_image033.gif"></a><a href="slide0009_image034.png"></a><a
+href="slide0009_image035.jpg"></a><a href="slide0009_image036.png"></a><a
+href="slide0009_image037.jpg"></a><a href="slide0009_image038.png"></a><a
+href="slide0009_image039.jpg"></a><a href="slide0009_image040.png"></a><a
+href="slide0009_image041.jpg"></a><a href="slide0009_image042.gif"></a><a
+href="slide0009_image043.gif"></a><a href=slide0010.htm></a><a
+href="slide0010_image044.png"></a><a href="slide0010_image045.jpg"></a><a
+href="slide0010_image046.png"></a><a href="slide0010_image047.jpg"></a><a
+href="slide0010_image048.png"></a><a href="slide0010_image049.jpg"></a><a
+href=slide0011.htm></a><a href="slide0011_image050.png"></a><a
+href="slide0011_image051.jpg"></a><a href="slide0011_image052.png"></a><a
+href="slide0011_image053.jpg"></a><a href="slide0011_image054.png"></a><a
+href="slide0011_image055.jpg"></a><a href=slide0012.htm></a><a
+href="slide0012_image056.png"></a><a href="slide0012_image057.jpg"></a><a
+href="slide0012_image058.png"></a><a href="slide0012_image059.jpg"></a><a
+href=slide0013.htm></a><a href="slide0013_image060.png"></a><a
+href="slide0013_image061.jpg"></a><a href="slide0013_image062.png"></a><a
+href="slide0013_image063.jpg"></a><a href="slide0013_image064.png"></a><a
+href="slide0013_image065.jpg"></a><a href="slide0013_image066.png"></a><a
+href="slide0013_image067.jpg"></a><a href="slide0013_image068.png"></a><a
+href="slide0013_image069.jpg"></a><a href=slide0014.htm></a><a
+href="slide0014_image070.gif"></a><a href="slide0014_image071.png"></a><a
+href="slide0014_image072.jpg"></a><a href="slide0014_image073.png"></a><a
+href="slide0014_image074.jpg"></a><a href=slide0015.htm></a><a
+href=slide0018.htm></a><a href="slide0018_image075.png"></a><a
+href="slide0018_image076.jpg"></a><a href="slide0018_image077.png"></a><a
+href="slide0018_image078.jpg"></a><a href="slide0018_image079.png"></a><a
+href="slide0018_image080.jpg"></a><a href="slide0018_image081.png"></a><a
+href="slide0018_image082.jpg"></a><a href=slide0032.htm></a><a
+href="slide0032_image083.wmz"></a><a href="slide0032_image084.gif"></a><a
+href=slide0019.htm></a><a href="slide0019_image085.png"></a><a
+href="slide0019_image086.jpg"></a><a href="slide0019_image087.png"></a><a
+href="slide0019_image088.jpg"></a><a href="slide0019_image089.png"></a><a
+href="slide0019_image090.jpg"></a><a href="slide0019_image091.png"></a><a
+href="slide0019_image092.jpg"></a><a href=slide0020.htm></a><a
+href="slide0020_image093.png"></a><a href="slide0020_image094.jpg"></a><a
+href="slide0020_image095.png"></a><a href="slide0020_image096.jpg"></a><a
+href=slide0021.htm></a><a href="slide0021_image097.png"></a><a
+href="slide0021_image098.jpg"></a><a href="slide0021_image099.png"></a><a
+href="slide0021_image100.jpg"></a><a href="slide0021_image101.png"></a><a
+href="slide0021_image102.jpg"></a><a href=slide0022.htm></a><a
+href="slide0022_image103.png"></a><a href="slide0022_image104.jpg"></a><a
+href="slide0022_image105.png"></a><a href="slide0022_image106.jpg"></a><a
+href=slide0023.htm></a><a href="slide0023_image107.png"></a><a
+href="slide0023_image108.jpg"></a><a href=slide0024.htm></a><a
+href="slide0024_image109.emz"></a><a href="slide0024_image110.gif"></a><a
+href=slide0025.htm></a><a href="slide0025_image111.png"></a><a
+href="slide0025_image112.jpg"></a><a href="slide0025_image113.png"></a><a
+href="slide0025_image114.jpg"></a><a href=slide0027.htm></a><a
+href="slide0027_image115.png"></a><a href="slide0027_image116.jpg"></a><a
+href=slide0034.htm></a><a href="slide0034_image117.jpg"></a><a
+href=slide0028.htm></a><a href=slide0031.htm></a><a
+href="master76_stylesheet.css"></a><a href=script.js></a><a
+href="../crystal_operads.htm"></a><a href=fullscreen.htm></a><a
+href=buttons.gif></a><a href=frame.htm></a><a href=outline.htm></a></div>
+
+</body>
+
+</html>
