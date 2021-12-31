@@ -1,0 +1,298 @@
+%&biglatex
+\documentclass[10pt]{article}
+\usepackage{latexsym,amsmath}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage[all]{xy}
+\xyoption{v2}
+\xyoption{knot}
+\usepackage{epsfig}
+\oddsidemargin  0pt     % 
+\evensidemargin 0pt     % 
+\marginparwidth 1in     % 
+\marginparsep 0pt       % 
+\topmargin 0pt          % 
+\headheight 0pt         % 
+\headsep 0pt            % 
+\topskip 0pt            % 
+\footskip 0.5in         % 
+\textwidth 6.5in        % 
+
+\textheight 9in
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}{IH}
+
+\newenvironment{definition}
+{\bigskip\refstepcounter{theorem}\noindent{\bf Definition \thetheorem.}}
+{\bigskip}
+
+\newenvironment{remark}
+{\bigskip\refstepcounter{theorem}\noindent{\bf Remark \thetheorem.}}
+{\bigskip}
+
+\newenvironment{exercise}
+{\bigskip\refstepcounter{theorem}\noindent{\bf Exercise \thetheorem.}}
+{\bigskip}
+
+\newenvironment{example}
+{\bigskip\refstepcounter{theorem}\noindent{\bf Example \thetheorem.}}
+{\bigskip}
+
+\newenvironment{proof}
+{\noindent{\bf Proof}}
+{\bigskip}
+
+\newcommand{\MySection}[1]
+{\noindent{\bf #1}}
+
+\newcommand{\bcal}[1]{\mbox{\boldmath${\cal {#1}}$}}
+%\setcounter{totalnumber}{5}
+
+\begin{document}
+%\vspace{0.5cm}
+ \begin{center}
+   {\bf\large Research Statement}
+   
+  % \vspace{ 1cm}
+   
+   {\large Stefan Forcey}
+   \end{center}
+   
+\MySection{Overview}
+
+My studies involve the development of extended
+topological field theories and the relationship of categorical 
+enrichment to iterated loop spaces, as well as applications of these
+concepts to other areas of mathematics and physics. The major focuses of my research thus far are 
+interrelated as in the following diagram, where the directions of arrows
+indicate
+flow of information and the numerals correspond to sections in the following text.
+\begin{small}
+$$
+\xymatrix@d@C=-10pt@R=-40pt{
+ &*\txt{homotopy theory:\\iterated loop spaces\\(and their operads)}
+ \ar@{<->}[ddl]
+ \ar@{<->}[ddr]
+ \\
+ &\text{(III)}\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }
+ \\
+ *\txt{enriched\\\text{ }categories\text{ }\\\text{ }}
+ \ar@{<->}[rr]
+ \ar[ddr]
+ &&*\txt{(weak)\\$n$--categories}
+ \ar[ddl]
+ \\
+ &\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{(II)}
+ \\
+ &*\txt{(I)\\\text{ }extended\text{ }\\TQFT}
+ \ar[ddr]
+ \ar[ddl]
+ \\
+ &\text{(IV)}\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }
+ \\
+ *\txt{knot\\\text{ }concordance\text{ }\\\text{ }}
+ \ar[rr]
+ &&*\txt{\text{ }loop quantum gravity\text{ }\\and string theory}
+ }
+$$
+\end{small}
+\MySection{I. Extended Topological Quantum Field Theories}
+
+Naively a TQFT is a topological invariant of spaces that is functorial
+with respect to cobordisms.
+This idea is motivated by physics where we are used to picturing a pair of
+spaces forming the boundary of a space-time
+cobordism. Let $d+1$
+be the dimension of the spacetime.
+Technically a $d+1$ dimensional TQFT is a multiplicative functor between bordism
+categories. The domain is usually the topological spaces
+to be studied, with multiplication disjoint union, and the range is
+usually a simpler monoidal category, such as 
+modules over a given ring, with multiplication the tensor product. An $n$--category
+has  arrows (1--cells) between objects (0--cells), 2--cells between 1--cells, and so on. 
+A multidimensional TQFT that has an $n$--category as its range is 
+known as an extended topological field theory. The picture that we hope to realize 
+in some fashion is as follows:
+
+\begin{figure}[h]
+ %\begin{center}
+ \centering
+ \scalebox{.65}{\includegraphics{tqftfin.eps}}
+ %\end{center}
+ \end{figure}
+   We studied a new variation on the definition of field theory that retains 
+ the gluing properties of a TQFT but defines
+the invariants as limits of functors rather than as functors themselves.
+Sheaf cohomology is defined as the limit of a presheaf. The latter is a functor from
+a category of subsets of a topological space (maps are inclusions) to a category
+of modules.
+The extended nature of the new field theories is achieved by letting the image of
+the $d+1$ dim. cobordism be its sheaf cohomology. The necessary
+presheaf is constructed by mapping a time interval subset
+of the bordism with a constant cross section to the image of the underlying TQFT on that cross section.
+
+Personally I focused on defining the
+new theory on $2+1$ dim. cobordisms. The cross sections
+of such a $3$--manifold with corners are surfaces with boundary. In order to define an invariant
+of these as a limit of the hom--functor we need $2$--dimensional hom--sets, or more generally
+multipliable hom--objects. Indicated as the
+necessary tools were the concepts of enrichment and $n$--categories.
+
+\MySection{II. Iterated Enrichment and Higher Dimensional Algebra}
+
+The definition of enriched category generalizes the usual definition of
+category by replacing the hom--sets of morphisms between each two objects by 
+hom--objects in some monoidal category ${\cal V}$. The collection of enriched categories over a
+given monoidal category, with
+enriched functors and natural transformations,  is the $2$--category known
+as ${\cal V}$--Cat. ${\cal V}$--Cat is known to inherit
+structure from ${\cal V}$: if ${\cal V}$ is symmetric then so is ${\cal V}$--Cat, if ${\cal V}$ is merely braided
+then
+${\cal V}$--Cat is merely monoidal. These facts are important to the construction
+of extended TQFT's since accurately modeling various dimensions requires the 
+range category to have various levels of structure, especially if it is desired that 
+the field theory reflect the embedding of the cobordism as well as the topology.
+ 
+My contributions to enrichment theory are related to this inheritance of properties.
+I defined enrichment over a very general type of monoidal category with
+extra structure; a $k$--fold monoidal, or iterated monoidal category. I then proved that
+for ${\cal V}$  $k$-fold monoidal ${\cal V}$--Cat is a $(k-1)$--fold monoidal $2$--category. With
+some additional constraints on the structure of ${\cal V}$ this should provide a source of
+braided monoidal $2$--categories and bicategories.
+Next I recursively defined higher dimensional enrichment. ${\cal V}$--$n$--Cat is the collection
+of categories enriched over ${\cal V}$--$(n-1)$--Cat. I defined the enriched higher morphisms
+for these objects and showed that ${\cal V}$--$2$--Cat is a strict $3$--category. In the future
+I hope to complete an inductive proof that for ${\cal V}$ $k$--fold monoidal we have that
+${\cal V}$--$n$--Cat is a $(k-n)$--fold monoidal strict $(n+1)$--category.
+ The algebraic extension of these results will be to weaken the concept of higher dimensional
+ enrichment by replacing
+ equalities with isomorphic higher morphisms. Since a strict $n$--category is just a category enriched
+over $(n-1)$--Cat, this weakening may also have a direct application
+    to the definition of weak $n$--categories, something that is still not
+    satisfactorily understood. I hope to be able to contribute to their 
+    study next June as I have been invited to the workshop on ``$n$--categories: Foundations
+    and Applications'' organized by John Baez and Peter May at the IMA.
+The topological extension of my results is to understand 
+their implications for
+homotopy theory. 
+
+ \MySection{III. Enrichment and Delooping} 
+ 
+ The effort to link category theory and geometry, especially categorical and homotopical coherence,
+     has recently been aided by the work of Balteanu,
+    Fiedorowicz, Schw${\rm \ddot a}$nzl, and Vogt
+    who show a direct correspondence between $k$--fold monoidal
+    categories and  $k$--fold loop spaces through the
+    categorical nerve.\cite{Balt} The latter is a simplicial complex constructed from a category by
+    associating $n$ composable morphisms with $n$-simplices as follows:
+     
+     \begin{figure}[h]
+     %\begin{center}
+     \centering
+     \scalebox{.6}{\includegraphics{nervefin.eps}}
+     %\end{center}
+ \end{figure}
+     As I pursued my plan to relate the enrichment functor to topology, I
+    noticed that the concept of higher dimensional
+    enrichment would be important in its relationship to double, triple and
+    further iterations of delooping. This is evident immediately from the proof that
+    under enrichment categorical dimension increases while monoidal-ness decreases.
+    In $\Omega X$ points (objects) are paths (1--cells) in $X$, and loop spaces are always provided
+    with a multiplication of points by concatenation of loops. 
+    In the future I plan to characterize
+    the nerves of ${\cal V}$--$n$--Cat. The weaker version of enrichment also deserves study.
+    The nerves of bicategories
+    have been defined by Duskin in \cite{Dusk} and may provide the link to loop spaces in this context.
+    Other categories based on a monoidal category
+    ${\cal V}$ are ${\cal V}$--Act, the bicategory ${\cal V}$--Mod and internal categories in ${\cal V}.$
+    All these have potential of being generalized in my scheme and thus
+    have promise of being important to homotopy theory. 
+ 
+ \MySection{IV Applications} 
+ 
+ Next I return to the question of field theories that reflect embedding. Baez and Langford have described
+ the use of braided bicategories to model braided surfaces \cite{BaezLang}. I would like to apply a braided ${\cal V}$--Mod to 
+ their construction and look for useful invariants of knot cobordisms. The knot concordance
+ group has elements equivalence classes of knots related in that two equivalent knots
+ cobound a cylinder that is smoothly embedded in Euclidean 4--space. The group operation
+ is connected sum. The knots that are concordant to the identity unknot are the slice knots--they occur as 
+ cross sections of a sphere smoothly embedded in 4--space. 
+ Here are examples for the figure eight and the trefoil of a
+ drawing algorithm that I constructed to show by picture how the connected sum of a 
+ knot and its orientation reversed mirror image forms a special slice knot called a ribbon
+ knot. The inverse knot is drawn behind the original by placing the reversed crossings each beside 
+ the corresponding original crossing and then connecting arcs in the background. 
+  
+  \begin{figure}[h]
+      %\begin{center}
+      \centering
+      \scalebox{.4}{\includegraphics{ribbonfin.eps}}
+      %\end{center}
+ \end{figure}
+   It is unknown whether all slice knots are in fact ribbon knots. Amphicheiral knots represent 
+ elements of order two in the group,
+ but it is unknown whether there are any elements of order two without an amphicheiral representative.
+ The trefoil represents an element of infinite order, but it is unknown whether there are elements of order $n\ge 3.$
+ It seems worth the effort to attack some of these questions with the new invariants available through 
+ quantum field theories. The question of order, for instance, might be solved if it was possible to
+ construct a field theory for which the image of a potential cobordism between the unknot and
+ a triple connected sum could be shown not to exist. Another way to extend the ideas of TQFT is to 
+ define field theories that are invariants of gropes and other CW complexes. The work of Conant and Teichner
+ in \cite{Teich} desribes a filtration of the knot concordance group by grope cobordism,
+ and this might be the correct place to try to solve problems using such field
+ theories as tools.
+  
+  The connection between TQFT and quantum gravity is
+  that field theories often 
+  occur as topological state sums, which are invariants calculated from but independent of
+  triangulations on the cobordism
+  manifold. These state sums are the starting point for loop quantum gravity in the work of several 
+  theorists, including Crane, Barrett \cite{BC}, and Smolin \cite{Smolin}. There is
+  also an intriguing possibility of applying the sheaf theoretic version of field theory
+  to string theory. It has been
+  suggested that the transport of strings and higher dimensional branes be described
+  in terms of 
+  $n$--gerbes. An $0$--gerbe is a sheaf, and a $1$--gerbe assigns 
+  groupoids to the open sets. I would like to define gerbe theoretic TQFT and investigate its
+  relationship to the $K$--theory of gerbes.
+  
+ Kauffman notes a connection between the knot concordance group and string theory in \cite{Kauff}. 
+  The connected sum of a knot and its inverse is cobordant to the unknot in a way 
+  that suggests a particle-antiparticle collision. The cobordism is seen as a movie of cross-sectional
+  stills. 
+  We include the connected sum as an initial saddle and neglect to cap off
+  one of the unknots that results. 
+  
+  \begin{figure}[h]
+        %\begin{center}
+        \centering
+        \scalebox{.3}{\includegraphics{coolfin.eps}}
+        %\end{center}
+ \end{figure}
+  I would like to define extended topological field theories on this sort of picture, as well as 
+ understand any physical significance its higher dimensional analogues may reflect. There may be some
+ illumination on the subject in the recent work of Conant and Teichner on grope cobordism and
+ Feynman diagrams \cite{CT}.
+ 
+ \begin{thebibliography}{99}
+ \bibitem{BaezLang}{J. Baez, L. Langford, Higher-Dimensional Algebra IV:2-Tangles, to appear in Adv. Math. }
+ \bibitem{Balt}{C. Balteanu, Z. Fiedorowicz, R. Schw${\rm \ddot a}$nzl, R. Vogt, 
+     Iterated Monoidal Categories,
+    Adv. Math. 176 (2003), 277-349.}
+    \bibitem{BC}{J.W. Barrett, L. Crane, Relativistic Spin Networks and Quantum Gravity, /gr-qc/9709028 }
+    \bibitem{Teich}{J. Conant, P. Teichner, Grope Cobordism of Classical Knots,
+    math.GT/0012118}
+    \bibitem{CT}{J. Conant, P. Teichner, Grope Cobordism and Feynman Diagrams, math.GT/0209075 }
+    \bibitem{Dusk}{J.W.Duskin, Simplicial Matrices and the Nerves of Weak n--Categories I: Nerves of Bicategories,
+  Theory and Applications of Categories, 9, No. 10 (2002), 198-308.}
+  %\bibitem{FW}{D. Freed, E. Witten, Anomalies in String Theory with $D$--branes, Asian J. Math, 3 (1999), 819-851.}
+  \bibitem{Kauff}{L. Kauffman, Knots and Physics 3rd ed., World Scientific Press, 2001}
+   \bibitem{Smolin}{L. Smolin, Linking Topological Quantum Field Theory and Nonperturbative Quantum Gravity,
+   J. Math. Phys., 36 (1995), 6417-6455.}
+ \end{thebibliography}
+ \end{document}
