@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Javascript Riemann</title>
+</head>
+<body>
+<script>
+
+
+
+var pin = prompt('Enter your p-value: ', '-1.0');
+var nin = prompt('Enter your n: ', '10');
+
+
+document.write('You have entered : ' + pin +' and ' + nin );
+
+var p = parseFloat(pin);
+ var topn = parseFloat(nin);
+var ans=0;
+
+
+function factorial(num) {
+  if (num < 0) 
+        return -1;
+  else if (num == 0) 
+      return 1;
+  else {
+      return (num * factorial(num - 1));
+  }
+};
+
+
+for(var n = 0; n <topn+1; n++){
+       var subans=0; 
+       for(var k = 0; k<n+1; k++){
+		subans=subans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,1-p)));
+console.log(subans);
+		};                            
+       ans=ans + subans/(n+1);
+//console.log(ans);
+      };
+ans = ans/(p-1);
+
+document.write(' Answer: ' + ans );
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+       
+    
+    

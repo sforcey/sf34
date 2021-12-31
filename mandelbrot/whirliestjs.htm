@@ -1,0 +1,250 @@
+<html>
+<head>
+<title>Javascript Spiral</title>
+</head>
+<body>
+<script>
+
+
+var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
+          window.setTimeout(callback, 1000 / 60 );
+
+var canvas = document.createElement("canvas");
+var width = 1100;
+var height = 900;
+var count = 1
+
+	
+//var xorig =   -0.26;
+//var yorig = 0.6337;	
+
+//var xorig =   -0.145 ;
+//var yorig = 0.654;	
+
+//var xorig =   -0.145 ;
+//var yorig = 0.645;
+
+//var xorig =   -0.259997 ;
+//var yorig = 0.635000000001;
+
+//var xorig =   -0.2599966743 ; //6 callbacks
+//var yorig = 0.6350001;
+
+//var xorig =   -0.25999667432 ; //3 callbacks, smallest radius
+//var yorig = 0.6350001;
+
+//var xorig =   -0.2599966743201 ; //4 callbacks, 
+//var yorig = 0.6350001;
+
+
+//var xorig =   -0.26 ;
+//var yorig = 0.635;
+
+//var xorig =   -0.26001 ;
+//var yorig = 0.635000000001;
+
+//var xorig = -1.1;
+//var yorig = .22;
+
+//document.write('<h3> c = ' + xorig +' + '+ yorig +'i'+ ' ...Or //enter your own starting point <a //href="http://www.math.uakron.edu/~sf34/mandelseqi.htm"> here! //</a> </h3>');
+
+//= -0.25733999 + 0.634456i
+
+var num1 = prompt('Enter your real part : ', '-0.25733999');
+var num2 = prompt('Enter your imaginary part : ', '0.634456');
+var num3 = prompt('Enter your zoom, 500 to 1500: ', '1000');
+var num4 = prompt('Enter your point size in pixels: ', '6');
+
+
+document.write('You have entered : ' + num1 +' + '+ num2 +'i');
+
+var xorig = parseFloat(num1);
+ var yorig = parseFloat(num2);
+var zoom = parseFloat(num3);
+var size = parseFloat(num4);
+
+
+
+
+x2 = ((xorig*xorig) - (yorig*yorig)) + xorig;
+    y2 = (2*xorig*yorig) + yorig;
+var xshift = zoom*((xorig+x2)/2 + 1.9)-550 ;
+var yshift = zoom*((yorig+y2)/2 + 1.1)-550 ;
+var x = xorig ;
+var y = yorig ;
+var tmpx = 0;
+var tmpy = 0;
+canvas.width = width;
+canvas.height = height;
+var context = canvas.getContext("2d");
+ 
+var update = function() { 
+    tmpx = x;
+    tmpy = y;
+    x = ((tmpx*tmpx) - (tmpy*tmpy)) + xorig;
+    y = (2*tmpx*tmpy) + yorig;
+  };
+
+var colorChange = function() {
+count = count+1
+if ((count % 7 == 1)) {
+
+
+context.fillStyle = "#990000" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
+
+}
+else if ((count % 7 == 2)) {
+
+
+context.fillStyle = "#FF7777" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
+}
+else if ((count % 7 == 3)) {
+
+context.fillStyle = "#999999" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
+}
+else if ((count % 7 == 4)) {
+
+context.fillStyle = "#009900" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
+}
+else if ((count % 7 == 5)) {
+
+
+context.fillStyle = "#000099" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
+}
+else if ((count % 7 == 6)) {
+
+
+context.fillStyle = "#5500FF" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
+}
+else
+{
+
+context.fillStyle = "#880088" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
+}
+};
+
+/* This variant makes bordered points...
+var BorderedcolorChange = function() {
+count = count+1
+if ((count % 7 == 1)) {
+
+
+context.fillStyle = "#990000" 
+context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);
+context.fillStyle = "#990000" 
+context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
+context.fillStyle = "#990000" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
+
+}
+else if ((count % 7 == 2)) {
+
+context.fillStyle = "#FF7777" 
+context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);context.fillStyle = "#FF7777" 
+context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
+context.fillStyle = "#FF7777" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
+}
+else if ((count % 7 == 3)) {
+
+context.fillStyle = "#999999" 
+context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);context.fillStyle = "#999999" 
+context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
+context.fillStyle = "#999999" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
+}
+else if ((count % 7 == 4)) {
+
+context.fillStyle = "#009900" 
+context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);context.fillStyle = "#009900" 
+context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
+context.fillStyle = "#009900" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
+}
+else if ((count % 7 == 5)) {
+
+context.fillStyle = "#000099" 
+context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);
+context.fillStyle = "#000099" 
+context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
+context.fillStyle = "#000099" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
+}
+else if ((count % 7 == 6)) {
+
+context.fillStyle = "#5500FF" 
+context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);
+context.fillStyle = "#5500FF" 
+context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
+context.fillStyle = "#5500FF" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
+}
+else
+{
+context.fillStyle = "#880088" 
+context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);
+context.fillStyle = "#880088" 
+context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
+context.fillStyle = "#ffffff" 
+context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
+context.fillStyle = "#880088" 
+context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
+}
+};
+*/
+
+
+var step = function() {
+ colorChange();
+ update();
+ animate(step);
+};
+
+
+
+document.body.appendChild(canvas);
+animate(step);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+       
+    
+    
