@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Open Field</title>
+</head>
+<body>
+
+<script type="text/javascript">
+ 
+   function kk(){
+       var lol = document.getElementById('lolz').value;
+
+	if ((lol == "north") || (lol == "n") || (lol == "go north")) {
+            document.write('You went north. <a href="crossroads.htm">Look around!</a>');
+        } else if (lol=="NORTH") {document.write('No shouting please! <a href="open_field.htm">Look around!</a>');} 
+else {document.write('You went Nowhere. <a href="open_field.htm">Look around!</a>');}       
+   }
+
+
+
+</script>
+
+
+<body>
+
+<img  src="OpenField.jpg" width="300" height="200"> 
+
+You are standing in an open field. A path leads north.
+
+    <input type="text" name="enter" class="enter" value="" id="lolz"/>
+    <input type="button" value="click" OnClick="kk()"/>
+
+</body>
+</html>
+
+
+         

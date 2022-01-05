@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Javascript Sinx/x</title>
+</head>
+<body>
+<script>
+
+
+var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
+          window.setTimeout(callback, 1000 / 60 );
+
+var canvas = document.createElement("canvas");
+var width = 1100;
+var height = 900;
+
+
+	
+
+var num1 = prompt('Enter your x-radius (distance from 0 to start) : ', '-17');
+var num3 = prompt('Enter your zoom, 50 to 500: ', '30');
+var num4 = prompt('Enter your point size in pixels: ', '6');
+
+
+document.write('You have entered : ' + num1 );
+
+var xorig = parseFloat(num1);
+var zoom = parseFloat(num3);
+var size = parseFloat(num4);
+
+
+
+var yorig= Math.sin(xorig)/xorig;
+var x2 =  xorig + 0.1;
+var y2 = Math.sin(x2)/x2;
+var xshift = zoom*((xorig+x2)/2 + 1.9)-40 ;
+var yshift = zoom*((yorig+y2)/2 + 1.1)-450 ;
+var x = xorig ;
+var y = yorig ;
+var tmpx = 0;
+var tmpy = 0;
+canvas.width = width;
+canvas.height = height;
+var context = canvas.getContext("2d");
+ 
+var update = function() { 
+    tmpx = x;
+    tmpy = y;
+    x = tmpx + 0.1;
+    y = Math.sin(x)/x;
+console.log('x =' ,x , ' y =',y);
+  };
+
+
+
+var step = function() {
+ if (x<0){
+ context.strokeStyle = "#FF0000"  
+ context.strokeRect(zoom*(x+1.9)-xshift,  3*(600-(zoom*(y+1.1)-yshift)), size+2, size+2);}
+else{
+context.fillStyle = "#0044ff" 
+ context.fillRect(zoom*(x+1.9)-xshift,  3*(600-(zoom*(y+1.1)-yshift)), size, size);};
+ update();
+ animate(step);
+};
+
+
+
+document.body.appendChild(canvas);
+animate(step);
+
+    </script>
+    
+
+</body>
+</html>
