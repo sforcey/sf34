@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Javascript Riemann</title>
+</head>
+<body>
+<script>
+
+
+
+var rpin = prompt('Enter your p-value: real part ', '-1.0');
+ var ipin = prompt('Enter your p-value: imaginary part ', '-1.0'); 
+var nin = prompt('Enter your n: ', '10');
+
+
+document.write('You have entered : ' + rpin +' + '+ ipin +'i  and ' + nin );
+
+var rp = parseFloat(rpin);
+  var ip = parseFloat(ipin);
+ var topn = parseFloat(nin);
+var rans=0;
+  var ians=0;
+
+
+function factorial(num) {
+  if (num < 0) 
+        return -1;
+  else if (num == 0) 
+      return 1;
+  else {
+      return (num * factorial(num - 1));
+  }
+};
+
+
+for(var n = 0; n <topn+1; n++){
+       var rsubans=0;
+       var isubans=0;
+       for(var k = 0; k<n+1; k++){
+		rsubans=rsubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.cos(-1*ip*Math.log(k+1))));
+    isubans=isubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.sin(-1*ip*Math.log(k+1))));     
+console.log(rsubans);
+		};                            
+       rans=rans + rsubans/(Math.pow(2,n+1));
+       ians=ians + rsubans/(Math.pow(2,n+1));
+//console.log(ans);
+      };
+rans = (rans*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) + ians*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.sin(ip*Math.log(2)))*(Math.sin(ip*Math.log(2))));
+ians = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.sin(ip*Math.log(2)))*(Math.sin(ip*Math.log(2))));
+document.write(' Answer: ' + rans + ' + ' + ians +'i );
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
