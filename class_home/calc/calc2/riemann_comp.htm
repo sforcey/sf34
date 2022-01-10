@@ -37,11 +37,11 @@ for(var n = 0; n <topn+1; n++){
        var isubans=0;
        for(var k = 0; k<n+1; k++){
 		rsubans=rsubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.cos(-1*ip*Math.log(k+1))));
-    isubans=isubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.sin(-1*ip*Math.log(k+1))));     
+                isubans=isubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.sin(-1*ip*Math.log(k+1))));     
 console.log(rsubans);
 		};                            
        rans=rans + rsubans/(Math.pow(2,n+1));
-       ians=ians + rsubans/(Math.pow(2,n+1));
+       ians=ians + isubans/(Math.pow(2,n+1));
 //console.log(ans);
       };
 rans = (rans*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) + ians*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.sin(ip*Math.log(2)))*(Math.sin(ip*Math.log(2))));
