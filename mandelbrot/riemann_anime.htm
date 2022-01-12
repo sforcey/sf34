@@ -20,7 +20,7 @@ var count = 0;
 var rpin = prompt('Enter your p-value: real part ', '-1.0');
  var ipin = prompt('Enter your p-value: imaginary part ', '-1.0'); 
 var nin = prompt('Enter your n: ', '10');
-var num3 = prompt('Enter your zoom, 500 to 1500: ', '1000');
+var num3 = prompt('Enter your zoom, 50 to 150: ', '100');
 var num4 = prompt('Enter your point size in pixels: ', '5');
 
 document.write('You have entered : ' + rpin +' + '+ ipin +'i  and ' + nin );
@@ -75,7 +75,8 @@ y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*(Math.sin(ip*M
 
 var colorChange = function() {
 n=count;	
-count = count+1;	
+count = count+1;
+context.strokeRect(zoom*(0+1.9)-xshift, zoom*(0+1.1)-yshift, size, 10);
 if ((count % 7 == 1)) {
 
 
