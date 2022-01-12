@@ -98,7 +98,7 @@ var context = canvas.getContext("2d");
 var update = function() { 
        var rsubans=0;
        var isubans=0;
-       for(var k = 0; k<count+1; k++){
+       for(var k = 0; k<n+1; k++){
 		            rsubans=rsubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.cos(-1*ip*Math.log(k+1))));
                 isubans=isubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.sin(-1*ip*Math.log(k+1))));     
 		      };                            
