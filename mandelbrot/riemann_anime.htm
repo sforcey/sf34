@@ -258,7 +258,9 @@ var step = function() {
  update();
   if ((count < (topn + 1))) {
  animate(step);
-    };  
+    } else {
+	    document.write(' Answer: ' + x + ' + ' + y +'i'); 
+    };
 };
 
 
@@ -266,7 +268,7 @@ document.body.appendChild(canvas);
 animate(step);
 
 	
-document.write(' Answer: ' + x + ' + ' + y +'i');
+
   
     </script>
 </head>
