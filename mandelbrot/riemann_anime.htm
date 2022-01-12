@@ -67,7 +67,7 @@ var xorig = parseFloat(rpin);
  var yorig = parseFloat(ipin);
 var zoom = parseFloat(num3);
 var size = parseFloat(num4);
-
+var n=0;	
 var rans=0;
   var ians=0;
 
@@ -110,7 +110,8 @@ y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*(Math.sin(ip*M
   };
 
 var colorChange = function() {
-count = count+1
+n=count;	
+count = count+1;	
 if ((count % 7 == 1)) {
 
 
