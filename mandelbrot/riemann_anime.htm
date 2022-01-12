@@ -255,7 +255,7 @@ context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
 var step = function() {
  colorChange();
  update();
-  if ((count < topn + 1)) {
+  if ((count < (topn + 1))) {
  animate(step);
     } else {
   document.write(' Answer: ' + rans + ' + ' + ians +'i');
