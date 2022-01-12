@@ -83,14 +83,9 @@ function factorial(num) {
 };
 
 
-x2 = ((xorig*xorig) - (yorig*yorig)) + xorig;
-    y2 = (2*xorig*yorig) + yorig;
-var xshift = zoom*((xorig+x2)/2 + 1.9)-550 ;
-var yshift = zoom*((yorig+y2)/2 + 1.1)-550 ;
-var x = xorig ;
-var y = yorig ;
-var tmpx = 0;
-var tmpy = 0;
+var xshift = zoom*((xorig)/2 + 1.9)-550 ;
+var yshift = zoom*((yorig)/2 + 1.1)-550 ;
+
 canvas.width = width;
 canvas.height = height;
 var context = canvas.getContext("2d");
