@@ -11,7 +11,7 @@ var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame
 
 var canvas = document.createElement("canvas");
 var width = 1100;
-var height = 900;
+var height = 1100;
 var count = 0;
 
 	
@@ -23,7 +23,7 @@ var nin = prompt('Enter your n: ', '10');
 var num3 = prompt('Enter your zoom, 50 to 150: ', '100');
 var num4 = prompt('Enter your point size in pixels: ', '5');
 
-document.write('You have entered : ' + rpin +' + '+ ipin +'i  and ' + nin );
+document.write('You have entered : ' + rpin +' + '+ ipin +'i  and n= ' + nin );
 
 var rp = parseFloat(rpin);
   var ip = parseFloat(ipin);
@@ -52,8 +52,8 @@ function factorial(num) {
 };
 
 
-var xshift = zoom*((xorig)/2 + 19)-550 ;
-var yshift = zoom*((yorig)/2 + 11)-550 ;
+var xshift = (-1*(xorig+yorig)/2) ;
+var yshift = (-1*(xorig+yorig)/2) ;
 
 canvas.width = width;
 canvas.height = height;
@@ -76,47 +76,47 @@ y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*(Math.sin(ip*M
 var colorChange = function() {
 n=count;	
 count = count+1;
-context.strokeRect(zoom*(0)-555, zoom*(0)-555, size, 15);
+context.strokeRect(zoom*(0-xshift)-555, zoom*(0-yshift)+555, size, 15);
 if ((count % 7 == 1)) {
 
 
 context.fillStyle = "#990000" 
-context.fillRect(zoom*(x)-555, zoom*(y)-555, size, size);
+context.fillRect(zoom*(x-xshift)+555, zoom*(y-yshift)+455, size, size);
 
 }
 else if ((count % 7 == 2)) {
 
 
 context.fillStyle = "#FF7777" 
-context.fillRect(zoom*(x)-555, zoom*(y)-555, size, size);
+context.fillRect(zoom*(x-xshift)-555, zoom*(y-yshift)+455, size, size);
 }
 else if ((count % 7 == 3)) {
 
 context.fillStyle = "#999999" 
-context.fillRect(zoom*(x)-555, zoom*(y)-555, size, size);
+context.fillRect(zoom*(x-xshift)-555, zoom*(y-yshift)+455, size, size);
 }
 else if ((count % 7 == 4)) {
 
 context.fillStyle = "#009900" 
-context.fillRect(zoom*(x)-555, zoom*(y)-555, size, size);
+context.fillRect(zoom*(x-xshift)+555, zoom*(y-yshift)+455, size, size);
 }
 else if ((count % 7 == 5)) {
 
 
 context.fillStyle = "#000099" 
-context.fillRect(zoom*(x)-555, zoom*(y)-555, size, size);
+context.fillRect(zoom*(x-xshift)+555, zoom*(y-yshift)+455, size, size);
 }
 else if ((count % 7 == 6)) {
 
 
 context.fillStyle = "#5500FF" 
-context.fillRect(zoom*(x)-555, zoom*(y)-555, size, size);
+context.fillRect(zoom*(x-xshift)+555, zoom*(y-yshift)+455, size, size);
 }
 else
 {
 
 context.fillStyle = "#880088" 
-context.fillRect(zoom*(x)-555, zoom*(y)-555, size, size);
+context.fillRect(zoom*(x-xshift)+555, zoom*(y-yshift)+455, size, size);
 }
 };
 
