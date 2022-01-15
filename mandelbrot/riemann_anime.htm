@@ -80,8 +80,9 @@ y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*(Math.sin(ip*M
   };
 
 var colorChange = function() {
-n=count;	
 count = count+1;
+n=count;	
+
 context.fillStyle = "#008800" 
 context.fillRect(500, 0, 1, 1000);
 context.fillRect(0, 500, 1000, 1);
@@ -240,8 +241,9 @@ context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
 
 
 var step = function() {
- colorChange();
  update();
+colorChange();
+ 
   if ((count < (topn + 1))) {
  animate(step);
     } else {
