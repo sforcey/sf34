@@ -58,8 +58,8 @@ function factorial(num) {
 //var xshift = zoom*(xorig/2 + 1.9)-550 ;
 //var yshift = zoom*(yorig/2 + 1.1)-550 ;
 	
-var xzoom=500/(Math.log(xorig*xorig+1.1))
-var yzoom=zoom/(Math.log(yorig*yorig+1.1))
+var xzoom=500/(Math.log(Math.abs(xorig)+1.1))
+var yzoom=zoom/(Math.log(Math.abs(yorig)+1.1))
 
 canvas.width = width;
 canvas.height = height;
@@ -87,8 +87,12 @@ context.fillRect(500, 0, 1, 1000);
 context.fillRect(0, 500, 1000, 1);
 //context.fillRect(zoom*(0+1.9)-xshift, 0, 1, 900);
 //context.fillRect(0, zoom*(0+1.1)-yshift, 1000, 1);	
-	
-if ((count % 7 == 1)) {
+
+	if (count == 2) {
+		context.fillStyle = "#990000" 
+context.strokeRect(xzoom*x+500, yzoom*y+500, size+2, size+2);
+	}
+else if ((count % 7 == 1)) {
 
 
 context.fillStyle = "#990000" 
