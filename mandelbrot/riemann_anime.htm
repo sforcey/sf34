@@ -76,7 +76,7 @@ y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*(Math.sin(ip*M
 var colorChange = function() {
 n=count;	
 count = count+1;
-conntext.fillStyle = "#008800" 
+context.fillStyle = "#008800" 
 context.fillRect(zoom*(0-xshift)+355, 0, 1, 900);
 context.fillRect(0, zoom*(0-yshift)+255, 1000, 1);
 if ((count % 7 == 1)) {
