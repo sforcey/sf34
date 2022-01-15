@@ -11,7 +11,7 @@ var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame
 
 var canvas = document.createElement("canvas");
 var width = 1100;
-var height = 1100;
+var height = 900;
 var count = 0;
 
 	
@@ -23,7 +23,7 @@ var nin = prompt('Enter your n: ', '10');
 var num3 = prompt('Enter your zoom, 50 to 150: ', '100');
 var num4 = prompt('Enter your point size in pixels: ', '5');
 
-document.write('You have entered : ' + rpin +' + '+ ipin +'i, and n = ' + nin );
+document.write('You have entered p = : ' + rpin +' + '+ ipin +'i, and n = ' + nin );
 
 var rp = parseFloat(rpin);
   var ip = parseFloat(ipin);
@@ -52,8 +52,8 @@ function factorial(num) {
 };
 
 
-var xshift = xorig ;
-var yshift = yorig ;
+var xshift = -1*xorig ;
+var yshift = -1*yorig ;
 
 canvas.width = width;
 canvas.height = height;
@@ -76,6 +76,7 @@ y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*(Math.sin(ip*M
 var colorChange = function() {
 n=count;	
 count = count+1;
+conntext.strokeStyle = "#008800" 
 context.strokeRect(zoom*(0-xshift)+355, 0, 1, 900);
 context.strokeRect(0, zoom*(0-yshift)+255, 1000, 1);
 if ((count % 7 == 1)) {
