@@ -17,11 +17,11 @@ var count = 0;
 	
 
 
-var rpin = prompt('Enter your p-value: real part ', '-1.0');
- var ipin = prompt('Enter your p-value: imaginary part ', '-1.0'); 
-var nin = prompt('Enter your n: ', '10');
-var num3 = prompt('Enter your zoom, 200 to 500: ', '500');
-var num4 = prompt('Enter your point size in pixels: ', '5');
+var rpin = prompt('Enter your p-value: real part ', '100');
+ var ipin = prompt('Enter your p-value: imaginary part ', '-100'); 
+var nin = prompt('Enter your n: ', '120');
+var num3 = prompt('Enter your zoom, 200 to 900: ', '700');
+var num4 = prompt('Enter your point size in pixels: ', '7');
 
 document.write('You have entered p = : ' + rpin +' + '+ ipin +'i, and n = ' + nin );
 
@@ -106,7 +106,10 @@ context.fillRect(0, 500, 1000, 1);
 //context.fillRect(0, zoom*(0+1.1)-yshift, 1000, 1);	
 
 	if (count == 1) {
-		context.fillStyle = "#990000" 
+		context.strokeStyle = "#990000" 
+context.strokeRect(xzoom*x+500, yzoom*y+500, size+2, size+2);
+	} else if (count == topn) {
+		context.strokeStyle = "#000077" 
 context.strokeRect(xzoom*x+500, yzoom*y+500, size+2, size+2);
 	}
 else if ((count % 7 == 1)) {
