@@ -23,7 +23,7 @@ var nin = prompt('Enter your n: ', '120');
 var num3 = prompt('Enter your zoom, 200 to 900: ', '700');
 var num4 = prompt('Enter your point size in pixels: ', '7');
 
-document.write('You have entered p = : ' + rpin +' + '+ ipin +'i, and n = ' + nin + '. Zeta('+ rpin +' + '+ ipin +'i) is output in the console.');
+document.write('You have entered p = : ' + rpin +' + '+ ipin +'i, and n = ' + nin + '. Zeta('+ rpin +' + '+ ipin +'i) is output in the console, and on the canvas.');
 
 var rp = parseFloat(rpin);
   var ip = parseFloat(ipin);
@@ -106,11 +106,15 @@ context.fillRect(0, 500, 1000, 1);
 //context.fillRect(0, zoom*(0+1.1)-yshift, 1000, 1);	
 
 	if (count == 1) {
-		context.strokeStyle = "#990000" 
+		context.strokeStyle = "#770000" 
 context.strokeRect(xzoom*x+500, yzoom*y+500, size+2, size+2);
 	} else if (count == topn) {
-		context.strokeStyle = "#000077" 
+		context.fillStyle = "#000000" 
+context.fillRect(xzoom*x+500, yzoom*y+500, size, size);
+		context.strokeStyle = "#008800" 
 context.strokeRect(xzoom*x+500, yzoom*y+500, size+2, size+2);
+		context.font = "20px Georgia";
+context.fillText('Zeta('+ rpin +' + '+ ipin +'i) = ' + x + ' + ' +y +'i.', xzoom*x+550, yzoom*y+550);
 	}
 else if ((count % 7 == 1)) {
 
