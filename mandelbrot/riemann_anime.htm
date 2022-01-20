@@ -10,8 +10,8 @@ var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame
           window.setTimeout(callback, 1000 / 60 );
 
 var canvas = document.createElement("canvas");
-var width = 1000;
-var height = 1000;
+var width = 1400;
+var height = 1400;
 var count = 0;
 
 	
@@ -26,12 +26,12 @@ var num4 = prompt('Enter your point size in pixels: ', '7');
 document.write('You have entered p =  ' + rpin +' + '+ ipin +'i, and n = ' + nin + '. Zeta('+ rpin +' + '+ ipin +'i) is output in the console, and on the canvas.');
 
 var rp = parseFloat(rpin);
-  var ip = parseFloat(ipin);
- var topn = parseFloat(nin);
+var ip = parseFloat(ipin);
+var topn = parseFloat(nin);
 
 
 var xorig = parseFloat(rpin);
- var yorig = parseFloat(ipin);
+var yorig = parseFloat(ipin);
 var zoom = parseFloat(num3);
 var size = parseFloat(num4);
 var n=0;	
@@ -55,15 +55,9 @@ function factorial(num) {
   }
 };
 
-
-//var xshift = -1*xorig ;
-//var yshift = -1*yorig ;
 	
-//var xshift = zoom*(xorig/2 + 1.9)-550 ;
-//var yshift = zoom*(yorig/2 + 1.1)-550 ;
-	
-	var trsubans=0;
-       var tisubans=0;
+var trsubans=0;
+var tisubans=0;
        for(var k = 0; k<1; k++){
 		            trsubans=trsubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.cos(-1*ip*Math.log(k+1))));
                 tisubans=tisubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.sin(-1*ip*Math.log(k+1))));     
@@ -74,8 +68,8 @@ tx = (trans*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) + tians*(Math.sin(i
 ty = (tians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - trans*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.sin(ip*Math.log(2)))*(Math.sin(ip*Math.log(2))));
 
 	
-var xzoom=500/(Math.log(Math.abs(xorig)+1.1))
-var yzoom=zoom/(Math.log(Math.abs(yorig)+1.1))
+var xzoom=500/(Math.log(Math.abs(xorig+ tx)/2+1.1));
+var yzoom=zoom/(Math.log(Math.abs(yorig +ty)/2+1.1));
 
 canvas.width = width;
 canvas.height = height;
@@ -92,7 +86,6 @@ var update = function() {
        ians=ians + isubans/(Math.pow(2,n+1));
 x = (rans*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) + ians*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.sin(ip*Math.log(2)))*(Math.sin(ip*Math.log(2))));
 y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.sin(ip*Math.log(2)))*(Math.sin(ip*Math.log(2))));
-
   };
 
 var colorChange = function() {
@@ -101,26 +94,22 @@ n=count;
 
 context.fillStyle = "#008800" 
 context.fillRect(500, 0, 1, 1000);
-context.fillRect(0, 500, 1000, 1);
-//context.fillRect(zoom*(0+1.9)-xshift, 0, 1, 900);
-//context.fillRect(0, zoom*(0+1.1)-yshift, 1000, 1);	
+context.fillRect(0, 500, 1000, 1);	
 
 	if (count == 1) {
-		context.strokeStyle = "#770000" 
-context.strokeRect(xzoom*x+500, yzoom*y+500, size+3, size+3);
+		context.strokeStyle = "#770000" ;
+                context.strokeRect(xzoom*x+500, yzoom*y+500, size+3, size+3);
 	} else if (count == topn) {
-		context.fillStyle = "#FFFFFF" 
-context.fillRect(xzoom*x+500, yzoom*y+500, size, size);
-		context.strokeStyle = "#008800" 
-context.strokeRect(xzoom*x+500, yzoom*y+500, size+3, size+3);
+		context.fillStyle = "#FFFFFF" ;
+                context.fillRect(xzoom*x+500, yzoom*y+500, size, size);
+		context.strokeStyle = "#008800" ;
+                context.strokeRect(xzoom*x+500, yzoom*y+500, size+3, size+3);
 		context.font = "12px Arial";
-		context.fillStyle = "#000000"
-context.fillText('Zeta('+ rpin +' + '+ ipin +'i) = ', xzoom*x+550, yzoom*y+550);		
-context.fillText(x + ' + ' +y +'i.', xzoom*x+550, yzoom*y+570);	
+		context.fillStyle = "#000000";
+                context.fillText('Zeta('+ rpin +' + '+ ipin +'i) = ', xzoom*x+550, yzoom*y+550);		
+                context.fillText(x + ' + ' +y +'i.', xzoom*x+550, yzoom*y+570);	
 	}
 else if ((count % 7 == 1)) {
-
-
 context.fillStyle = "#990000" 
 context.fillRect(xzoom*x+500, yzoom*y+500, size, size);
 //context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);	
@@ -168,111 +157,14 @@ context.fillRect(xzoom*x+500, yzoom*y+500, size, size);
 };
 
 
-/* This variant makes bordered points...
-var BorderedcolorChange = function() {
-count = count+1
-if ((count % 7 == 1)) {
-
-
-context.fillStyle = "#990000" 
-context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);
-context.fillStyle = "#990000" 
-context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
-context.fillStyle = "#990000" 
-context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
-
-}
-else if ((count % 7 == 2)) {
-
-context.fillStyle = "#FF7777" 
-context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);context.fillStyle = "#FF7777" 
-context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
-context.fillStyle = "#FF7777" 
-context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
-}
-else if ((count % 7 == 3)) {
-
-context.fillStyle = "#999999" 
-context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);context.fillStyle = "#999999" 
-context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
-context.fillStyle = "#999999" 
-context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
-}
-else if ((count % 7 == 4)) {
-
-context.fillStyle = "#009900" 
-context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);context.fillStyle = "#009900" 
-context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
-context.fillStyle = "#009900" 
-context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
-}
-else if ((count % 7 == 5)) {
-
-context.fillStyle = "#000099" 
-context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);
-context.fillStyle = "#000099" 
-context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
-context.fillStyle = "#000099" 
-context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
-}
-else if ((count % 7 == 6)) {
-
-context.fillStyle = "#5500FF" 
-context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);
-context.fillStyle = "#5500FF" 
-context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
-context.fillStyle = "#5500FF" 
-context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
-}
-else
-{
-context.fillStyle = "#880088" 
-context.fillRect(zoom*(x+1.9)-xshift+7, zoom*(y+1.1)-yshift+7, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift+5, zoom*(y+1.1)-yshift+5, 2, 2);
-context.fillStyle = "#880088" 
-context.fillRect(zoom*(x+1.9)-xshift-2, zoom*(y+1.1)-yshift-2, 1, 1);
-context.fillStyle = "#ffffff" 
-context.fillRect(zoom*(x+1.9)-xshift-1, zoom*(y+1.1)-yshift-1, 3, 3);
-context.fillStyle = "#880088" 
-context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, 6, 6);
-}
-};
-*/
-
-
 var step = function() {
  update();
-colorChange();
- 
-  if ((count < (topn + 1))) {
+ colorChange();
+ if ((count < (topn + 1))) {
+ console.log(' Partial: ' + x + ' + ' + y +'i'); 	 
  animate(step);
     } else {
-	    console.log(' Answer: ' + x + ' + ' + y +'i'); 
+	    console.log('Final Answer: ' + x + ' + ' + y +'i'); 
     };
 };
 
