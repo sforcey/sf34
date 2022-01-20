@@ -68,7 +68,7 @@ tx = (trans*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) + tians*(Math.sin(i
 ty = (tians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - trans*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.sin(ip*Math.log(2)))*(Math.sin(ip*Math.log(2))));
 
 	
-var xzoom=500/(Math.log(Math.abs(xorig+ tx)/2+1.1));
+var xzoom=zoom/(Math.log(Math.abs(xorig+ tx)/2+1.1));
 var yzoom=zoom/(Math.log(Math.abs(yorig +ty)/2+1.1));
 
 canvas.width = width;
