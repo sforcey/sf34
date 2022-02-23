@@ -69,7 +69,7 @@ ty = (tians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - trans*(Math.sin(i
 
 	
 var xzoom=zoom/(Math.log(Math.abs(xorig+ tx)/2+1.1));
-var yzoom=zoom/(Math.log(Math.abs(yorig +ty)/2+1.1));
+var yzoom=zoom/(Math.log(Math.abs(yorig +ty)/4+1.1));
 	
 
 canvas.width = width;
@@ -96,7 +96,7 @@ n=count;
 context.fillStyle = "#008800" 
 context.fillRect(500, 0, 1, 1000);
 	context.fillRect(0, 500, 1000, 1);
-	context.fillStyle = "#110011" 
+	context.fillStyle = "#DD0099" 
 context.fillRect(0, 500-2*count, 1000, 1);	
 
 	if (count == 1) {
@@ -116,7 +116,7 @@ context.fillRect(0, 500-2*count, 1000, 1);
 	}
 else if ((count % 7 == 1)) {
 context.fillStyle = "#990000" 
-context.fillRect(xzoom*x+500, -(yzoom*y)+500-count, size, size);	
+context.fillRect(xzoom*x+500, -(yzoom*y)+500-2*count, size, size);	
 }
 else if ((count % 7 == 2)) {
 
@@ -145,7 +145,7 @@ context.fillRect(xzoom*x+500, -(yzoom*y)+500-2*count, size, size);
 else
 {
 context.fillStyle = "#880088" 
-context.fillRect(xzoom*x+500+count, -(yzoom*y)+500-2*count, size, size);
+context.fillRect(xzoom*x+500, -(yzoom*y)+500-2*count, size, size);
 }
 };
 
