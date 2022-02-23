@@ -104,9 +104,9 @@ context.fillRect(0, 500, 1000, 1);
                 context.strokeRect(xzoom*x+500, -(yzoom*y)+500, size+3, size+3);
 	} else if (count == topn) {
 		context.fillStyle = "#FFFFFF" ;
-                context.fillRect(xzoom*x+500-count, -(yzoom*y)+500-count, size, size);
+                context.fillRect(xzoom*x+500+count, -(yzoom*y)+500-count, size, size);
 		context.strokeStyle = "#008800" ;
-                context.strokeRect(xzoom*x+500-count, -(yzoom*y)+500-count, size+3, size+3);
+                context.strokeRect(xzoom*x+500+count, -(yzoom*y)+500-count, size+3, size+3);
 		context.font = "12px Arial";
 		context.fillStyle = "#000000";
                 context.fillText('Zeta('+ rpin +' + '+ ipin +'i) = ', xzoom*x+550, -(yzoom*y)+550);		
@@ -114,36 +114,36 @@ context.fillRect(0, 500, 1000, 1);
 	}
 else if ((count % 7 == 1)) {
 context.fillStyle = "#990000" 
-context.fillRect(xzoom*x+500-count, -(yzoom*y)+500-count, size, size);	
+context.fillRect(xzoom*x+500+count, -(yzoom*y)+500-count, size, size);	
 }
 else if ((count % 7 == 2)) {
 
 
 context.fillStyle = "#FF7777" 	
-context.fillRect(xzoom*x+500-count, -(yzoom*y)+500-count, size, size);
+context.fillRect(xzoom*x+500+count, -(yzoom*y)+500-count, size, size);
 }
 else if ((count % 7 == 3)) {
 
 context.fillStyle = "#999999" 
-context.fillRect(xzoom*x+500-count, -(yzoom*y)+500-count, size, size);
+context.fillRect(xzoom*x+500+count, -(yzoom*y)+500-count, size, size);
 }
 else if ((count % 7 == 4)) {
 
 context.fillStyle = "#009900" 
-context.fillRect(xzoom*x+500-count, -(yzoom*y)+500-count, size, size);
+context.fillRect(xzoom*x+500+count, -(yzoom*y)+500-count, size, size);
 }
 else if ((count % 7 == 5)) {
 context.fillStyle = "#000099" 
-context.fillRect(xzoom*x+500-count, -(yzoom*y)+500-count, size, size);
+context.fillRect(xzoom*x+500+count, -(yzoom*y)+500-count, size, size);
 }
 else if ((count % 7 == 6)) {
 context.fillStyle = "#5500FF" 
-context.fillRect(xzoom*x+500-count, -(yzoom*y)+500-count, size, size);
+context.fillRect(xzoom*x+500+count, -(yzoom*y)+500-count, size, size);
 }
 else
 {
 context.fillStyle = "#880088" 
-context.fillRect(xzoom*x+500, -(yzoom*y)+500-count, size, size);
+context.fillRect(xzoom*x+500+count, -(yzoom*y)+500-count, size, size);
 }
 };
 
