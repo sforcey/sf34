@@ -24,8 +24,8 @@ var num3 = prompt('Enter your zoom, 100 to 900. Recommended zoom for p=1+i is 10
 var num4 = prompt('Enter your point size in pixels: ', '7');
 	var t = prompt('Enter your time progression t for the x-axis. To graph the actual partial sums, use t=0. Use t>0 for nice pictures that display the changes in time: ', '2');
 
-document.write('You have entered p =  ' + rpin +' + '+ ipin +'i, and n = ' + nin + '. Zeta('+ rpin +' + '+ ipin +'i) is output in the console, and on the canvas. <br>The pink axis is the new x-axis at each step, as t increases. <br>(Use the largest screen possible! You may have to scroll to see the output.)<br>');
-document.write('The solid colors are mostly just for fun, but they do help exhibit density. The maroon empty square is the input, and the green empty square is the output. <br> If you do not see the latter: scroll around, reduce your zoom, reduce t, or reduce your number n...the last since rounding errors may end up giving NaN answers.');
+document.write('You have entered p =  ' + rpin +' + '+ ipin +'i, and n = ' + nin + '. Zeta('+ rpin +' + '+ ipin +'i) is output in the console, and on the canvas. <br>The pink axis is the new x-axis at each step, as t increases. <br>(Use the largest screen possible! You may have to scroll to see the output. )<br>');
+document.write('The solid colors are mostly just for fun, but they do help exhibit density. When t>0, and you see a dense vertical strip, that is a good convergence. The maroon empty square is the first partial sum, and the green empty square approximates the output of Zeta. <br> If you do not see the latter: scroll around, reduce your zoom, reduce t, or reduce your number n...the last since rounding errors may end up giving NaN answers.');
 var rp = parseFloat(rpin);
 var ip = parseFloat(ipin);
 var topn = parseFloat(nin);
