@@ -61,7 +61,7 @@ function factorial(num) {
 /* Calculate a zoom, using the original entries and the first partial sum, with the entered zoom*/
 for(var k = 0; k<1; k++){
        trsubans=trsubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.cos(-1*ip*Math.log(k+1))));
-       tisubans=tisubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.sin(-1*ip*Math.log(k+1))));     
+       tisubans=tisubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.sin(-1*ip*Math.log(k+1))));     
 		      };                            
        trans=trans + trsubans/(Math.pow(2,n+1));
        tians=tians + tisubans/(Math.pow(2,n+1));
@@ -80,12 +80,12 @@ var update = function() {
     var isubans=0;
        for(var k = 0; k<n+1; k++){
          rsubans=rsubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.cos(-1*ip*Math.log(k+1))));
-         isubans=isubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.sin(-1*ip*Math.log(k+1))));     
+         isubans=isubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.sin(-1*ip*Math.log(k+1))));     
 		      };                            
        rans=rans + rsubans/(Math.pow(2,n+1));
        ians=ians + isubans/(Math.pow(2,n+1));
-x = (rans*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) + ians*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.sin(ip*Math.log(2)))*(Math.sin(ip*Math.log(2))));
-y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.sin(ip*Math.log(2)))*(Math.sin(ip*Math.log(2))));
+x = (rans*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) + ians*Math.pow(2,1-rp)*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2)))*(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2))));
+y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*Math.pow(2,1-rp)*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2)))*(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2))));
   };
 
 var colorChange = function() {
