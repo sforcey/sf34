@@ -23,6 +23,7 @@ var nin = prompt(' Enter your n for the sum (infinity would be the true answer).
 var num3 = prompt('Enter your zoom, 0 to 1000. Recommended zoom for p=1+i is 10, recommended zoom for p=-7+7i is 10, Recommended zoom for the first nontrivial zero is 350. In general, if you do not see the output values on the canvas, decrease the zoom. ', '145');
 var num4 = prompt('Enter your point size in pixels: ', '7');
 var t = prompt('Enter your time progression t for the x-axis. To graph the actual partial sums, use t=0. Use t>0 to display the changes in time: ', '0');
+var c = prompt('Enter your choice of Hasse series, slow = 0 or fast = 1:  ', '0');
 
 document.write('You have entered p =  ' + rpin +' + '+ ipin +'i, and n = ' + nin + '. Zeta('+ rpin +' + '+ ipin +'i) is output in the console, and on the canvas. <br>The pink axis is the new x-axis at each step, as t increases. (Use the largest screen possible! You may have to scroll to see the output. )<br>');
 document.write('The solid colors are mostly just for fun, but they do help exhibit density. When t > 0, and you see a dense vertical strip, that is a good convergence.<br> The maroon empty square is the first partial sum, and the green empty square approximates the output of Zeta. <br> If you do not see the latter: scroll around, reduce your zoom, reduce t, or reduce your number n...the last since rounding errors may end up giving NaN answers.');
@@ -75,7 +76,20 @@ canvas.width = width;
 canvas.height = height;
 var context = canvas.getContext("2d");
  
-var update = function() { 
+var updateslow = function() { 
+    var rsubans=0;
+    var isubans=0;
+       for(var k = 0; k<n+1; k++){
+         rsubans=rsubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.cos(-1*ip*Math.log(k+1))));
+         isubans=isubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.sin(-1*ip*Math.log(k+1))));     
+		      };                            
+       rans=rans + rsubans/(Math.pow(2,n+1));
+       ians=ians + isubans/(Math.pow(2,n+1));
+x = (rans*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) + ians*Math.pow(2,1-rp)*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2)))*(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2))));
+y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*Math.pow(2,1-rp)*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2)))*(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2))));
+  };
+
+var updatefast = function() { 
     var rsubans=0;
     var isubans=0;
        for(var k = 0; k<n+1; k++){
@@ -138,7 +152,7 @@ var colorChange = function() {
 
 
 var step = function() {
- update();
+ if (c == 0){ updateslow(); } else { updatefast(); };	
  colorChange();
  if ((count < (topn + 1))) {
  console.log(' Partial: ' + x + ' + ' + y +'i'); 	 
