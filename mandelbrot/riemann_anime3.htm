@@ -80,13 +80,13 @@ var updateslow = function() {
     var rsubans=0;
     var isubans=0;
        for(var k = 0; k<n+1; k++){
-         rsubans=rsubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.cos(-1*ip*Math.log(k+1))));
-         isubans=isubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.sin(-1*ip*Math.log(k+1))));     
+         rsubans=rsubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,1-1*rp)*Math.cos(-1*ip*Math.log(k+1))));
+         isubans=isubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,1-1*rp)*Math.sin(-1*ip*Math.log(k+1))));     
 		      };                            
-       rans=rans + rsubans/(Math.pow(2,n+1));
-       ians=ians + isubans/(Math.pow(2,n+1));
-x = (rans*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) + ians*Math.pow(2,1-rp)*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2)))*(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2))));
-y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*Math.pow(2,1-rp)*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2)))*(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2))));
+       rans=rans + rsubans/(n+1);
+       ians=ians + isubans/(n+1);
+x = rans*((rp-1)/((rp-1)*(rp-1)-(ip)*(ip)));
+y = ians*((ip)/((rp-1)*(rp-1)-(ip)*(ip)));
   };
 
 var updatefast = function() { 
