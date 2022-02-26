@@ -85,8 +85,8 @@ var updateslow = function() {
 		      };                            
        rans=rans + rsubans/(n+1);
        ians=ians + isubans/(n+1);
-x = rans*((rp-1)/((rp-1)*(rp-1)-(ip)*(ip)));
-y = ians*((ip)/((rp-1)*(rp-1)-(ip)*(ip)));
+x = rans*((rp-1)/((rp-1)*(rp-1)+(ip)*(ip)));
+y = ians*((-1*ip)/((rp-1)*(rp-1)+(ip)*(ip)));
   };
 
 var updatefast = function() { 
