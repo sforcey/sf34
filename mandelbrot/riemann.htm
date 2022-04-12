@@ -1,22 +1,51 @@
 <html>
 <head>
-<title>Javascript Riemann</title>
+<title>Javascript Spiral</title>
 </head>
 <body>
 <script>
 
 
+var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
+          window.setTimeout(callback, 1000 / 60 );
 
-var pin = prompt('Enter your p-value: ', '-1.0');
-var nin = prompt('Enter your n: ', '10');
+var canvas = document.createElement("canvas");
+var width = 1400;
+var height = 1400;
+var count = 0;
+
+	
 
 
-document.write('You have entered : ' + pin +' and ' + nin );
+var rpin = prompt('Welcome to the Riemann Zeta function. We calculate Zeta(p) using the fast sum formula of Hasse. The partial sums are graphed as (x,y+t), where t is the index of the partial sum, to see the convergence.  The partial sums are also output in the console (go to developer tools). Some nice values to try include -2+0i, a trivial zero (best with n=10), or -1+0i, where the output is famously -1/12. Or, 2+0i which is the p-series giving pi^2/6. Re the million dollars, a non-trivial zero is .5 + 14.13472514173469379045725198i.   Enter your p-value: real part (not equal to 1) ', '-7');
+var ipin = prompt(' Enter your p-value: imaginary part (leave off the i, as in 14.13472514173469379045725198)', '7'); 
+var nin = prompt(' Enter your n for the sum (infinity would be the true answer). Recommended n for p=-2+0i is 10, recommended n for 7-7i is 120. In general if you do not see the output values on the canvas, likely the n is too high and too many rounding errors have caused NaN to occur. ', '171');
+var num3 = prompt('Enter your zoom, 0 to 1000. Recommended zoom for p=1+i is 10, recommended zoom for p=-7+7i is 10, Recommended zoom for the first nontrivial zero is 350. In general, if you do not see the output values on the canvas, decrease the zoom. ', '10');
+var num4 = prompt('Enter your point size in pixels: ', '7');
+var t = prompt('Enter your time progression t for the x-axis. To graph the actual partial sums, use t=0. Use t>0 to display the changes in time: ', '0');
 
-var p = parseFloat(pin);
- var topn = parseFloat(nin);
-var ans=0;
+document.write('You have entered p =  ' + rpin +' + '+ ipin +'i, and n = ' + nin + '. Zeta('+ rpin +' + '+ ipin +'i) is output in the console, and on the canvas. <br>The pink axis is the new x-axis at each step, as t increases. (Use the largest screen possible! You may have to scroll to see the output. )<br>');
+document.write('The solid colors are mostly just for fun, but they do help exhibit density. When t > 0, and you see a dense vertical strip, that is a good convergence.<br> The maroon empty square is the first partial sum, and the green empty square approximates the output of Zeta. <br> If you do not see the latter: scroll around, reduce your zoom, reduce t, or reduce your number n...the last since rounding errors may end up giving NaN answers.');
+var rp = parseFloat(rpin);
+var ip = parseFloat(ipin);
+var topn = parseFloat(nin);
 
+
+var xorig = parseFloat(rpin);
+var yorig = parseFloat(ipin);
+var zoom = parseFloat(num3);
+var size = parseFloat(num4);
+var n=0;	
+var rans=0;
+var ians=0;
+var x=0;
+var y=0;
+var trans=0;
+var tians=0;
+var tx=0;
+var ty=0;
+var trsubans=0;
+var tisubans=0;
 
 function factorial(num) {
   if (num < 0) 
@@ -28,20 +57,104 @@ function factorial(num) {
   }
 };
 
+	
+/* Calculate a zoom, using the original entries and the first partial sum, with the entered zoom*/
+for(var k = 0; k<1; k++){
+       trsubans=trsubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.cos(-1*ip*Math.log(k+1))));
+       tisubans=tisubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.sin(-1*ip*Math.log(k+1))));     
+		      };                            
+       trans=trans + trsubans/(Math.pow(2,n+1));
+       tians=tians + tisubans/(Math.pow(2,n+1));
+tx = (trans*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) + tians*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.sin(ip*Math.log(2)))*(Math.sin(ip*Math.log(2))));
+ty = (tians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - trans*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.sin(ip*Math.log(2)))*(Math.sin(ip*Math.log(2))));
+var xzoom=zoom/(Math.log(Math.abs(xorig+ tx)/2+1.1));
+var yzoom=zoom/(Math.log(Math.abs(yorig +ty)/4+1.1));
+	
 
-for(var n = 0; n <topn+1; n++){
-       var subans=0; 
+canvas.width = width;
+canvas.height = height;
+var context = canvas.getContext("2d");
+ 
+var update = function() { 
+    var rsubans=0;
+    var isubans=0;
        for(var k = 0; k<n+1; k++){
-		subans=subans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,1-p)));
-console.log(subans);
-		};                            
-       ans=ans + subans/(n+1);
-//console.log(ans);
-      };
-ans = ans/(p-1);
+         rsubans=rsubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.cos(-1*ip*Math.log(k+1))));
+         isubans=isubans+((Math.pow(-1,k))*(factorial(n)/((factorial(n-k))*(factorial(k))))*(Math.pow(k+1,-1*rp)*Math.sin(-1*ip*Math.log(k+1))));     
+		      };                            
+       rans=rans + rsubans/(Math.pow(2,n+1));
+       ians=ians + isubans/(Math.pow(2,n+1));
+x = (rans*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) + ians*Math.pow(2,1-rp)*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2)))*(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2))));
+y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*Math.pow(2,1-rp)*(Math.sin(ip*Math.log(2))))/((1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2)))+(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2)))*(Math.pow(2,1-rp)*Math.sin(ip*Math.log(2))));
+  };
 
-document.write(' Answer: ' + ans );
+var colorChange = function() {
+     count = count+1;
+     n=count;	
+	
+     context.fillStyle = "#008800" 
+     context.fillRect(500, 0, 1, 1000);
+     context.fillRect(0, 500, 1000, 1);
+	
+	if (count == 1) {
+		context.strokeStyle = "#770000" ;
+                context.strokeRect(xzoom*x+500, -(yzoom*y)+500, size+3, size+3);
+	} else if (count == topn) {
+		context.fillStyle = "#DD0099" 
+                context.fillRect(0, 500-t*count, 1000, 1);
+		context.fillStyle = "#FFFFFF" ;
+                context.fillRect(xzoom*x+500, -(yzoom*y)+500-t*count, size, size);
+		context.strokeStyle = "#008800" ;
+                context.strokeRect(xzoom*x+500, -(yzoom*y)+500-t*count, size+4, size+4);
+		context.font = "12px Arial";
+		context.fillStyle = "#000000";
+                context.fillText('Zeta('+ rpin +' + '+ ipin +'i) = ', xzoom*x+550, -(yzoom*y)+447-t*count);		
+                context.fillText(x + ' + ' +y +'i.', xzoom*x+550, -(yzoom*y)+463-t*count);	
+	} else if ((count % 7 == 1)) {
+                context.fillStyle = "#990000" 
+                context.fillRect(xzoom*x+500, -(yzoom*y)+500-t*count, size, size);	
+        } else if ((count % 7 == 2)) {
+                context.fillStyle = "#FF7777" 	
+                context.fillRect(xzoom*x+500, -(yzoom*y)+500-t*count, size, size);
+        } else if ((count % 7 == 3)) {
+	        context.fillStyle = "#DD0099" 
+                context.fillRect(0, 500-t*count, 1000, 1);
+                context.fillStyle = "#999999" 
+                context.fillRect(xzoom*x+500, -(yzoom*y)+500-t*count, size, size);
+        } else if ((count % 7 == 4)) {
+                context.fillStyle = "#009900" 
+                context.fillRect(xzoom*x+500, -(yzoom*y)+500-t*count, size, size);
+        } else if ((count % 7 == 5)) {
+                context.fillStyle = "#000099" 
+                context.fillRect(xzoom*x+500, -(yzoom*y)+500-t*count, size, size);
+        } else if ((count % 7 == 6)) {
+                context.fillStyle = "#5500FF" 
+                context.fillRect(xzoom*x+500, -(yzoom*y)+500-t*count, size, size);
+        } else {
+                context.fillStyle = "#880088"  
+                context.fillRect(xzoom*x+500, -(yzoom*y)+500-t*count, size, size);
+        }
+};
 
+
+var step = function() {
+ update();
+ colorChange();
+ if ((count < (topn + 1))) {
+ console.log(' Partial: ' + x + ' + ' + y +'i'); 	 
+ animate(step);
+    } else {
+	    console.log('Final Answer: ' + x + ' + ' + y +'i'); 
+    };
+};
+
+
+document.body.appendChild(canvas);
+animate(step);
+
+	
+
+  
     </script>
 </head>
 <body>
