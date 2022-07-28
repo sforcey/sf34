@@ -100,7 +100,7 @@ const exporter = new STLExporter();
 // Parse the input and generate the stl output
 function exportBinary() {
 	const result = exporter.parse( multihedron, { binary: true } );
-	saveArrayBuffer( result, 'multiplihedron.stl' );
+	saveArrayBuffer( result, 'composihedron.stl' );
 }
 
 const downloadButton = document.getElementById( 'downloadSTL' );
