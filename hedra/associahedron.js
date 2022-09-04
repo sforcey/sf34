@@ -13,7 +13,7 @@ const renderer = new THREE.WebGLRenderer({canvas: document.getElementById("bg"),
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setPixelRatio( window.devicePixelRatio );
 
-const stdMaterial2 = new THREE.MeshStandardMaterial( { color: 0x07FF22} ); //reacts to light
+const stdMaterial2 = new THREE.MeshStandardMaterial( { color: 0x0000ff} ); //reacts to light
 
 //Multihedron stands for any polytope 
 const hedronPoints = [{x:3,y:4,z:3},
