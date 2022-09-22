@@ -71,7 +71,8 @@ x2 = ((xorig*xorig) - (yorig*yorig)) + xorig;
     y2 = (2*xorig*yorig) + yorig;
 var xshift = zoom*((xorig+x2)/2 + 1.9)-550 ;
 var yshift = zoom*((yorig+y2)/2 + 1.1)-550 ;
-var a= math.complex(0,0) ;	
+var a= math.complex(0,0) ;
+var C =1;	
 var x = 0 ;
 var y = 0 ;
 var nit = 0;
@@ -97,7 +98,8 @@ var update = function() {
     //x = ((tmpx*tmpx) - (tmpy*tmpy)) + xorig;
     //y = (2*tmpx*tmpy) + yorig;
   
-  a = Math.pow(comporig,nit)
+  a = Math.pow(comporig,nit);
+   C = C * 2 * (2 * nit + 1) / (nit + 2);
   
           /*a=0;
           b=0;
@@ -110,9 +112,11 @@ var update = function() {
                a = a -  ((factorial(nit+1))/((factorial(k))*(factorial(nit+1-k))))*(Math.pow(yorig,k))*(Math.pow(xorig,nit+1-k));
             else if(k%4 == 3)
               b = b - ((factorial(nit+1))/((factorial(k))*(factorial(nit+1-k))))*(Math.pow(yorig,k))*(Math.pow(xorig,nit+1-k));
-            } */
-          x= x+ a.re *(1/(nit+1))*((factorial(2*nit))/((factorial(nit))*(factorial(nit))));
-          y= y+ a.im *(1/(nit+1))*((factorial(2*nit))/((factorial(nit))*(factorial(nit))));
+            } 
+          x= x+ a *(1/(nit+1))*((factorial(2*nit))/((factorial(nit))*(factorial(nit))));
+          y= y+ b *(1/(nit+1))*((factorial(2*nit))/((factorial(nit))*(factorial(nit))));*/
+	x= x+ a.re * C;
+          y= y+ a.im * C;
 					nit++;
   };
 
