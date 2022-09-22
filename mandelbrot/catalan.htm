@@ -81,6 +81,7 @@
       return (num * factorial(num - 1));
         }
      };
+var C =1;
 
 			// URL-Parameter lesen
 			function ReadURL()
@@ -153,7 +154,8 @@
 					//a = a2 - b2 + x;
 					//a2 = a * a;
 					//b2 = b * b;
-          a=0;
+          
+	a=0;
           b=0;
           for(var k = 0; k < it+2; k++){
             if(k%4 == 0)
@@ -165,10 +167,14 @@
             else if(k%4 == 3)
               b = b - ((factorial(it+1))/((factorial(k))*(factorial(it+1-k))))*(Math.pow(y,k))*(Math.pow(x,it+1-k));
             }
-          a2= a2+ a*(1/(it+1))*((factorial(2*it))/((factorial(it))*(factorial(it))));
-          b2= b2+ b*(1/(it+1))*((factorial(2*it))/((factorial(it))*(factorial(it))));
+          //a2= a2+ a*(1/(it+1))*((factorial(2*it))/((factorial(it))*(factorial(it))));
+          //b2= b2+ b*(1/(it+1))*((factorial(2*it))/((factorial(it))*(factorial(it))));
+	a2= a2+ a*C;
+        b2= b2+ b*C;
           a3 = a2 * a2;
+					
 					b3 = b2 * b2;
+					C = C * 2 * (2 * it + 1) / (it + 2);
 					it++;
 				}
 				if(g_smoothing) it += 2 - Math.log(Math.log(a3 + b3)) / g_constLog2;
