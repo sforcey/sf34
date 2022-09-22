@@ -147,7 +147,7 @@
 			function Iterate(x, y)
 			{
 				var a = 0, b = 0, a2 = 0, b2 = 0, a3= 0, b3 =0, it = 0;
-				while (it < 85 && a3 + b3 < g_escRadius2)
+				while (it < 70 && a3 + b3 < g_escRadius2)
 				{
 					//b = 2 * a * b + y;
 					//a = a2 - b2 + x;
@@ -171,7 +171,7 @@
 					b3 = b2 * b2;
 					it++;
 				}
-				if(g_smoothing) it += 2 - Math.log(Math.log(a2 + b2)) / g_constLog2;
+				if(g_smoothing) it += 2 - Math.log(Math.log(a3 + b3)) / g_constLog2;
 				return it;
 			}
 
