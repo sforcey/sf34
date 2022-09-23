@@ -52,9 +52,9 @@ var count = 1
 
 // = = -0.25 + 0.6355558i
 
-var num1 = prompt('Enter your real part : ', '-0.005989760618744549');
-var num2 = prompt('Enter your imaginary part : ', '0.6372694555762884');
-var num3 = prompt('Enter your zoom, 500 to 1500: ', '825');
+var num1 = prompt('Enter your real part : ', '-.25');
+var num2 = prompt('Enter your imaginary part : ', '.16');
+var num3 = prompt('Enter your zoom, 500 to 1500: ', '900');
 var num4 = prompt('Enter your point size in pixels: ', '5');
 
 
@@ -73,7 +73,7 @@ x2 = ((xorig*xorig) - (yorig*yorig)) + xorig;
     y2 = (2*xorig*yorig) + yorig;
 var xshift = zoom*((xorig+x2)/2 + 1.9)-550 ;
 var yshift = zoom*((yorig+y2)/2 + 1.1)-550 ;
-var a= Math.complex(0,0) ;
+var a= 0;
 var C =1;	
 var x = 0 ;
 var y = 0 ;
@@ -95,12 +95,14 @@ function factorial(num) {
 };
  
 var update = function() { 
-    //tmpx = x;
-    //tmpy = y;
+    tmpx = x;
+    tmpy = y;
+	x=tempx*xorig-tempy*yorig;
+	y=tempy*xorig+tempx*yorig;
     //x = ((tmpx*tmpx) - (tmpy*tmpy)) + xorig;
     //y = (2*tmpx*tmpy) + yorig;
   
-  a = Math.pow(comporig,nit);
+
    C = C * 2 * (2 * nit + 1) / (nit + 2);
   
           /*a=0;
@@ -117,10 +119,20 @@ var update = function() {
             } 
           x= x+ a *(1/(nit+1))*((factorial(2*nit))/((factorial(nit))*(factorial(nit))));
           y= y+ b *(1/(nit+1))*((factorial(2*nit))/((factorial(nit))*(factorial(nit))));*/
-	x= x+ a.re * C;
-          y= y+ a.im * C;
-					nit++;
+	x= x+ x * C;
+          y= y+ y * C;
   };
+	
+	          
+	
+        
+	a2= a2+ a*C;
+        b2= b2+ b*C;
+                                       
+					a3 = (a2) * (a2);	
+					b3 = (b2) * (b2);
+					C = C * 2 * (2 * it + 1) / (it + 2);
+					it++;
 
 var colorChange = function() {
 count = count+1;
