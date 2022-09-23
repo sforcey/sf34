@@ -75,6 +75,8 @@ var yshift = zoom*((yorig+y2)/2 + 1.1)-550 ;
 var a= 0;
 var C =1;	
 var x = 1 ;
+var x1 = 1;
+var y1 = 0;
 var y = 0 ;
 var nit = 0;
 var tmpx = 1;
@@ -94,10 +96,10 @@ function factorial(num) {
 };
  
 var update = function() { 
-    tmpx = x;
-    tmpy = y;
-	x=tmpx*xorig-tmpy*yorig;
-	y=tmpy*xorig+tmpx*yorig;
+    tmpx = x1;
+    tmpy = y1;
+	x1=tmpx*xorig-tmpy*yorig;
+	y1=tmpy*xorig+tmpx*yorig;
     //x = ((tmpx*tmpx) - (tmpy*tmpy)) + xorig;
     //y = (2*tmpx*tmpy) + yorig;
   
@@ -118,8 +120,8 @@ var update = function() {
             } 
           x= x+ a *(1/(nit+1))*((factorial(2*nit))/((factorial(nit))*(factorial(nit))));
           y= y+ b *(1/(nit+1))*((factorial(2*nit))/((factorial(nit))*(factorial(nit))));*/
-	x= x+ x * C;
-          y= y+ y * C;
+	x= x+ x1 * C;
+          y= y+ y1 * C;
   };
 	
 
