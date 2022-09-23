@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--
+	Einfaches Apfelmännchen-Beispiel in JavaScript
+	Autor: Stefan Bion
+	URL: https://www.stefanbion.de/fraktal-generator/mandelbrot-beispiel.htm
+
+	Weiterführende Infos zum Programm unter:
+	https://www.stefanbion.de/fraktal-generator/mathematik.htm
+	(ganz unten auf der Seite)
+
+	Der Sourcecode darf ohne Einschränkung frei verwendet werden.
+-->
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-15">
+		<title>Catalan Polynomials. Der JavaScript code von Stefan Bion.</title>
+
+		<style type="text/css">
+			body {
+				font-family:Arial,sans-serif;
+				font-size:12pt;
+				color:#909090;
+				background-color:#202020;
+			}
+			input,
+			select {
+				color: #909090;
+				background-color: #000000;
+				border:1px solid #909090;
+			}
+			#canvas {
+				outline:1px solid black;
+				cursor:zoom-in;
+			}
+			#form {
+				padding-bottom:4px;
+			}
+			#form * {
+				vertical-align:middle;
+				padding:0px;
+				margin:0px;
+			}
+			#form input[type=color] {
+				width:28px;
+			}
+		</style>
+
+		<script type="text/javascript">
+
+			"use strict";
+
+			// Globale Variablen
+			var g_reMin, g_reMax, g_imMin, g_imMax, g_itMax, g_escRadius, g_escRadius2, g_smoothing;
+			var g_minIt, g_maxIt;   // Min- und Max-Wert des Iterators
+			var g_canvas, g_canvasContext, g_imgageData, g_itValues;
+
+			// Muss einmalig aufgerufen werden
+			function Init()
+			{
+				// Canvas (Leinwand) initialisieren
+				g_canvas = document.getElementById('canvas');
+				g_canvas.addEventListener('click', Zoom, false);
+				g_canvas.addEventListener('contextmenu', Zoom, false);
+				g_canvas.width = 600;
+				g_canvas.height = 450;
+				g_canvasContext = g_canvas.getContext('2d');
+				g_imgageData = g_canvasContext.getImageData(0, 0, g_canvas.width, g_canvas.height);
+
+				// Array zum Zwischenspeichern der Iteratorwerte
+				g_itValues = Array(g_canvas.width * g_canvas.height);
+
+				Start();
+			}
+      
+      function factorial(num) {
+  if (num < 0) 
+        return -1;
+  else if (num == 0) 
+      return 1;
+  else {
+      return (num * factorial(num - 1));
+        }
+     };
+
+
+			// URL-Parameter lesen
+			function ReadURL()
+			{
+				var parameters = location.hash.split('&');
+				for (var i = 0; i < parameters.length; i++)
+				{
+					var pair = parameters[i].split('=');
+					var name = pair[0], value = pair[1];
+					switch (name)
+					{
+						case '#reMin': g_reMin = parseFloat(value); break;
+						case 'reMax': g_reMax = parseFloat(value); break;
+						case 'imMin': g_imMin = parseFloat(value); break;
+						case 'imMax': g_imMax = parseFloat(value); break;
+						case 'itMax': g_itMax = parseInt(value, 10); document.getElementById('itMax').value = g_itMax; break;
+						case 'escRadius': g_escRadius = parseInt(value, 10); document.getElementById('escRadius').value = g_escRadius; break;
+						case 'smoothing': g_smoothing = (value === 'true'); document.getElementById('smoothing').checked = g_smoothing; break;
+						case 'color1': document.getElementById('color1').value = value; break;
+						case 'color2': document.getElementById('color2').value = value; break;
+						case 'color3': document.getElementById('color3').value = value; break;
+						case 'linearity': document.getElementById('linearity').value = value; break;
+						case 'range': document.getElementById('range').value = ~~(parseFloat(value) * 10); break;
+					}
+				}
+			}
+
+			// Default-Werte setzen und zeichnen
+			function Start()
+			{
+				g_reMin = -2.2, g_reMax = 1, g_imMin = -1.2, g_imMax = 1.2;
+				document.getElementById('itMax').value = 200;
+				document.getElementById('escRadius').value = 5;
+				document.getElementById('smoothing').checked = true;
+				ReadURL();
+				Draw();
+			}
+
+			// Vergrößern (Rechtsklick) oder Verkleinern (Linksklick) und zentrieren an Mausposition
+			function Zoom(event)
+			{
+				var zoomFactor = 2;
+
+				if(event.shiftKey || event.ctrlKey || event.altKey || event.metaKey) return;
+				if(event.button == 2) { zoomFactor = 1 / zoomFactor; event.preventDefault(); }
+				else if(event.button != 0) return;
+
+				var reDelta = g_reMax - g_reMin;
+				var imDelta = g_imMax - g_imMin;
+
+				var re = g_reMin + event.offsetX * reDelta / g_canvas.width;
+				var im = g_imMax - event.offsetY * imDelta / g_canvas.height;
+
+				g_reMin = re - reDelta / zoomFactor / 2;
+				g_reMax = re + reDelta / zoomFactor / 2;
+				g_imMin = im - imDelta / zoomFactor / 2;
+				g_imMax = im + imDelta / zoomFactor / 2;
+
+				Draw();
+			}
+
+			// Mandelbrot-Rückkopplung Z -> Z² + C
+			var g_constLog2 = Math.log(2);
+			function Iterate(x, y)
+			{
+				var a = 1, b = 0, a2 = 0, b2 = 0, a3= 0, b3 =0, it = 0, C=1, tempa = 1, tempb = 0, za = 0, zb = 0, za2 = 0, zb2 = 0;
+				while (it < g_itMax && a3 + b3 < g_escRadius2)
+				{
+					//zb = 2 * za * zb + y;
+					//za = za2 - zb2 + x;
+					//za2 = za * za;
+					//zb2 = zb * zb;
+          
+	tempa=a;
+	tempb=b;
+	a=tempa*x-tempb*y;
+	b=tempb*x+tempa*y;
+          /*for(var k = 0; k < it+2; k++){
+            if(k%4 == 0)
+               a = a+ ((factorial(it+1))/((factorial(k))*(factorial(it+1-k))))*(Math.pow(y,k))*(Math.pow(x,it+1-k));
+            else if(k%4 == 1)
+               b = b + ((factorial(it+1))/((factorial(k))*(factorial(it+1-k))))*(Math.pow(y,k))*(Math.pow(x,it+1-k));
+            else if(k%4 == 2)
+               a = a -  ((factorial(it+1))/((factorial(k))*(factorial(it+1-k))))*(Math.pow(y,k))*(Math.pow(x,it+1-k));
+            else if(k%4 == 3)
+              b = b - ((factorial(it+1))/((factorial(k))*(factorial(it+1-k))))*(Math.pow(y,k))*(Math.pow(x,it+1-k));
+            }*/
+          //a2= a2+ a*(1/(it+1))*((factorial(2*it))/((factorial(it))*(factorial(it))));
+          //b2= b2+ b*(1/(it+1))*((factorial(2*it))/((factorial(it))*(factorial(it))));
+	a2= a2+ a*C;
+        b2= b2+ b*C;
+                                       
+					a3 = (a2) * (a2);	
+					b3 = (b2) * (b2);
+					C = C * 2 * (2 * it + 1) / (it + 2);
+					it++;
+				}
+				if(g_smoothing) it += 2 - Math.log(Math.log(a3 + b3)) / g_constLog2;
+				return it;
+			}
+
+			// Zeichnen mit Neuberechnung der Grafik
+			function Draw()
+			{
+				g_itMax = parseInt(document.getElementById('itMax').value, 10);
+				g_escRadius = parseInt(document.getElementById('escRadius').value, 10);
+				g_escRadius2 = g_escRadius * g_escRadius;
+				g_smoothing = document.getElementById('smoothing').checked;
+				g_minIt = 9999999999, g_maxIt = 0;   // Min- und Max-Wert des Iterators
+				var itIndex = 0;
+
+				var reStep = (g_reMax - g_reMin) / g_canvas.width;
+				var imStep = (g_imMax - g_imMin) / g_canvas.height;
+
+				for (var yPos = 0; yPos < g_canvas.height; yPos++)
+				{
+					var y = g_imMax - yPos * imStep;
+					for (var xPos = 0; xPos < g_canvas.width; xPos++)
+					{
+						var x = g_reMin + xPos * reStep;
+						var it = Iterate(x, y);
+						g_itValues[itIndex++] = it;   // Iteratorwert in Array merken
+
+						if(it < g_itMax) 
+							g_minIt = Math.min(g_minIt, it), 
+							g_maxIt = Math.max(g_maxIt, it);
+					}
+				}
+
+				// Bildausgabe
+				Paint();
+			}
+
+			// Zeichnen ohne Neuberechnung der Grafik
+			function Paint()
+			{
+				var linearity = parseInt(document.getElementById('linearity').value, 10);
+				var range = parseFloat(document.getElementById('range').value) / 10;
+				document.getElementById('range').disabled = !(linearity === 4 || linearity === 5 || linearity === 6);
+				document.getElementById('rangeOut').innerHTML = (linearity === 4 || linearity === 5 || linearity === 6) ? range.toFixed(2) : '';
+				var color1 = document.getElementById('color1').value;
+				var color2 = document.getElementById('color2').value;
+				var color3 = document.getElementById('color3').value;
+
+				// Update URL
+				location.hash = 'reMin=' + g_reMin + '&reMax=' + g_reMax + '&imMin=' + g_imMin + '&imMax=' + g_imMax + '&itMax=' + g_itMax + '&escRadius=' + g_escRadius + '&smoothing=' + g_smoothing + '&color1=' + color1 + '&color2=' + color2 + '&color3=' + color3 + '&linearity=' + linearity + '&range=' + range;
+
+				// Farbwerte aus dem Formular
+				var r1 = parseInt(color1.substr(1, 2), 16);
+				var g1 = parseInt(color1.substr(3, 2), 16);
+				var b1 = parseInt(color1.substr(5, 2), 16);
+				var r2 = parseInt(color2.substr(1, 2), 16);
+				var g2 = parseInt(color2.substr(3, 2), 16);
+				var b2 = parseInt(color2.substr(5, 2), 16);
+				var r3 = parseInt(color3.substr(1, 2), 16);
+				var g3 = parseInt(color3.substr(3, 2), 16);
+				var b3 = parseInt(color3.substr(5, 2), 16);
+
+				// Arrays mit Farbverläufen
+				var rv = [ [r1,r2], [r2,r3] ], gv = [ [g1,g2], [g2,g3] ], bv = [ [b1,b2], [b2,b3] ];
+
+				// Iteratorwerte aus dem Array lesen und in einen Farbwert umrechnen:
+				var logMultiplier = Math.pow(4, range);
+				var logDivisor = Math.log(logMultiplier + 1);
+				for (var i = 0, n = g_itValues.length, iData = 0; i < n; i++)
+				{
+					var it = g_itValues[i];
+					var r = 0, g = 0, b = 0;   // Farbe für Mandelbrot-Menge: Schwarz
+					if(it < g_itMax)   // Farbe für "Umgebung": Iteratorwert auf Farbe mappen
+					{
+						var f = 0.5;   // Normierter Farbindex [0...1]; bei nur 1 Farbe im Bild = Mitte (0,5)
+						if(g_minIt < g_maxIt) // Mehr als 1 Farbe im Bild: Farbindex berechnen
+						{
+							if(linearity === 3)      f = (Math.log(it) - Math.log(g_minIt)) / (Math.log(g_maxIt) - Math.log(g_minIt));   // adaptiv-logarithmisch
+							else {                   f = (it - g_minIt) / (g_maxIt - g_minIt);   // linear
+							if(linearity === 2)      f = Math.sin(f * Math.PI / 2);   // 1/4-sinusförmig
+							else if(linearity === 4) f = Math.log(f * logMultiplier + 1) / logDivisor;   // logarithmisch
+							else if(linearity === 5) f = Math.pow(f, 1 / range);   // Gamma
+							else if(linearity === 6) f = Math.tanh(f * range) / Math.tanh(range); }   // Tangens Hyperbolicus
+						}
+						f *= 2; // Farbindex mit Anzahl Farbverläufen multiplizieren [0...2]
+						var v = (f <= 1) ? 0 : 1;   // Farbverlauf auswählen: 0 = Farbe 1-2, 1 = Farbe 2-3
+						f -= v;   // Farbindex auf Farbverlauf setzen
+
+						r = ~~(rv[v][0] + (rv[v][1] - rv[v][0]) * f);
+						g = ~~(gv[v][0] + (gv[v][1] - gv[v][0]) * f);
+						b = ~~(bv[v][0] + (bv[v][1] - bv[v][0]) * f);
+					}
+
+					// Pixel auf die Leinwand setzen
+					g_imgageData.data[iData++] = r;
+					g_imgageData.data[iData++] = g;
+					g_imgageData.data[iData++] = b;
+					g_imgageData.data[iData++] = 255; // alpha
+				}
+
+				// Bild ausgeben
+				g_canvasContext.putImageData(g_imgageData, 0, 0);
+			}
+
+		</script>
+	</head>
+
+	<body onload="Init();">
+		<b>Einfaches Apfelmännchen-Beispiel in JavaScript</b><br>
+		<form id="form">
+			Iter:<input id="itMax" type="text" onchange="Draw();" style="width:40px;" title="Maximale Anzahl Iterationen">
+			Radius:<input id="escRadius" type="text" onchange="Draw();" style="width:24px;" title="Fluchtradius (sollte bei aktivierter Glättung mindestens 4 betragen)">
+			Glätten:<input id="smoothing" type="checkbox" onchange="Draw();" title="Farbübergänge glätten (Berechnungszeiten etwas länger!)">
+<!--
+			<input type="button" value="Zeichnen" onclick="Draw();" title="Mit den aktuell gesetzten Parametern neu zeichnen">
+			<input type="button" value="Start" onclick="Start();" title="Ausschnitt auf Startwert zurücksetzen">
+-->
+			<input
+				id="color1" type="color" value="#008000" onchange="Paint()" title="1. Farbe für den Farbverlauf"><input 
+				id="color2" type="color" value="#FFFFFF" onchange="Paint()" title="2. Farbe für den Farbverlauf"><input 
+				id="color3" type="color" value="#FF0080" onchange="Paint()" title="3. Farbe für den Farbverlauf">
+			<select id="linearity" onchange="Paint()" style="width:80px;" title="Linearität des Farbverlaufs">
+				<option value="1">Linear</option>
+				<option value="2">Sinus</option>
+				<option value="3" selected="true">Auto-Logarithmus</option>
+				<option value="4">Logarithmus</option>
+				<option value="5">Gamma</option>
+				<option value="6">Tangens Hyperbolicus</option>
+			</select>
+			<input id="range" type="range" value="20" min="0" max="100" oninput="Paint()" style="width:112px;" title="Wert für &quot;logarithmisch&quot; und &quot;Gamma&quot;"><span id="rangeOut"></span>
+		</form>
+		<canvas id="canvas" title="Hineinzoomen: Links-Klick&#10;Herauszoomen: Rechts-Klick&#10;Kontextmenü <Strg>+Rechts-Klick"></canvas>
+	</body>
+</html>
