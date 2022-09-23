@@ -147,13 +147,13 @@
 			var g_constLog2 = Math.log(2);
 			function Iterate(x, y)
 			{
-				var a = 1, b = 0, a2 = 0, b2 = 0, a3= 0, b3 =0, it = 0, C=1, tempa = 1, tempb = 0;
+				var a = 1, b = 0, a2 = 0, b2 = 0, a3= 0, b3 =0, it = 0, C=1, tempa = 1, tempb = 0, za = 0, zb = 0, za2 = 0, zb2 = 0;
 				while (it < g_itMax && a3 + b3 < g_escRadius2)
 				{
-					//b = 2 * a * b + y;
-					//a = a2 - b2 + x;
-					//a2 = a * a;
-					//b2 = b * b;
+					zb = 2 * za * zb + y;
+					za = za2 - zb2 + x;
+					za2 = za * za;
+					zb2 = zb * zb;
           
 	tempa=a;
 	tempb=b;
@@ -173,9 +173,9 @@
           //b2= b2+ b*(1/(it+1))*((factorial(2*it))/((factorial(it))*(factorial(it))));
 	a2= a2+ a*C;
         b2= b2+ b*C;
-          a3 = a2 * a2;
-					
-					b3 = b2 * b2;
+                                       
+					a3 = (za2-a2) * (za2-a2);	
+					b3 = (zb2-b2) * (zb2-b2);
 					C = C * 2 * (2 * it + 1) / (it + 2);
 					it++;
 				}
