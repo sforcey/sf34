@@ -69,7 +69,7 @@ var size = parseFloat(num4);
 x2 = ((xorig*xorig) - (yorig*yorig)) + xorig;
     y2 = (2*xorig*yorig) + yorig;
 var xshift = zoom*((xorig+x2)/2 + 1.9)-550 ;
-var yshift = zoom*((yorig+y2)/2 + 1.1)-650 ;
+var yshift = zoom*((yorig+y2)/2 + 1.1)-600 ;
 var x = xorig ;
 var y = yorig ;
 var tmpx = 0;
@@ -87,37 +87,30 @@ var update = function() {
 
 var colorChange = function() {
 count = count+1
-if ((count % 7 == 1)) {
+if ((count % 6 == 1)) {
 
 
 context.fillStyle = "#990000" 
 context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
 
 }
-else if ((count % 7 == 2)) {
+else if ((count % 6 == 2)) {
 
 
 context.fillStyle = "#FF7777" 
 context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
 }
-else if ((count % 7 == 3)) {
+else if ((count % 6 == 3)) {
 
 context.fillStyle = "#999999" 
 context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
 }
-else if ((count % 7 == 4)) {
+else if ((count % 6 == 4)) {
 
 context.fillStyle = "#009900" 
 context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
 }
-else if ((count % 7 == 5)) {
-
-
-context.fillStyle = "#000099" 
-context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
-}
-else if ((count % 7 == 6)) {
-
+else if ((count % 6 == 5)) {
 
 context.fillStyle = "#5500FF" 
 context.fillRect(zoom*(x+1.9)-xshift, zoom*(y+1.1)-yshift, size, size);
