@@ -2,6 +2,15 @@
 
 <head>
   <title>Math 222:  Analytic Geometry - Calculus II; Spring 2023</title>
+	<style>
+#myDIV {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+</style>
  </head>
 
  <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
@@ -510,6 +519,25 @@ Review problems from the book. Also study the test reviews above!<br>
 </ul>
 
 
+	
+
+
+
+
+
+
+<script>
+function hideFunction(num) {
+  var x = document.getElementById("myDIV+num");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>	
+	
+	
 
 <font size="5"> Lectures, Homework and Quizzes
 
@@ -544,6 +572,10 @@ Review Handout for derivatives: <a href="https://sforcey.github.io/sf34/class_ho
 
 <li>Here is the lecture from Jan. 11. Download pdf here:<br> <a href="https://sforcey.github.io/sf34/class_home/calc/calc2/calc2notes1.pdf"> Notes posted Jan. 11</a> </li><br>  <br> <li>Then watch the explanations. </li><br><br>
 
+<button onclick="hideFunction(one)">Click to show videos.</button>
+
+<div id="myDIVone">
+
 
 
 <iframe width="560" height="55" src="https://www.youtube.com/embed/Bse_mv9ii18?rel=0" frameborder="0" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -565,7 +597,7 @@ Review Handout for derivatives: <a href="https://sforcey.github.io/sf34/class_ho
 <br><br> 
 
 
-
+</div>
 
 
 
