@@ -3,7 +3,14 @@
 <head>
   <title>Math 222:  Analytic Geometry - Calculus II; Spring 2023</title>
 	<style>
-#myDIV {
+#myDIVone {
+  width: 60%;
+  padding: 50px 0;
+  text-align: left;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+		#myDIVtwo {
   width: 60%;
   padding: 50px 0;
   text-align: left;
@@ -103,11 +110,11 @@ Notes: &nbsp;
 </td>
 		
 <td>
-<a href="#jan9"> Jan. 9</a> |
+<a href="#jan11"> Jan. 9</a> |
 </td>
 
 <td>
-<a href="#jan12"> Jan 12</a> |
+<a href="#jan12"> Jan 11</a> |
 </td>
 <!--
 <td>
@@ -563,20 +570,20 @@ Review Handout for derivatives: <a href="https://sforcey.github.io/sf34/class_ho
 
 <li>Here is the lecture from Jan. 11. Download pdf here:<br> <a href="https://sforcey.github.io/sf34/class_home/calc/calc2/calc2notes1.pdf"> Notes posted Jan. 11</a> </li><br>  <br> <li>Then watch the explanations. </li><br><br>
 
-<button onclick="hideFunction1()">Click to show videos.</button>
+<button onclick="hideFunctionone()">Click to hide/show videos.</button>
 	
 <script>
-function hideFunction1() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+function hideFunctionone() {
+  var x = document.getElementById("myDIVone");
+  if (x.style.display === "block") {
+    x.style.display = "none";
   } else {
     x.style.display = "none";
   }
 }
 </script>	
 
-<div id="myDIV">
+<div id="myDIVone">
 
 
 
@@ -635,20 +642,20 @@ Week 1 part 2 (4 videos) <a href="#top">Top menu</a> | <a href="#jan11">Previous
 
 <!--<li>Here is the key to quiz 1. Download pdf here:<br> <a href="https://sforcey.github.io/sf34/class_home/calc/calc2/calc2_quiz_1key.pdf">Key to Quiz 1</a> </li><br>  <br>-->
 
-<button onclick="hideFunction2()">Click to show videos.</button>
+<button onclick="hideFunctiontwo()">Click to show videos.</button>
 	
 <script>
-function hideFunction2() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+function hideFunctiontwo() {
+  var x = document.getElementById("myDIVtwo");
+  if (x.style.display === "block") {
+    x.style.display = "none";
   } else {
     x.style.display = "none";
   }
 }
 </script>	
 
-<div id="myDIV">	
+<div id="myDIVtwo">	
 	
 <iframe width="560" height="55" src="https://www.youtube.com/embed/-0rhqScIv3M?rel=0" frameborder="0" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br><br> 
