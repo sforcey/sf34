@@ -9,13 +9,17 @@
   text-align: left;
   background-color: lightblue;
   margin-top: 20px;
+  display: none;
 }
-		#myDIVtwo {
+</style>
+<style>
+#myDIVtwo {
   width: 60%;
   padding: 50px 0;
   text-align: left;
   background-color: lightblue;
   margin-top: 20px;
+  display: none;
 }
 </style>
  </head>
@@ -578,8 +582,8 @@ Review Handout for derivatives: <a href="https://sforcey.github.io/sf34/class_ho
 <script>
 function hideFunctionone() {
   var x = document.getElementById("myDIVone");
-  if (x.style.display === "block") {
-    x.style.display = "none";
+  if (x.style.display === "none") {
+    x.style.display = "block";
   } else {
     x.style.display = "none";
   }
@@ -650,8 +654,8 @@ Week 1 part 2 (4 videos) <a href="#top">Top menu</a> | <a href="#jan11">Previous
 <script>
 function hideFunctiontwo() {
   var x = document.getElementById("myDIVtwo");
-  if (x.style.display === "block") {
-    x.style.display = "none";
+  if (x.style.display === "none") {
+    x.style.display = "block";
   } else {
     x.style.display = "none";
   }
