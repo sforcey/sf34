@@ -584,7 +584,7 @@ Review Handout for derivatives: <a href="https://sforcey.github.io/sf34/class_ho
 <script>
 function hideFunctionone() {
   var x = document.getElementById("myDIVone");
-  if (x.style.display == 'none') {
+  if (x.style.display != 'block') {
     x.style.display = 'block';
   } else {
     x.style.display = 'none';
@@ -645,19 +645,20 @@ Week 1 part 2 (4 videos) <a href="#top">Top menu</a> | <a href="#jan11">Previous
 <font size="3">
 <br>
 
-<li>Here is the lecture. Download pdf here:<br> <a href="https://sforcey.github.io/sf34/class_home/calc/calc2/calc2notes2.pdf"> Notes posted Jan 12</a> </li><br>  <br> <li>Then watch the explanations. </li><br>
+<li>Here is the lecture. Download pdf here:<br> <a href="https://sforcey.github.io/sf34/class_home/calc/calc2/calc2notes2.pdf"> 
+	Notes posted Jan 12</a> </li><br>  <br> 
 
 <li>Then take the quiz: Download pdf here:<br> <a href="https://sforcey.github.io/sf34/class_home/calc/calc2/calc2_quiz_1.pdf"> 
 	Quiz 1, Due Jan 18</a> </li><br>  
 
 <!--<li>Here is the key to quiz 1. Download pdf here:<br> <a href="https://sforcey.github.io/sf34/class_home/calc/calc2/calc2_quiz_1key.pdf">Key to Quiz 1</a> </li><br>  <br>-->
 
-<button onclick="hideFunctiontwo()">Click to show videos.</button>
+<button onclick="hideFunctiontwo()">Click to hide/show videos.</button>
 	
 <script>
 function hideFunctiontwo() {
   var x = document.getElementById("myDIVtwo");
-  if (x.style.display === "none") {
+  if (x.style.display != "block") {
     x.style.display = "block";
   } else {
     x.style.display = "none";
