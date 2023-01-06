@@ -4,6 +4,15 @@ import { ConvexGeometry } from './ConvexGeometry.js';
 //import { GLTFExporter } from './GLTFExporter.js';
 import { STLExporter } from './STLExporter.js';
 
+function getCenterPoint(mesh) {
+    var geometry = mesh.geometry;
+    geometry.computeBoundingBox();
+    var center = new THREE.Vector3();
+    geometry.boundingBox.getCenter( center );
+    mesh.localToWorld( center );
+    return center;
+}
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );  //default 75 fov
 const controls = new OrbitControls( camera, document.getElementById("bg") );
@@ -22,8 +31,11 @@ for(var i = 0; i<hedronPoints.length; i++){
 }
 const multihedronGeo = new ConvexGeometry( hedronPoints );
 const multihedron = new THREE.Mesh( multihedronGeo, stdMaterial2 );
-multihedron.position.z = 0;
-multihedron.position.y = 0;
+//translate multiplihedron center to world center
+var meshCenter = getCenterPoint(multihedron);
+multihedron.position.x -= meshCenter.x + multihedron.position.x;
+multihedron.position.y -= meshCenter.y + multihedron.position.y;
+multihedron.position.z -= meshCenter.z + multihedron.position.z;
 scene.add( multihedron );
 
 //var lineGeometry = multihedronGeo.clone();
@@ -32,6 +44,7 @@ scene.add( multihedron );
 const edges = new THREE.EdgesGeometry( multihedronGeo );
 const line = new THREE.LineSegments( edges, new THREE.LineBasicMaterial( { color: 0xffffff } ) );
   //line.position.addScalar(-0.0001, -0.0001, -0.0001);
+line.position.set(multihedron.position.x, multihedron.position.y, multihedron.position.z);
 scene.add( line );
 
 const hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
