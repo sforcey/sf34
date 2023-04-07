@@ -91,10 +91,8 @@ y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*Math.pow(2,1-r
 var colorChange = function() {
      count = count+1;
      n=count;
-     //x = Math.cbrt(x);
-     //y = Math.cbrt(y);
-     xzoom = xzoom*count;
-     yzoom = yzoom*count;	
+     xzoom = (Math.cbrt(count))*xzoom;
+     yzoom = (Math.cbrt(count))*yzoom;	
 	
      context.fillStyle = "#008800" 
      context.fillRect(500, 0, 1, 1000);
