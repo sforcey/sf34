@@ -90,7 +90,9 @@ y = (ians*(1-Math.pow(2,1-rp)*Math.cos(-1*ip*Math.log(2))) - rans*Math.pow(2,1-r
 
 var colorChange = function() {
      count = count+1;
-     n=count;	
+     n=count;
+     x = Math.pow(x,.01);
+     y = Math.pow(y,.01);
 	
      context.fillStyle = "#008800" 
      context.fillRect(500, 0, 1, 1000);
