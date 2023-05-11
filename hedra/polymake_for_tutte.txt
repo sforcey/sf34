@@ -1,0 +1,41 @@
+------------------------------------
+CAVEATS
+------------------------------------
+1) Note that if you are using the browser-based polymake like me (http://shell.polymake.org/) 
+or (http://polymake.org/doku.php/boxdoc) you can copy from my stuff and paste into the browser by right-clicking. 
+Be careful though because your browser/clipboard may insert line breaks, which mess it up for a big entry.
+Paste into notepad first and remove them.
+2) I left the prompt polytope > in. Remove this.
+3) Underscores like in F_VECTOR get removed sometimes and need replaced. Can be done in the pasting box in polymake.
+4) The output below for VERTICES_IN_FACETS gives lists of the vertices, numbered 0-7, based on the order they were entered.
+
+------------------------------------
+INPUT/OUTPUT
+------------------------------------
+
+polytope > $inequalities=new Matrix<Rational> ([[-1,0,0,2],[3,-1,0,0],[0,3,-1,0],[0,0,3,-1],[-2,5,-1,0],[-2,0,5,-1],[-2,2,3,-1]]);
+                                                                                                                                      
+polytope > $p=new Polytope<Rational>(INEQUALITIES=>$inequalities);
+                                                                                                                                      
+polytope > print $p->F_VECTOR;                                                                         
+                                                                                                                                      
+8 13 7                                                                                                                                
+polytope > print $p->VERTICES;                                                                                                  
+                                                                                                                                      
+1 1/2 1/2 1/2                                                                                                                         
+1 1 3 9                                                                                                                               
+1 1 1 3                                                                                                                               
+1 3 1/2 1/2                                                                                                                           
+1 3 9 1/2                                                                                                                             
+1 3 1 3                                                                                                                               
+1 3 9 27                                                                                                                              
+1 1 3 1/2                                                                                                                             
+                                                                                                                                      
+polytope > print $p->VERTICES_IN_FACETS;
+{0 3 4 7}                                                                                                                             
+{3 4 5 6}                                                                                                                             
+{1 4 6 7}                                                                                                                             
+{1 2 5 6}                                                                                                                             
+{0 1 7}                                                                                                                               
+{0 2 3 5}                                                                                                                             
+{0 1 2} 
