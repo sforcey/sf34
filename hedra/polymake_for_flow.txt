@@ -1,13 +1,13 @@
 CAVEATS
 ------------------------------------
 
-	1)	Note that if you are using the browser-based polymake like me  (http://polymake.org/doku.php/boxdoc) or (http://shell.polymake.org/) you can copy from my stuff and paste into the browser  by right-clicking.  Be careful though because your browser/clipboard may insert line breaks, which mess it up for a big entry.  Paste into notepad first and remove them.  
+	1)	Note that if you are using the browser-based polymake like me (http://shell.polymake.org/) you can copy from my stuff and paste into the browser  by right-clicking.  Be careful though because your browser/clipboard may insert line breaks, which mess it up for a big entry.  Paste into notepad first and remove them.  
 
-	2)	I left the prompt “polytope >” in. Remove this.
+	2)	I left the prompt â€œpolytope >â€ in. Remove this.
 
 	3)	Underscores like in F_VECTOR get removed sometimes and need replaced. Can be done in the pasting box in polymake.
 
-	4)	I put the required initial “1” in each point. 
+	4)	I put the required initial â€œ1â€ in each point. 
 
 
 ------------------------------------
