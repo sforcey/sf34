@@ -2,7 +2,18 @@
  
 <head>
   <title>Math 312 Linear  Sum25</title>
- </head>
+<style>
+#myDIVone {
+  width: 60%;
+  padding: 50px 0;
+  text-align: left;
+  background-color: lightblue;
+  margin-top: 20px;
+  display: none;
+}
+</style> 
+
+</head>
 
 <body  BACKGROUND = "comb_back.gif">
 <table cols=12 cellpadding=5>
@@ -181,9 +192,40 @@ Schrank S 133 <br>  <a href="http://www.math.uakron.edu/~sf34/class_home/linear/
 
 <br>
 
-<font size="3">  There will be homework assigned weekly, and the 
-assignments will be posted here. <br> They will often not be collected, but
-the quizzes will be based on them.
+<ul>
+<hr>
+<a name="preview" id="preview"></a>
+
+<br>
+<font size="2">
+Preview (3 videos)<a href="#top">Top menu</a> | <a href="#top">Previous</a> | <a href="#review1">Next</a>.
+<font size="3">
+<br>
+  
+  <button onclick="hideFunctionone()">Click to hide/show videos.</button>
+	
+<script>
+function hideFunctionone() {
+  var x = document.getElementById("myDIVone");
+  if (x.style.display != "block") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>	
+
+<div id="myDIVone">	
+
+<li> Notes part 1:<br><br>
+  
+
+<iframe loading="lazy" width="560" height="75" src="https://www.youtube.com/embed/rZ7LTEp32m8?rel=0" frameborder="0" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br><br>
+
+  </div>
+  
+<hr>
 
 <br>
 
