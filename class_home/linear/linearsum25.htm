@@ -22,6 +22,16 @@
   display: none;
 }
 </style> 
+<style>	
+#myDIVone3 {
+  width: 60%;
+  padding: 50px 0;
+  text-align: left;
+  background-color: lightblue;
+  margin-top: 20px;
+  display: none;
+}
+</style> 
 	
 </head>
 
@@ -289,6 +299,38 @@ function hideFunctionone2() {
 <br><br>
 	
 
+	
+  </div>
+  
+<hr>
+  <button onclick="hideFunctionone3()">Click to hide/show videos.</button>
+	
+<script>
+function hideFunctionone3() {
+  var x = document.getElementById("myDIVone3");
+  if (x.style.display != "block") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>	
+
+<div id="myDIVone3">	
+
+<li> Notes part 1b:<br><br>
+
+
+<iframe loading="lazy" width="560" height="75" src="https://www.youtube.com/embed/aSz-lTSkIqo?rel=0" frameborder="0" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br><br>
+
+<iframe loading="lazy" width="560" height="75" src="https://www.youtube.com/embed/UkUnfVlnB34?rel=0" frameborder="0" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br><br>
+
+<iframe loading="lazy" width="560" height="75" src="https://www.youtube.com/embed/iGrHWFhWAo?rel=0" frameborder="0" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br><br>
+
+	
 	
   </div>
   
