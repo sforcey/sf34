@@ -32,6 +32,16 @@
   display: none;
 }
 </style> 
+<style>	
+#myDIVone4 {
+  width: 60%;
+  padding: 50px 0;
+  text-align: left;
+  background-color: lightblue;
+  margin-top: 20px;
+  display: none;
+}
+</style> 
 	
 </head>
 
@@ -444,6 +454,41 @@ Chapter 3 <a href="#top">Top menu</a> | <a href="#chap2">Previous</a> | <a href=
 <br>	
 
 <li><a href="linnoteschp3.pdf"> Notes Chp 3 </a> </li>
+<button onclick="hideFunctionone4()">Click to hide/show videos.</button>
+	
+<script>
+function hideFunctionone4() {
+  var x = document.getElementById("myDIVone4");
+  if (x.style.display != "block") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>	
+
+<div id="myDIVone4">	
+
+<li> Notes Chapter 3:<br><br>
+
+
+<iframe loading="lazy" width="560" height="75" src="https://www.youtube.com/embed/NsjlGNZ7H-A?rel=0" frameborder="0" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br><br>
+
+<iframe loading="lazy" width="560" height="75" src="https://www.youtube.com/embed/Tmz08GBZCYM?rel=0" frameborder="0" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br><br>
+
+<iframe loading="lazy" width="560" height="75" src="https://www.youtube.com/embed/O7r5m2vTnCQ?rel=0" frameborder="0" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br><br>
+
+
+
+	
+	
+  </div>
+  
+
+<br>
 <li>HW 3a:    
 <ul>
 <li>Section 3.1: 2, 9, 10, 11, 15, 17, 29
