@@ -1,0 +1,28 @@
+CAVEATS
+------------------------------------
+
+	1)	Note that if you are using the browser-based polymake like me (http://shell.polymake.org/) you can copy from my stuff and paste into the browser  by right-clicking.  Be careful though because your browser/clipboard may insert line breaks, which mess it up for a big entry.  Paste into notepad first and remove them.  
+
+	2)	I left the prompt “polytope >” in. Remove this.
+
+	3)	Underscores like in F_VECTOR get removed sometimes and need replaced. Can be done in the pasting box in polymake.
+
+	4)	I put the required initial “1” in each point. 
+
+
+------------------------------------
+INPUT/OUTPUT n = 4
+------------------------------------
+
+
+
+$points=new Matrix([[1,0,0,0,0],[1,1,0,0,0],[1,0,1,0,0],[1,0,0,1,0],[1,0,0,0,1],[1,1,0,1,0],[1,1,0,0,1],[1,0,1,0,1],[1,1,1,0,0],[1,0,1,1,0],[1,0,0,1,1],[1,1,1,0,1],[1,1,0,1,1]]);
+
+polytope > $points=new Matrix([[1,0,0,0,0],[1,1,0,0,0],[1,0,1,0,0],[1,0,0,1,0],[1,0,0,0,1],[1,1,0,1,0],[1,1,0,0,1],[1,0,1,0,1],[1,1,1,0,0],[1,0,1,1,0],[1,0,0,1,1],[1,1,1,0,1],
+[1,1,0,1,1]]);
+                                                                                                                                                                               
+polytope > $p=new Polytope(POINTS=>$points);
+                                                                                                                                                                               
+polytope > print $p->F_VECTOR;                                                                                                                              
+                                                                                                                                                                               
+13 31 28 10 
