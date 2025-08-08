@@ -106,6 +106,36 @@ SEQUENCES
 <h5><a href="#top">top</a> &nbsp&nbsp  <a href="#index">index</a> </h5> 
 <HR>
 
+<a name="binom" id="binom">Binomial polytope <em>B(n,n)</em></a>
+<table cols=3 cellpadding=25>
+<tbody>
+<td>
+<a href="./hedra/simplex.htm">
+	<img  src="simplex.gif"> </a> <br>
+(4, 0, 0, 0)
+</td>
+<td> 
+<br>
+<li> Binomial polytopes <em>B(n,p)</em> with <em>p=n</em>  [<a href= "https://link.springer.com/chapter/10.1007/978-0-387-34768-4_5">Springer</a>] (S. Ursic)<br>
+<li>  Simplices &#916; with dimension <em>2^n-1</em> [<a href ="http://en.wikipedia.org/wiki/Simplex">wiki</a>]
+<br>
+<li> convex_hull({<em>truth_vector t_i</em> | <em>t_i</em> is the negated truth-table row <em>i</em> of all {or, not} clauses using <em>n</em> 
+	variables <em>n</em> at a time.</em>})<br>
+<td>
+<li> Dimensions: <br> 0, 1, 3, 7, 15 ... <em>2^n-1</em><br>
+<li> Number of Vertices in <em>nth</em> polytope:<br> 1, 2, 3, 4, 5, ... <em>n+1</em> [<a href = "http://oeis.org/A000027"> OEIS A000027 </a>]
+<br>
+<li> Numbers of facets in dimension <em>n</em> (starting at <em>n</em>=0):<br>  0, 2, 4, 8, 16, ... <em>2^n</em>
+	[<a href = "http://oeis.org/A155559"> OEIS A155559 </a>]
+<br>
+<li> f-vectors:<br> 1, 2, 1, 4, 6, 4, 1, 8, 28, 56, 70, 56, 28, 8, 1... [<a href = "http://oeis.org/A345135"> OEIS A345135</a>]
+</td>
+</tbody>
+</table>
+<h5><a href="#top">top</a> &nbsp&nbsp  <a href="#index">index</a> </h5> 
+<HR>
+
+	
 <a name="Demihypercube" id="Demihypercube">Demihypercube</a>
 <table cols=3 cellpadding=25>
 <tbody>
@@ -155,7 +185,7 @@ SEQUENCES
 <li> Correlation Polytopes <em>COR(n-1)</em> of the complete graph 
 	[<a href = "https://link.springer.com/article/10.1007/BF01594946">Springer</a>] (I. Pitowski)<br>
 <li> convex_hull({<em>xx^T</em> | <em>x</em> {0,1}-column vector of length <em>n-1</em>})<br>
-<li> Binomial Polytopes <em>B(n-1,2)</em> [<a href= "https://link.springer.com/chapter/10.1007/978-0-387-34768-4_5">Springer</a>] (Sylvio Ursic)<br>
+<li> Binomial Polytopes <em>B(n-1,2)</em> [<a href= "https://link.springer.com/chapter/10.1007/978-0-387-34768-4_5">Springer</a>] (S. Ursic)<br>
 <li> convex_hull({<em>truth_vector t_i</em> | <em>t_i</em> is the negated truth-table row <em>i</em> of all {or, not} clauses using <em>n-1</em> variables 2 at a time.</em>})<br>
 </td>
 <td>
@@ -280,6 +310,7 @@ SEQUENCES
 [<a href = "https://arxiv.org/abs/1711.05353">Pilaud, Santos</a>]<br>
 <li> (0,<em>n</em>)-Hochschild polytopes Hoch(0,<em>n</em>) [<a href="https://arxiv.org/abs/2307.05940"> arxiv </a>] Pilaud, Poliakova	
 <br>
+<li> Binomial Polytopes <em>B(n,1)</em> [<a href= "https://link.springer.com/chapter/10.1007/978-0-387-34768-4_5">Springer</a>] (S. Ursic)<br>
 <td>
 <li> Dimensions: <br> 0, 1, 2, 3, ... <em>n</em><br> 
 <li> Number of Vertices in <em>nth</em> polytope:<br> 1, 2, 4, 8, 16, ... <em>2^n</em> [<a href = "http://oeis.org/A000079"> OEIS A000079 </a>]
@@ -2191,6 +2222,15 @@ Amplituhedra
 <a href="#Biassociahedra" id="Biassociahedra">Biassociahedra</a><br>  
 
 <a href="#Bimultiplihedra" id="Bimultiplihedra">Bimultiplihedra</a><br> 
+
+Binomial polytopes
+
+<ul>
+<li> <a href="#Cube" id="Cube"><em>B(n,1)</em>Hypercube</a><br>
+<li><a href="#CutPolytope" id="CutPolytope"><em>B(n,2)</em>Correlation polytope</a><br>
+<li>  <a href="#binom" id="binom"><em>B(n,n)</em>Simplices of dimension <em>2^n-1</em></a><br>
+</ul>
+
  
 <a href="#BS" id="BS">Bipartite Subgraph polytope</a><br>
 
@@ -2233,6 +2273,8 @@ Constrainahedra
 
 <li><a href="#Multiplihedron" id="Multiplihedron">Constrainahedra <em>k=1</em></a><br>
 </ul>	
+
+<a href="#CutPolytope" id="CutPolytope">Correlation polytope</a><br>
 
 <a href="#cosmohedron" id="cosmohedron">Cosmohedron</a><br>
 
@@ -2675,6 +2717,7 @@ pseudograph-multiplihedra, poset multiplihedra.
 </B><P>&nbsp;</P>
 <P>&nbsp;</P></FONT></BODY>
 </HTML>
+
 
 
 
