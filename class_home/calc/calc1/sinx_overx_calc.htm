@@ -7,8 +7,8 @@
 <script>
  
    function kool(){
-       var lol = document.getElementById('lolz').value;
-var x = parseFloat(lol);
+       var mynum = document.getElementById('usernum').value;
+var x = parseFloat(mynum);
 var y = Math.sin(x)/x;
 document.write('You entered x = ', x , ' The value of sin(x) over x is ', y ,'.  <a href="sinx_overx_calc.htm">Try another!</a>');
         
@@ -22,7 +22,7 @@ document.write('You entered x = ', x , ' The value of sin(x) over x is ', y ,'. 
 <img  src="OpenField.jpg" width="300" height="200">  
 Enter any number <em>x</em> to find the value of sin(<em>x</em>)/<em>x</em>.
 
-    <input type="text" name="enter" class="enter" value="" id="lolz"/>
+    <input type="text" name="enter" class="enter" value="" id="usernum"/>
     <input type="button" value="click" OnClick="kool()"/>
 
 </body>
@@ -31,3 +31,4 @@ Enter any number <em>x</em> to find the value of sin(<em>x</em>)/<em>x</em>.
 
 
          
+
