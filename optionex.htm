@@ -1,0 +1,38 @@
+
+<html>
+<head>
+<title>Floating point tester</title>
+</head>
+<body>
+
+
+<script>
+ 
+   function kool(){
+       var mynum = document.getElementById('usernum').value;
+var x = parseFloat(mynum);
+
+if (x  < 100) {
+document.getElementById("output-box").textContent = "That is smaller than 100.  Try another?";}
+else if (x == 100) {
+document.getElementById("output-box").textContent = "That is equal to 100. Try another?";}
+else {
+document.getElementById("output-box").textContent = "That is bigger than 100. Try another?";};
+};
+
+</script>
+
+
+<body>
+
+Enter any number <em>x</em> to to test whether it is bigger than 100.
+
+<div id="output-box">
+    Try it!
+</div>
+
+<input type="text" name="enter" class="enter" value="" id="usernum"/>
+<input type="button" value="click" OnClick="kool()"/>
+
+</body>
+</html>
