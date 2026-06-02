@@ -1,0 +1,72 @@
+
+<html>
+<head>
+<title>JSON tester</title>
+</head>
+<body>
+
+
+<script>
+ 
+   // JSON objects
+const myset = {
+    "name": "Stefan",
+    "age": 51,
+    "hobby": {
+	"reading" : true,
+	"gaming" : false,
+	"sport" : "cycling"
+    },
+    "class" : ["JavaScript", "HTML", "CSS"]
+};
+
+const S = {
+    "A": null,
+    "B": null,
+    "C": {
+	"x": null,
+	"y": null,
+	"5": null
+    },
+    "7": null
+};
+
+// accessing JSON object
+console.log(myset.name); 
+console.log(myset.hobby); 
+
+console.log(myset.hobby.sport); 
+console.log(myset.class[1]); 
+
+console.log(S); 
+console.log(S.C);
+console.log("B" in S); 
+console.log("b" in S); 
+console.log("x" in S); 
+console.log("x" in S.C); 
+
+</script>
+
+
+<body>
+Here are the queries: <br>
+
+console.log(myset.name); <br>
+console.log(myset.hobby); <br>
+
+console.log(myset.hobby.sport); <br>
+console.log(myset.class[1]); <br>
+
+console.log(S); <br>
+console.log(S.C);<br>
+console.log("B" in S); <br>
+console.log("b" in S); <br>
+console.log("x" in S); <br>
+console.log("x" in S.C); <br>
+
+Check the console for the answers!
+
+</body>
+</html>
+
+
