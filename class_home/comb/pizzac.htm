@@ -13,16 +13,17 @@
 function pizza(){
 var mynum = document.getElementById('usernum').value;
 var x = parseFloat(mynum);
-var i = 0;
+var i = 1;
 var k = 0;
 var total = 0;
-while (i < 2) {
-i = i+1;
-var j = 0;
+while (i < 4) {
+var j = 1;
+if (i>2) {j=j+1};
 while (j < 3) {
-if (i<3) {k = k+1};
+k = k+1;
 j = j+1;
 };
+i = i+1;
 };
 total = k*mynum;
 //document.write("You get" + total + "pizza options. Try another?");
