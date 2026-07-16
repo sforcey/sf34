@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>pizza counter</title>
+</head>
+<body>
+
+
+
+
+<script>
+
+
+function pizza(){
+var mynum = document.getElementById('usernum').value;
+var x = parseFloat(mynum);
+var i = 0;
+var k = 0;
+var total = 0;
+while (i < 2) {
+i = i+1;
+var j = 0;
+while (j < 3) {
+if (i<3) {k = k+1};
+j = j+1;
+};
+};
+total = k*mynum;
+//document.write("You get" + total + "pizza options. Try another?");
+document.getElementById("output-box").textContent ="You get "+ total + " pizzas. Try another?";
+};
+
+</script>
+
+<body>
+
+
+How many toppings options are there for your pizza? Enter to count total pizza options. Note that the cheese stuffed crust is only in large. 
+
+
+<div id="output-box">
+Try it!
+</div>
+
+
+<input type="text" name="enter" class="enter" value="4" id="usernum"/>
+<input type="button" value="click" OnClick="pizza()"/>
+
+
+</body>
+</html>
+
